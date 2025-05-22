@@ -139,6 +139,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 130px;
   overflow: hidden;
   width: auto;
+  user-select: none;
 }
 .option.selected {
   background-color: var(--bg-15);
@@ -223,6 +224,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-color-80);
   padding: 12px 12px;
   font-size: var(--font-size-default);
+  font-family: var(--font-default);
   line-height: var(--line-height-default);
   outline: none;
 }
