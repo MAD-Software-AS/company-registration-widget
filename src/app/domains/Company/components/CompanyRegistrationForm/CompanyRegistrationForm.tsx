@@ -48,7 +48,7 @@ const CompanyRegistrationForm: React.FC<CompanyRegistrationFormProps> = ({
   const { isFirstStepCompleted } = useWidgetContext()
 
   return (
-    <div>
+    <>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <CompanyRegistrationHeader title={title} subtitle={subtitle} />
         {isFirstStepCompleted ? (
@@ -66,7 +66,7 @@ const CompanyRegistrationForm: React.FC<CompanyRegistrationFormProps> = ({
           companyDetailsFormErrors
         }}
       />
-    </div>
+    </>
   )
 }
 
