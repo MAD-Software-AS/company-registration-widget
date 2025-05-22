@@ -9,61 +9,84 @@
 <!-- Modal container -->
 <div id="test"></div>
 
-  <script>
-    window.onload = () => {
-      widget = window.MAD({
-        targetId: 'test',
-        cssVars: {
-          primary: 'red'
-        },
-        t: {
-          companyRegistrationForm: {
-            nextAction: 'Next',
-            submitAction: 'Submit',
-            resetAction: 'Reset',
-            title: 'Register Your Company',
-            subtitle: 'Create your business profile in just a few steps.',
-            companyCredentialsForm: {
-              confirmPasswordPlaceholder: 'Confirm user password',
-              emailPlaceholder: 'Enter user email',
-              passwordPlaceholder: 'Enter user password'
+<script>
+  window.onload = () => {
+    widget = window.MAD({
+      targetId: 'test',
+      cssVars: {
+        primary: '#D7DB51',
+        danger: '#D55454',
+
+        bgDefault: '#1E3148',
+        bgAccent: "rgba(0, 0, 0, 0.1)",
+        bgPrimaryLight: 'rgba(215, 219, 81, 0.07)',
+        bgPrimary15: 'rgba(215, 219, 81, 0.15)',
+
+        textColorDefault: '#FFFFFF',
+        textColorReverse: '#000000',
+        textColorPlaceholder: '#6B7280',
+        textColor80: 'rgba(255,255,255,0.8)',
+
+        fontTitle: "Open Sans Condensed",
+        fontDefault: '"Open Sans", sans-serif',
+        fontSizeDefault: '15px',
+        fontSize18: '18px',
+        fontSize24: '24px',
+        lineHeightDefault: '20px',
+        lineHeight24: '24px',
+        lineHeight32: '32px',
+
+        borderRadiusDefault: '12px',
+        borderRadiusSm: '4px',
+      },
+      t: {
+        companyRegistrationForm: {
+          nextAction: 'Next',
+          submitAction: 'Submit',
+          resetAction: 'Reset',
+          title: 'Register Your Company',
+          subtitle: 'Create your business profile in just a few steps.',
+          companyCredentialsForm: {
+            confirmPasswordPlaceholder: 'Confirm user password',
+            emailPlaceholder: 'Enter user email',
+            passwordPlaceholder: 'Enter user password'
+          },
+          companyCredentialsFormErrors: {
+            emailRequired: 'Email is required',
+            emailInvalid: 'Email is invalid',
+            passwordRequired: 'Password is required',
+            confirmPasswordRequired: 'Password confirmation is required',
+            confirmPasswordMismatch: 'Passwords do not match'
+          },
+          companyDetailsFormErrors: {
+            companyRequired: 'Company is required',
+            posProviderRequired: 'POS provider is required',
+            posProviderNameRequired: 'POS provider name is required'
+          },
+          companyDetailsForm: {
+            companySelect: {
+              selectPlaceholder: 'Start typing to search for a company',
+              organizationNumber: 'Orgnr:',
+              noData: 'Company not found'
             },
-            companyCredentialsFormErrors: {
-              emailRequired: 'Email is required',
-              emailInvalid: 'Email is invalid',
-              passwordRequired: 'Password is required',
-              confirmPasswordRequired: 'Password confirmation is required',
-              confirmPasswordMismatch: 'Passwords do not match'
-            },
-            companyDetailsFormErrors: {
-              companyRequired: 'Company is required',
-              posProviderRequired: 'POS provider is required',
-              posProviderNameRequired: 'POS provider name is required'
-            },
-            companyDetailsForm: {
-              companySelect: {
-                selectPlaceholder: 'Start typing to search for a company',
-                organizationNumber: 'Orgnr:',
-                noData: 'Company not found'
-              },
-              posProviderSelect: {
-                fixitOnline: 'Fixit Online',
-                com2gether: 'Com2gether',
-                other: 'Other',
-                selectPlaceholder: 'Select POS provider',
-                otherPlaceholder: 'Enter other POS provider'
-              }
+            posProviderSelect: {
+              fixitOnline: 'Fixit Online',
+              com2gether: 'Com2gether',
+              other: 'Other',
+              selectPlaceholder: 'Select POS provider',
+              otherPlaceholder: 'Enter other POS provider'
             }
-          },
-          companyRegistrationSuccess: {
-            title: 'Company Registration Success',
-            message: 'Your company has been successfully registered! Check your email for confirmation and access to your account.',
-            continueAction: 'Continue'
-          },
+          }
         },
-        env: 'dev'
-      });
-    }
-  </script>
+        companyRegistrationSuccess: {
+          title: 'Company Registration Success',
+          message: 'Your company has been successfully registered! Check your email for confirmation and access to your account.',
+          continueAction: 'Continue'
+        },
+      },
+      env: 'dev'
+    });
+  }
+</script>
 </body>
 </html>

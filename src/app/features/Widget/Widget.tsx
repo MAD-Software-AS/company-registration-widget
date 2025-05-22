@@ -26,7 +26,7 @@ const Widget: React.FC<WidgetProps> = ({
       {submitState.success ? (
         <CompanyRegistrationSuccess t={companyRegistrationSuccess} />
       ) : submitState.error ? (
-        <></>
+        <>{/* TODO */}</>
       ) : submitState.isLoading ? (
         <Loading />
       ) : (
