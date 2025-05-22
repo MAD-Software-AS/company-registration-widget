@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="src/styles/index.css">
+    <script src="./widget.min.js"></script>
+  </head>
+<body>
+
+<!-- Modal container -->
+<div id="test"></div>
+
+  <script>
+    window.onload = () => {
+      widget = window.MAD({
+        targetId: 'test',
+        cssVars: {
+          primary: 'red'
+        },
+        t: {
+          companyRegistrationForm: {
+            nextAction: 'Next',
+            submitAction: 'Submit',
+            resetAction: 'Reset',
+            title: 'Register Your Company',
+            subtitle: 'Create your business profile in just a few steps.',
+            companyCredentialsForm: {
+              confirmPasswordPlaceholder: 'Confirm user password',
+              emailPlaceholder: 'Enter user email',
+              passwordPlaceholder: 'Enter user password'
+            },
+            companyCredentialsFormErrors: {
+              emailRequired: 'Email is required',
+              emailInvalid: 'Email is invalid',
+              passwordRequired: 'Password is required',
+              confirmPasswordRequired: 'Password confirmation is required',
+              confirmPasswordMismatch: 'Passwords do not match'
+            },
+            companyDetailsFormErrors: {
+              companyRequired: 'Company is required',
+              posProviderRequired: 'POS provider is required',
+              posProviderNameRequired: 'POS provider name is required'
+            },
+            companyDetailsForm: {
+              companySelect: {
+                selectPlaceholder: 'Start typing to search for a company',
+                organizationNumber: 'Orgnr:',
+                noData: 'Company not found'
+              },
+              posProviderSelect: {
+                fixitOnline: 'Fixit Online',
+                com2gether: 'Com2gether',
+                other: 'Other',
+                selectPlaceholder: 'Select POS provider',
+                otherPlaceholder: 'Enter other POS provider'
+              }
+            }
+          },
+          companyRegistrationSuccess: {
+            title: 'Company Registration Success',
+            message: 'Your company has been successfully registered! Check your email for confirmation and access to your account.',
+            continueAction: 'Continue'
+          },
+        },
+        env: 'dev'
+      });
+    }
+  </script>
+</body>
+</html>

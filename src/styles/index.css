@@ -1,0 +1,270 @@
+/* Open Sans import */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/* Open Sans Condensed import */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,400,700');
+@import url(./vars.css);
+
+.widget {
+  position: fixed;
+  padding-top: 12px;
+  bottom: 70px;
+  right: 20px;
+  width: 100%;
+  max-width: 300px;
+  height: 80vh;
+  max-height: 600px;
+  background: var(--bg-default);
+  border-radius: var(--border-radius-default);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  font-family: var(--font-default);
+}
+.section {
+  padding: 24px;
+  height: 380px;
+  background: var(--bg-default);
+}
+.section-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.btn {
+  border: none;
+  padding: 12px 20px;
+  border-radius: var(--border-radius-default);
+  font-size: var(--font-size-default);
+  font-family: var(--font-default);
+  line-height: var(--line-height-default);
+  cursor: pointer;
+}
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--text-color-reverse);
+}
+.btn-secondary {
+  background-color: var(--bg-primary-15);
+  color: var(--primary);
+}
+
+.text {
+  color: var(--text-color-default);
+  font-size: var(--font-size-default);
+  line-height: var(--line-height-default);
+  font-family: var(--font-default);
+}
+.text-error {
+  color: var(--danger);
+  font-family: var(--font-default);
+}
+.text-disabled {
+  color: var(--text-color-placeholder);
+}
+.text-label {
+  color: var(--text-color-80);
+  font-size: var(--font-size-default);
+  line-height: var(--line-height-default);
+  margin-bottom: 8px;
+}
+.title-1 {
+  color: var(--text-color-default);
+  font-size: var(--font-size-24);
+  line-height: var(--line-height-32);
+  font-family: var(--font-title);
+  font-weight: 700;
+}
+.subtitle {
+  color: var(--text-color-default);
+  font-size: var(--font-size-18);
+  line-height: var(--line-height-24);
+  font-family: var(--font-default);
+  font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color-default);
+  font-family: var(--font-title);
+  font-weight: 700;
+  margin: 0px;
+}
+
+.custom-select {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-default);
+  color: var(--text-color-default);
+  min-width: 150px;
+  border-radius: var(--border-radius-default);
+  overflow: visible;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  width: -webkit-fill-available;
+}
+.select-trigger {
+  display: flex;
+  justify-content: space-between;
+  border-radius: var(--border-radius-default);
+  align-items: center;
+  background-color: var(--bg-accent);
+  color: inherit;
+  min-height: 44px;
+  padding-inline: 12px;
+  cursor: pointer;
+  min-width: 150px;
+  width: -webkit-fill-available;
+}
+.select-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-default);
+  color: var(--text-color-default);
+  margin: 0;
+  margin-top: 12px;
+  padding: 0;
+  list-style: none;
+  transform: translateY(-10px);
+  transition: all 0.3s ease; 
+  z-index: 1000;
+  border-radius: var(--border-radius-default);
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid var(--bg-primary-15);
+}
+.selected-option {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 130px;
+  overflow: hidden;
+  width: auto;
+}
+.option.selected {
+  background-color: var(--bg-15);
+  color:var(--text-color-default);
+}
+.select-options .option {
+  background-color: var(--bg-accent);
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.select-options .no-data {
+  background-color: var(--bg-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}
+.select-options .option:hover {
+  background-color: var(--bg-primary-light);
+}
+.custom-select.active .select-options {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.custom-select .icon {
+  color: var(--text-color-default);
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.custom-select .icon-placeholder {
+  color: var(--text-color-placeholder);
+}
+
+.pressable {
+  cursor: pointer;
+}
+
+.relative {
+  position: relative;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  border-radius: var(--border-radius-sm);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-10);
+  border-radius: var(--border-radius-sm);
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.input-label {
+  display: block;
+  color: var(--text-color-80);
+  font-size: var(--font-size-default);
+  line-height: var(--line-height-default);
+  margin-bottom: 8px;
+}
+.input {
+  width: -webkit-fill-available;
+  background-color: var(--bg-accent);
+  border: none;
+  border-radius: var(--border-radius-default);
+  color: var(--text-color-80);
+  padding: 12px 12px;
+  font-size: var(--font-size-default);
+  line-height: var(--line-height-default);
+  outline: none;
+}
+.input-error {
+  border: 1px solid var(--danger);
+}
+input::placeholder {
+  color: var(--text-color-placeholder);
+}
+
+.spinner-container {
+  background-color: var(--bg-default);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.spinner {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  vertical-align: text-bottom;
+  color: var(--primary);
+  border: .25em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  -webkit-animation: spinner .75s linear infinite;
+  animation: spinner .75s linear infinite;
+}
+
+.no-data-container {
+  color: var(--primary);
+  display: flex;
+  height: 100%;
+  align-items: center;
+  font-size: 24px;
+  text-align: center;
+}
+
+@keyframes spinner {
+  100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+  }
+}
