@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import WidgetContext, {
-  SubmitState,
-  WidgetProviderState
+  WidgetProviderState,
+  initialFormData,
+  initialSubmitState
 } from './WidgetContext'
 
 interface WidgetProviderProps {
@@ -10,44 +11,20 @@ interface WidgetProviderProps {
 }
 
 const WidgetProvider: React.FC<WidgetProviderProps> = ({ children, env }) => {
-  const [submitState, setSubmitState] = useState<SubmitState>({
-    isLoading: false,
-    error: false,
-    success: false,
-    errorMsg: null
-  })
+  const [submitState, setSubmitState] = useState(initialSubmitState)
   const [state, setState] = useState<WidgetProviderState>({
     isFirstStepCompleted: false,
-    formData: {
-      companyData: null,
-      posProvider: null,
-      posProviderName: null,
-      password: null,
-      fullName: null,
-      email: null
-    },
+    formData: initialFormData,
     errors: {}
   })
 
   const reset = () => {
     setState({
       isFirstStepCompleted: false,
-      formData: {
-        posProviderName: null,
-        companyData: null,
-        posProvider: null,
-        password: null,
-        fullName: null,
-        email: null
-      },
+      formData: initialFormData,
       errors: {}
     })
-    setSubmitState({
-      isLoading: false,
-      error: false,
-      success: false,
-      errorMsg: null
-    })
+    setSubmitState(initialSubmitState)
   }
 
   return (

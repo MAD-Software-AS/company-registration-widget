@@ -69,6 +69,7 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
       formData.email,
       formData.password,
       formData.fullName,
+      formData.termsAccepted,
       companyCredentialsFormErrors
     )
 
@@ -79,7 +80,9 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
           ...prev.errors,
           email: errors.email,
           password: errors.password,
-          confirmPassword: errors.confirmPassword
+          confirmPassword: errors.confirmPassword,
+          fullName: errors.fullName,
+          termsAccepted: errors.termsAccepted
         }
       }))
     }

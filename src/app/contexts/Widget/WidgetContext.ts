@@ -8,6 +8,7 @@ export interface WidgetState {
   password: string | null
   fullName: string | null
   email: string | null
+  termsAccepted: boolean
 }
 
 export interface SubmitState {
@@ -34,23 +35,27 @@ interface WidgetContextValues {
   env: string
 }
 
+export const initialFormData: WidgetState = {
+  termsAccepted: false,
+  companyData: null,
+  posProvider: null,
+  posProviderName: null,
+  password: null,
+  fullName: null,
+  email: null
+}
+export const initialSubmitState: SubmitState = {
+  isLoading: false,
+  success: false,
+  error: false,
+  errorMsg: null
+}
+
 const WidgetContext = createContext<WidgetContextValues>({
   isFirstStepCompleted: false,
-  formData: {
-    companyData: null,
-    posProvider: null,
-    posProviderName: null,
-    password: null,
-    fullName: null,
-    email: null
-  },
+  formData: initialFormData,
+  submitState: initialSubmitState,
   setState: () => {},
-  submitState: {
-    isLoading: false,
-    success: false,
-    error: false,
-    errorMsg: null
-  },
   setSubmitState: () => {},
   errors: {},
   reset: () => {},

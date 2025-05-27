@@ -1,12 +1,16 @@
+import Checkbox from '../../../../../../components/Checkbox/Checkbox'
 import FormField from '../../../../../../components/FormField/FormField'
 import React from 'react'
 import useWidgetContext from '../../../../../../contexts/Widget/useWidgetContext'
 
 export interface CompanyCredentialsFormProps {
   t?: {
-    emailPlaceholder?: string
-    passwordPlaceholder?: string
-    fullNamePlaceholder?: string
+    emailPlaceholder: string
+    passwordPlaceholder: string
+    fullNamePlaceholder: string
+    termsPlaceholder: string
+    termsLabel: string
+    termsLink: string
   }
 }
 
@@ -16,18 +20,21 @@ export type CompanyCredentialsFormErrors = {
   passwordRequired: string
   fullNameRequired: string
   passwordToShort: string
+  termsAccepted: string
 }
 
 export const validateCompanyCredentialsForm = (
   email: string | null,
   password: string | null,
   fullName: string | null,
+  termsAccepted: boolean,
   t: CompanyCredentialsFormErrors = {
     emailRequired: 'Email is required',
     emailInvalid: 'Email is invalid',
     passwordRequired: 'Password is required',
     fullNameRequired: 'Full name is required',
-    passwordToShort: 'Password must be at least 6 characters long'
+    passwordToShort: 'Password must be at least 6 characters long',
+    termsAccepted: 'You must accept the terms and conditions'
   }
 ) => {
   const errors: Record<string, string> = {}
@@ -48,6 +55,10 @@ export const validateCompanyCredentialsForm = (
     errors.fullName = t.fullNameRequired
   }
 
+  if (!termsAccepted) {
+    errors.termsAccepted = t.termsAccepted
+  }
+
   return Object.keys(errors).length > 0 ? errors : null
 }
 
@@ -55,7 +66,11 @@ const CompanyCredentialsForm: React.FC<CompanyCredentialsFormProps> = ({
   t = {
     emailPlaceholder: 'Enter user email',
     passwordPlaceholder: 'Enter user password',
-    fullNamePlaceholder: 'Enter user full name'
+    fullNamePlaceholder: 'Enter user full name',
+    termsPlaceholder:
+      'By checking this, I confirm that I have read and agree to the',
+    termsLabel: 'Terms of Service',
+    termsLink: 'https://madsoftware.no/standardvilk%C3%A5r'
   }
 }) => {
   const { formData, errors, setState } = useWidgetContext()
@@ -82,6 +97,13 @@ const CompanyCredentialsForm: React.FC<CompanyCredentialsFormProps> = ({
       ...prev,
       formData: { ...prev.formData, fullName: value },
       errors: { ...prev.errors, fullName: null }
+    }))
+  }
+  const handleTermsChange = (value: boolean) => {
+    setState((prev) => ({
+      ...prev,
+      formData: { ...prev.formData, termsAccepted: value },
+      errors: { ...prev.errors, termsAccepted: null }
     }))
   }
 
@@ -113,6 +135,22 @@ const CompanyCredentialsForm: React.FC<CompanyCredentialsFormProps> = ({
           placeholder={t?.passwordPlaceholder}
           onChange={handlePasswordChange}
         />
+      </FormField>
+      <FormField error={errors.termsAccepted}>
+        <Checkbox checked={formData.termsAccepted} onChange={handleTermsChange}>
+          <span className="text">
+            {t?.termsPlaceholder}{' '}
+            <a
+              className="text-link"
+              href={t?.termsLink}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t?.termsLabel}
+            </a>
+            .
+          </span>
+        </Checkbox>
       </FormField>
     </>
   )
