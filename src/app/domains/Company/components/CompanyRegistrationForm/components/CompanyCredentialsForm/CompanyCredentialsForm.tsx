@@ -6,7 +6,7 @@ export interface CompanyCredentialsFormProps {
   t?: {
     emailPlaceholder?: string
     passwordPlaceholder?: string
-    confirmPasswordPlaceholder?: string
+    fullNamePlaceholder?: string
   }
 }
 
@@ -14,20 +14,20 @@ export type CompanyCredentialsFormErrors = {
   emailRequired: string
   emailInvalid: string
   passwordRequired: string
-  confirmPasswordRequired: string
-  confirmPasswordMismatch: string
+  fullNameRequired: string
+  passwordToShort: string
 }
 
 export const validateCompanyCredentialsForm = (
   email: string | null,
   password: string | null,
-  confirmPassword: string | null,
+  fullName: string | null,
   t: CompanyCredentialsFormErrors = {
     emailRequired: 'Email is required',
     emailInvalid: 'Email is invalid',
     passwordRequired: 'Password is required',
-    confirmPasswordRequired: 'Password confirmation is required',
-    confirmPasswordMismatch: 'Passwords do not match'
+    fullNameRequired: 'Full name is required',
+    passwordToShort: 'Password must be at least 6 characters long'
   }
 ) => {
   const errors: Record<string, string> = {}
@@ -40,13 +40,12 @@ export const validateCompanyCredentialsForm = (
 
   if (!password) {
     errors.password = t.passwordRequired
+  } else if (password.length < 6) {
+    errors.password = t.passwordToShort
   }
 
-  if (!confirmPassword) {
-    errors.confirmPassword = t.confirmPasswordRequired
-  }
-  if (password && confirmPassword && password !== confirmPassword) {
-    errors.confirmPassword = t.confirmPasswordMismatch
+  if (!fullName) {
+    errors.fullName = t.fullNameRequired
   }
 
   return Object.keys(errors).length > 0 ? errors : null
@@ -56,7 +55,7 @@ const CompanyCredentialsForm: React.FC<CompanyCredentialsFormProps> = ({
   t = {
     emailPlaceholder: 'Enter user email',
     passwordPlaceholder: 'Enter user password',
-    confirmPasswordPlaceholder: 'Confirm user password'
+    fullNamePlaceholder: 'Enter user full name'
   }
 }) => {
   const { formData, errors, setState } = useWidgetContext()
@@ -77,19 +76,26 @@ const CompanyCredentialsForm: React.FC<CompanyCredentialsFormProps> = ({
       errors: { ...prev.errors, password: null }
     }))
   }
-  const handleConfirmPasswordChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleFullNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     setState((prev) => ({
       ...prev,
-      formData: { ...prev.formData, confirmPassword: value },
-      errors: { ...prev.errors, confirmPassword: null }
+      formData: { ...prev.formData, fullName: value },
+      errors: { ...prev.errors, fullName: null }
     }))
   }
 
   return (
     <>
+      <FormField error={errors.fullName}>
+        <input
+          type="text"
+          className="input"
+          value={formData.fullName || ''}
+          placeholder={t?.fullNamePlaceholder}
+          onChange={handleFullNameChange}
+        />
+      </FormField>
       <FormField error={errors.email}>
         <input
           type="text"
@@ -106,15 +112,6 @@ const CompanyCredentialsForm: React.FC<CompanyCredentialsFormProps> = ({
           value={formData.password || ''}
           placeholder={t?.passwordPlaceholder}
           onChange={handlePasswordChange}
-        />
-      </FormField>
-      <FormField error={errors.confirmPassword}>
-        <input
-          type="password"
-          className="input"
-          value={formData.confirmPassword || ''}
-          placeholder={t?.confirmPasswordPlaceholder}
-          onChange={handleConfirmPasswordChange}
         />
       </FormField>
     </>

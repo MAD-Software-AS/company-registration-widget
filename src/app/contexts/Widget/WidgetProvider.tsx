@@ -23,7 +23,7 @@ const WidgetProvider: React.FC<WidgetProviderProps> = ({ children, env }) => {
       posProvider: null,
       posProviderName: null,
       password: null,
-      confirmPassword: null,
+      fullName: null,
       email: null
     },
     errors: {}
@@ -37,7 +37,7 @@ const WidgetProvider: React.FC<WidgetProviderProps> = ({ children, env }) => {
         companyData: null,
         posProvider: null,
         password: null,
-        confirmPassword: null,
+        fullName: null,
         email: null
       },
       errors: {}

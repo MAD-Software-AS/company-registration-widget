@@ -68,7 +68,7 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
     const errors = validateCompanyCredentialsForm(
       formData.email,
       formData.password,
-      formData.confirmPassword,
+      formData.fullName,
       companyCredentialsFormErrors
     )
 

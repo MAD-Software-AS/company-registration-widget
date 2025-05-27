@@ -6,7 +6,7 @@ export interface WidgetState {
   posProvider: string | null
   posProviderName: string | null
   password: string | null
-  confirmPassword: string | null
+  fullName: string | null
   email: string | null
 }
 
@@ -41,7 +41,7 @@ const WidgetContext = createContext<WidgetContextValues>({
     posProvider: null,
     posProviderName: null,
     password: null,
-    confirmPassword: null,
+    fullName: null,
     email: null
   },
   setState: () => {},
