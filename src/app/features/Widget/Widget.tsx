@@ -1,3 +1,6 @@
+import CompanyRegistrationError, {
+  CompanyRegistrationErrorProps
+} from '../../domains/Company/components/CompanyRegistrationError/CompanyRegistrationError'
 import CompanyRegistrationForm, {
   CompanyRegistrationFormProps
 } from '../../domains/Company/components/CompanyRegistrationForm/CompanyRegistrationForm'
@@ -13,11 +16,16 @@ export interface WidgetProps {
   t?: {
     companyRegistrationForm: CompanyRegistrationFormProps['t']
     companyRegistrationSuccess: CompanyRegistrationSuccessProps['t']
+    companyRegistrationError?: CompanyRegistrationErrorProps['t']
   }
 }
 
 const Widget: React.FC<WidgetProps> = ({
-  t: { companyRegistrationForm, companyRegistrationSuccess } = {}
+  t: {
+    companyRegistrationForm,
+    companyRegistrationSuccess,
+    companyRegistrationError
+  } = {}
 }) => {
   const { submitState } = useWidgetContext()
 
@@ -26,7 +34,10 @@ const Widget: React.FC<WidgetProps> = ({
       {submitState.success ? (
         <CompanyRegistrationSuccess t={companyRegistrationSuccess} />
       ) : submitState.error ? (
-        <>{/* TODO */}</>
+        <CompanyRegistrationError
+          t={companyRegistrationError}
+          errorType={submitState.errorType}
+        />
       ) : submitState.isLoading ? (
         <Loading />
       ) : (

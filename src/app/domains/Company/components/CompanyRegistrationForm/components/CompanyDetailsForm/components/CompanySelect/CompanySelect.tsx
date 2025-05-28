@@ -116,6 +116,7 @@ const CompanySelect: React.FC<CompanySelectProps> = ({
           {state.options.length ? (
             state.options.map((option) => (
               <div
+                key={option.orgNumber}
                 className={`option${isSelected(option.orgNumber) ? ' selected' : ''}`}
                 onClick={() => handleSelect(option)}
               >

@@ -80,6 +80,7 @@ const PosProviderSelect: React.FC<PosProviderSelectProps> = ({
           <div className="select-options">
             {items.map(({ name, value }) => (
               <div
+                key={value}
                 className={`option${isSelected(value) ? ' selected' : ''}`}
                 onClick={onItemSelect(value)}
               >

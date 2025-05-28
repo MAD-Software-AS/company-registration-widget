@@ -87,6 +87,15 @@
           message: 'Your company has been successfully registered! Check your email for confirmation and access to your account.',
           continueAction: 'Continue'
         },
+        companyRegistrationError: {
+          title: 'Company Registration Error',
+          continueAction: 'Continue',
+          errorMessages: {
+            userAlreadyExists: 'User already exists. Please try a different email.',
+            unexpectedError: 'An unexpected error occurred. Please try again later.',
+            companyAlreadyRegistered: 'This company is already registered. Please check the company details or contact support.',
+          }
+        }
       },
       env: 'dev'
     });

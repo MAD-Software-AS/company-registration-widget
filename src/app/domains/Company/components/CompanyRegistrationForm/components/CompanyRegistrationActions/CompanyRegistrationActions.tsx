@@ -9,6 +9,8 @@ import {
 
 import { POS_PROVIDERS } from '../../../../Company.constants'
 import React from 'react'
+import camelize from '../../../../../../utils/camelize'
+import getApiUrl from '../../../../../../utils/getApiUrl'
 import useWidgetContext from '../../../../../../contexts/Widget/useWidgetContext'
 
 interface CompanyRegistrationActionsProps {
@@ -36,7 +38,8 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
     reset,
     setState,
     submitState,
-    setSubmitState
+    setSubmitState,
+    env
   } = useWidgetContext()
 
   const handleNext = () => {
@@ -64,7 +67,45 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
     })
   }
 
-  const handleSubmit = () => {
+  const registerCompany = async (): Promise<string | null> => {
+    const posProvider =
+      formData.posProvider === POS_PROVIDERS.OTHER
+        ? camelize(formData.posProviderName!)
+        : formData.posProvider!
+
+    const data = {
+      companyData: {
+        email: formData.email,
+        organizationNumber: formData.companyData?.orgNumber,
+        posProvider: posProvider,
+        phone: formData.companyData?.phoneNumber,
+        name: formData.companyData?.name
+      },
+      userData: {
+        fullName: formData.fullName,
+        email: formData.email,
+        password: formData.password
+      }
+    }
+
+    const API_URL = getApiUrl(env)
+
+    const res = await fetch(`${API_URL}/companies/register`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+
+    const resData = await res.json()
+
+    if (!res.ok) {
+      return resData?.error || 'Unexpected Error'
+    }
+
+    return null
+  }
+
+  const handleSubmit = async () => {
     const errors = validateCompanyCredentialsForm(
       formData.email,
       formData.password,
@@ -92,34 +133,32 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
         isLoading: true,
         error: false,
         success: false,
-        errorMsg: null
+        errorType: null
       })
 
-      const data = {
-        email: formData.email,
-        password: formData.password,
-        companyData: formData.companyData,
-        posProvider:
-          formData.posProvider === POS_PROVIDERS.OTHER
-            ? formData.posProviderName
-            : formData.posProvider
+      const error = await registerCompany()
+
+      if (error) {
+        return setSubmitState({
+          errorType: error,
+          isLoading: false,
+          error: true,
+          success: false
+        })
       }
 
-      setTimeout(() => {
-        console.log(data)
-        setSubmitState({
-          isLoading: false,
-          error: false,
-          success: true,
-          errorMsg: null
-        })
-      }, 2000)
+      setSubmitState({
+        isLoading: false,
+        success: true,
+        error: false,
+        errorType: null
+      })
     } catch (error) {
       setSubmitState({
         isLoading: false,
         error: true,
         success: false,
-        errorMsg: 'Error'
+        errorType: 'Unexpected Error'
       })
     }
   }

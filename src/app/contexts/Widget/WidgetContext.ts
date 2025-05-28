@@ -15,7 +15,7 @@ export interface SubmitState {
   isLoading: boolean
   success: boolean
   error: boolean
-  errorMsg: string | null
+  errorType: string | null
 }
 
 export interface WidgetProviderState {
@@ -48,7 +48,7 @@ export const initialSubmitState: SubmitState = {
   isLoading: false,
   success: false,
   error: false,
-  errorMsg: null
+  errorType: null
 }
 
 const WidgetContext = createContext<WidgetContextValues>({
