@@ -10,7 +10,7 @@ import {
 import { POS_PROVIDERS } from '../../../../Company.constants'
 import React from 'react'
 import camelize from '../../../../../../utils/camelize'
-import getApiUrl from '../../../../../../utils/getApiUrl'
+// import getApiUrl from '../../../../../../utils/getApiUrl'
 import useWidgetContext from '../../../../../../contexts/Widget/useWidgetContext'
 
 interface CompanyRegistrationActionsProps {
@@ -38,8 +38,8 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
     reset,
     setState,
     submitState,
-    setSubmitState,
-    env
+    setSubmitState
+    // env
   } = useWidgetContext()
 
   const handleNext = () => {
@@ -88,19 +88,21 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
       }
     }
 
-    const API_URL = getApiUrl(env)
+    console.log(data)
 
-    const res = await fetch(`${API_URL}/companies/register`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    })
+    // const API_URL = getApiUrl(env)
 
-    const resData = await res.json()
+    // const res = await fetch(`${API_URL}/companies/register`, {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(data)
+    // })
 
-    if (!res.ok) {
-      return resData?.error || 'Unexpected Error'
-    }
+    // const resData = await res.json()
+
+    // if (!res.ok) {
+    //   return resData?.error || 'Unexpected Error'
+    // }
 
     return null
   }
