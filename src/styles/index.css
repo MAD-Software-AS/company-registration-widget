@@ -16,8 +16,6 @@
   font-family: var(--font-default);
 }
 .section {
-  padding: 24px;
-  min-height: 404px;
   background: var(--bg-default);
   display: grid;
 }
@@ -343,7 +341,7 @@ input::placeholder {
 }
 
 /* Responsive layout for small screens */
-@media (max-width: 768px) {
+@media (max-width: 1092px) {
   .packages-wrapper {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);

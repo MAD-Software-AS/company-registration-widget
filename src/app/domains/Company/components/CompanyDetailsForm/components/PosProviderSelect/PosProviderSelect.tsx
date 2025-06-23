@@ -90,8 +90,8 @@ const PosProviderSelect: React.FC<PosProviderSelectProps> = ({
           </div>
         ) : null}
       </FormField>
-      <FormField style={{ height: '44px' }} error={inputError}>
-        {isOtherSelected && (
+      {isOtherSelected && (
+        <FormField error={inputError}>
           <div className="other-input">
             <input
               type="text"
@@ -100,8 +100,8 @@ const PosProviderSelect: React.FC<PosProviderSelectProps> = ({
               onChange={(e) => setInputValue(e.target.value)}
             />
           </div>
-        )}
-      </FormField>
+        </FormField>
+      )}
     </>
   )
 }

@@ -38,7 +38,7 @@ const PackageSelectForm: React.FC<PackageSelectFormProps> = ({
     <>
       <h1
         className="subtitle"
-        style={{ textAlign: 'center', marginBottom: '16px' }}
+        style={{ textAlign: 'center', marginBottom: '20px' }}
       >
         {title}
       </h1>

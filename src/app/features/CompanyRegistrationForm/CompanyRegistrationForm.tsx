@@ -61,7 +61,13 @@ const CompanyRegistrationForm: React.FC<CompanyRegistrationFormProps> = ({
     case STEPS.COMPANY_DETAILS: {
       return (
         <>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              marginBottom: '12px'
+            }}
+          >
             <CompanyRegistrationHeader subtitle={subtitle} />
             <CompanyDetailsForm t={companyDetailsForm} />
           </div>
@@ -81,7 +87,13 @@ const CompanyRegistrationForm: React.FC<CompanyRegistrationFormProps> = ({
     case STEPS.COMPANY_CREDENTIALS: {
       return (
         <>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              marginBottom: '12px'
+            }}
+          >
             <CompanyRegistrationHeader subtitle={subtitle} />
             <CompanyCredentialsForm t={companyCredentialsForm} />
           </div>
