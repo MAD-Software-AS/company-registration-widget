@@ -1,7 +1,7 @@
-import Checkbox from '../../../../../../components/Checkbox/Checkbox'
-import FormField from '../../../../../../components/FormField/FormField'
+import Checkbox from '../../../../components/Checkbox/Checkbox'
+import FormField from '../../../../components/FormField/FormField'
 import React from 'react'
-import useWidgetContext from '../../../../../../contexts/Widget/useWidgetContext'
+import useWidgetContext from '../../../../contexts/Widget/useWidgetContext'
 
 export interface CompanyCredentialsFormProps {
   t?: {

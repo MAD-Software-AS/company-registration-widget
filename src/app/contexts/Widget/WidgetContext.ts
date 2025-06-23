@@ -1,6 +1,14 @@
 import { CompanyType } from 'src/app/domains/Company/Company.constants'
 import { createContext } from 'react'
 
+export const STEPS = {
+  PLAN_SELECT: 'planSelect',
+  COMPANY_DETAILS: 'companyDetails',
+  COMPANY_CREDENTIALS: 'companyCredentials'
+} as const
+
+export type StepType = (typeof STEPS)[keyof typeof STEPS]
+
 export interface WidgetState {
   companyData: CompanyType | null
   posProvider: string | null
@@ -20,8 +28,8 @@ export interface SubmitState {
 
 export interface WidgetProviderState {
   errors: Record<string, string | null>
-  isFirstStepCompleted: boolean
   formData: WidgetState
+  step: StepType
 }
 
 interface WidgetContextValues {
@@ -29,7 +37,7 @@ interface WidgetContextValues {
   setState: React.Dispatch<React.SetStateAction<WidgetProviderState>>
   submitState: SubmitState
   setSubmitState: React.Dispatch<React.SetStateAction<SubmitState>>
-  isFirstStepCompleted: boolean
+  step: StepType
   errors: Record<string, string | null>
   reset: () => void
   env: string
@@ -50,9 +58,14 @@ export const initialSubmitState: SubmitState = {
   error: false,
   errorType: null
 }
+export const initialWidgetState: WidgetProviderState = {
+  errors: {},
+  formData: initialFormData,
+  step: STEPS.PLAN_SELECT
+}
 
 const WidgetContext = createContext<WidgetContextValues>({
-  isFirstStepCompleted: false,
+  step: STEPS.PLAN_SELECT,
   formData: initialFormData,
   submitState: initialSubmitState,
   setState: () => {},

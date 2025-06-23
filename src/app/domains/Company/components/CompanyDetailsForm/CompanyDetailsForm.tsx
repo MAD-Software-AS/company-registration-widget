@@ -1,13 +1,13 @@
 import CompanySelect, {
   CompanySelectProps
 } from './components/CompanySelect/CompanySelect'
-import { CompanyType, POS_PROVIDERS } from '../../../../Company.constants'
+import { CompanyType, POS_PROVIDERS } from '../../Company.constants'
 import PosProviderSelect, {
   PosProviderSelectProps
 } from './components/PosProviderSelect/PosProviderSelect'
 
 import React from 'react'
-import useWidgetContext from '../../../../../../contexts/Widget/useWidgetContext'
+import useWidgetContext from '../../../../contexts/Widget/useWidgetContext'
 
 export interface CompanyDetailsFormProps {
   t?: {

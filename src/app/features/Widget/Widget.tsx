@@ -3,7 +3,7 @@ import CompanyRegistrationError, {
 } from '../../domains/Company/components/CompanyRegistrationError/CompanyRegistrationError'
 import CompanyRegistrationForm, {
   CompanyRegistrationFormProps
-} from '../../domains/Company/components/CompanyRegistrationForm/CompanyRegistrationForm'
+} from '../CompanyRegistrationForm/CompanyRegistrationForm'
 import CompanyRegistrationSuccess, {
   CompanyRegistrationSuccessProps
 } from '../../domains/Company/components/CompanyRegistrationSuccess/CompanyRegistrationSuccess'

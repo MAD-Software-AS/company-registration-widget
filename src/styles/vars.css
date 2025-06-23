@@ -1,19 +1,18 @@
 :host {
     --primary: #D7DB51;
     --danger: #D55454;
+    --dark: #3c3c3c;
 
     /* Backgrounds */
-    --bg-default: #1E3148;
-
-    --bg-accent: rgba(0, 0, 0, 0.1);
-    --bg-primary-light: rgba(215, 219, 81, 0.07);
-    --bg-primary-15: rgba(215, 219, 81, 0.15);
+    --bg-default: #fafaf6;
+    --bg-accent: white;
+    --border-color: #E5E5E5;
 
     /* Text colors */
-    --text-color-default: white;
-    --text-color-reverse: black;
+    --text-color-default: #333;
+    --text-color-reverse: #fff;
     --text-color-placeholder: #6B7280;
-    --text-color-80: rgba(255,255,255,0.8);
+
 
     /* Fonts */
     --font-title: "Open Sans Condensed", sans-serif;
@@ -28,6 +27,10 @@
     --line-height-32: 32px;
 
     --border-radius-default: 12px;
+    --border-radius-xl: 24px;
     --border-radius-md: 8px;
     --border-radius-sm: 4px;
+
+    /* Clip */
+    --clip-path-default: none;
 }

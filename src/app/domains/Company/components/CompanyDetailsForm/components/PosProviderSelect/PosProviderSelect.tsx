@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-import FormField from '../../../../../../../../components/FormField/FormField'
-import { POS_PROVIDERS } from '../../../../../../Company.constants'
+import FormField from '../../../../../../components/FormField/FormField'
+import { POS_PROVIDERS } from '../../../../Company.constants'
 
 export interface PosProviderSelectProps {
   selectedItem?: string | null

@@ -17,7 +17,6 @@
 }
 .section {
   padding: 24px;
-  min-height: 404px;
   background: var(--bg-default);
   display: grid;
 }
@@ -31,19 +30,20 @@
 .btn {
   border: none;
   padding: 12px 20px;
-  border-radius: var(--border-radius-default);
   font-size: var(--font-size-default);
   font-family: var(--font-default);
   line-height: var(--line-height-default);
+  min-width: 128px;
+  clip-path: var(--clip-path-default);
   cursor: pointer;
 }
 .btn-primary {
   background-color: var(--primary);
   color: var(--text-color-reverse);
 }
-.btn-secondary {
-  background-color: var(--bg-primary-15);
-  color: var(--primary);
+.btn-dark {
+  background-color: var(--dark);
+  color: var(--text-color-reverse);
 }
 
 .text {
@@ -60,7 +60,7 @@
   color: var(--text-color-placeholder);
 }
 .text-label {
-  color: var(--text-color-80);
+  color: var(--text-color-default);
   font-size: var(--font-size-default);
   line-height: var(--line-height-default);
   font-family: var(--font-default);
@@ -88,6 +88,9 @@
   font-family: var(--font-default);
   font-weight: 500;
 }
+.text-center {
+  text-align: center;
+}
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-color-default);
@@ -103,8 +106,8 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-color-default);
   min-width: 150px;
   border-radius: var(--border-radius-default);
+  border: 1px solid var(--border-color);
   overflow: visible;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   width: -webkit-fill-available;
 }
 .select-trigger {
@@ -137,7 +140,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--border-radius-default);
   max-height: 220px;
   overflow-y: auto;
-  border: 1px solid var(--bg-primary-15);
+  border: 1px solid var(--border-color);
 }
 .selected-option {
   text-overflow: ellipsis;
@@ -164,7 +167,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 40px;
 }
 .select-options .option:hover {
-  background-color: var(--bg-primary-light);
+  background-color: var(--border-color);
 }
 .custom-select.active .select-options {
   opacity: 1;
@@ -217,7 +220,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .input-label {
   display: block;
-  color: var(--text-color-80);
+  color: var(--text-color-default);
   font-size: var(--font-size-default);
   line-height: var(--line-height-default);
   margin-bottom: 8px;
@@ -225,9 +228,10 @@ h1, h2, h3, h4, h5, h6 {
 .input {
   width: -webkit-fill-available;
   background-color: var(--bg-accent);
-  border: none;
+  border: 1px solid var(--border-color);
+  box-sizing: border-box;
   border-radius: var(--border-radius-default);
-  color: var(--text-color-80);
+  color: var(--text-color-default);
   padding: 12px 12px;
   font-size: var(--font-size-default);
   font-family: var(--font-default);
@@ -300,6 +304,58 @@ input::placeholder {
   align-items: center;
   font-size: 24px;
   text-align: center;
+}
+
+.chip {
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: var(--border-radius-xl);
+  user-select: none;
+  color: var(--text-color-default);
+  font-size: var(--font-size-default);
+  line-height: var(--line-height-default);
+  font-family: var(--font-default);
+  background-color: var(--border-color);
+  border: 1px solid var(--border-color);
+}
+
+.chip.selected {
+  background-color: var(--primary);
+  color: var(--text-color-reverse);
+  border: 1px solid var(--primary);
+}
+
+.packages-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  gap: 24px;
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 768px) {
+  .packages-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 48px;
+  }
+}
+
+.package-view {
+  border-radius: var(--border-radius-default);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 16px;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 16px 0;
 }
 
 @keyframes spinner {

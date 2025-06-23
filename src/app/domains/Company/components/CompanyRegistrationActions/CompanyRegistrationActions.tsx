@@ -6,12 +6,13 @@ import {
   CompanyDetailsFormErrors,
   validateCompanyDetailsForm
 } from '../CompanyDetailsForm/CompanyDetailsForm'
+import { STEPS, StepType } from '../../../../contexts/Widget/WidgetContext'
 
-import { POS_PROVIDERS } from '../../../../Company.constants'
+import { POS_PROVIDERS } from '../../Company.constants'
 import React from 'react'
-import camelize from '../../../../../../utils/camelize'
+import camelize from '../../../../utils/camelize'
 // import getApiUrl from '../../../../../../utils/getApiUrl'
-import useWidgetContext from '../../../../../../contexts/Widget/useWidgetContext'
+import useWidgetContext from '../../../../contexts/Widget/useWidgetContext'
 
 interface CompanyRegistrationActionsProps {
   t: {
@@ -34,11 +35,11 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
 }) => {
   const {
     formData,
-    isFirstStepCompleted,
     reset,
     setState,
     submitState,
-    setSubmitState
+    setSubmitState,
+    step
     // env
   } = useWidgetContext()
 
@@ -63,7 +64,7 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
         }
       }
 
-      return { ...prev, isFirstStepCompleted: true }
+      return { ...prev, step: STEPS.COMPANY_CREDENTIALS }
     })
   }
 
@@ -165,18 +166,43 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
     }
   }
 
+  const renderTargetAction = (_step: StepType) => {
+    switch (_step) {
+      case STEPS.COMPANY_DETAILS: {
+        return (
+          <button
+            className="btn btn-primary"
+            disabled={submitState.isLoading}
+            onClick={handleNext}
+          >
+            {nextAction}
+          </button>
+        )
+      }
+      case STEPS.COMPANY_CREDENTIALS: {
+        return (
+          <button
+            className="btn btn-primary"
+            disabled={submitState.isLoading}
+            onClick={handleSubmit}
+          >
+            {submitAction}
+          </button>
+        )
+      }
+      default: {
+        return null
+      }
+    }
+  }
+
   return (
     <div className="flex-between">
-      <button className="btn btn-secondary" onClick={reset}>
+      <button className="btn btn-dark" onClick={reset}>
         {resetAction}
       </button>
-      <button
-        className="btn btn-primary"
-        disabled={submitState.isLoading}
-        onClick={isFirstStepCompleted ? handleSubmit : handleNext}
-      >
-        {isFirstStepCompleted ? submitAction : nextAction}
-      </button>
+
+      {renderTargetAction(step)}
     </div>
   )
 }

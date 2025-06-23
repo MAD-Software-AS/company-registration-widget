@@ -14,87 +14,139 @@
     widget = window.MAD({
       targetId: 'test',
       cssVars: {
-        primary: '#D7DB51',
-        danger: '#D55454',
+        primary: '#00c0b5',
+        danger: '#ff6172',
+        dark: '#3c3c3c',
 
-        bgDefault: '#1E3148',
-        bgAccent: "rgba(0, 0, 0, 0.1)",
-        bgPrimaryLight: 'rgba(215, 219, 81, 0.07)',
-        bgPrimary15: 'rgba(215, 219, 81, 0.15)',
+        borderColor: '#E5E5E5',
 
-        textColorDefault: '#FFFFFF',
-        textColorReverse: '#000000',
+        bgDefault: '#fafaf6',
+        bgAccent: "white",
+
+        textColorDefault: '#333',
+        textColorReverse: '#fff',
         textColorPlaceholder: '#6B7280',
-        textColor80: 'rgba(255,255,255,0.8)',
 
         fontTitle: '"Open Sans Condensed", sans-serif',
         fontDefault: '"Open Sans", sans-serif',
+
         fontSizeDefault: '15px',
         fontSize18: '18px',
         fontSize24: '24px',
+
         lineHeightDefault: '20px',
         lineHeight24: '24px',
         lineHeight32: '32px',
 
         borderRadiusDefault: '12px',
+        borderRadiusXl: '24px',
+        borderRadiusMd: '8px',
         borderRadiusSm: '4px',
+
+        clipPathDefault: 'polygon(5% 0%, 95% 0%, 100% 15%, 100% 85%, 95% 100%, 5% 100%, 0% 85%, 0% 15%)',
       },
       t: {
         companyRegistrationForm: {
-          nextAction: 'Next',
-          submitAction: 'Register',
-          resetAction: 'Reset',
-          title: 'Register Your Company',
-          subtitle: 'Create your business profile in just a few steps.',
+          packageSelectForm: {
+            companySizes: [
+              '1-3 salonger',
+              '4-6 salonger',
+              '7-10 salonger',
+              '10+ salonger',
+              '50+ salonger'
+            ],
+            packages: [
+              {
+                name: 'MAD Start',
+                prices: [490, 440, 390, 340, 290],
+                period: 'per avdeling/mnd',
+                inherits: null,
+                functions: ['Kontrollsenter', 'Ansatt app'],
+                caption: '5 brukere inkludert i alle pakker –  69 kr per ekstra bruker',
+                action: { isFree: true, text: 'Prøv gratis' }
+              },
+              {
+                name: 'MAD Pro',
+                prices: [1290, 1240, 1190, 1140, 1090],
+                period: 'per avdeling/mnd',
+                inherits: 'Alt fra Start +',
+                functions: [
+              'MAD Play',
+              'The Game',
+              'Troféjakten',
+              'Rewardprogram',
+              'RewardSop'
+                ],
+                caption: '5 brukere inkludert i alle pakker –  69 kr per ekstra bruker',
+                action: { isFree: true, text: 'Prøv gratis' }
+              },
+              {
+                name: 'MAD Enterprise',
+                prices: [2990, 2940, 2890, 2840, 2590],
+                period: 'per avdeling/mnd',
+                inherits: 'Alt fra Pro +',
+                functions: ['Autolønn', 'Flexipris', 'Reklamasjonsverktøy'],
+                caption: '5 brukere inkludert i alle pakker –  69 kr per ekstra bruker',
+                action: { isFree: false, text: 'Bestill' }
+              }
+            ],
+            title: 'Prøv gratis i 30 dager!',
+            currency: 'kr'
+          },
           companyCredentialsForm: {
-            fullNamePlaceholder: 'Enter your full name',
-            emailPlaceholder: 'Enter user email',
-            passwordPlaceholder: 'Enter user password',
-            termsPlaceholder: 'By checking this, I confirm that I have read and agree to the',
-            termsLabel: 'Terms of Service',
+            fullNamePlaceholder: 'Skriv inn ditt fulle navn',
+            emailPlaceholder: 'Skriv inn e-postadressen din',
+            passwordPlaceholder: 'Skriv inn ditt passord',
+            termsPlaceholder: 'Ved å krysse av bekrefter jeg at jeg har lest og godtar',
+            termsLabel: 'Bruksvilkår',
             termsLink: 'https://madsoftware.no/standardvilk%C3%A5r'
           },
           companyCredentialsFormErrors: {
-            emailRequired: 'Email is required',
-            emailInvalid: 'Email is invalid',
-            fullNameRequired: 'Full name is required',
-            passwordRequired: 'Password is required',
-            passwordToShort: 'Password must be at least 6 characters long',
-            termsAccepted: 'You must accept the terms and conditions'
+            emailRequired: 'E-post er påkrevet',
+            emailInvalid: 'E-posten er ugyldig',
+            fullNameRequired: 'Fullt navn er påkrevet',
+            passwordRequired: 'Passord er påkrevet',
+            passwordToShort: 'Passordet må være minst 6 tegn langt',
+            termsAccepted: 'Du må akseptere vilkårene'
           },
           companyDetailsFormErrors: {
-            companyRequired: 'Company is required',
-            posProviderRequired: 'POS provider is required',
-            posProviderNameRequired: 'POS provider name is required'
+            companyRequired: 'Firma er påkrevd',
+            posProviderRequired: 'POS-leverandør er påkrevd',
+            posProviderNameRequired: 'Navn på POS-leverandør er påkrevd'
           },
           companyDetailsForm: {
             companySelect: {
-              selectPlaceholder: 'Start typing to search for a company',
-              organizationNumber: 'Orgnr:',
-              noData: 'Company not found'
+              selectPlaceholder: 'Begynn å skrive for å søke etter et firma',
+              organizationNumber: 'Organisasjonsnr:',
+              noData: 'Firma ikke funnet'
             },
             posProviderSelect: {
               fixitOnline: 'Fixit Online',
               com2gether: 'Com2gether',
-              other: 'Other',
-              selectPlaceholder: 'Select POS provider',
-              otherPlaceholder: 'Enter other POS provider'
+              other: 'Annet',
+              selectPlaceholder: 'Velg POS-leverandør',
+              otherPlaceholder: 'Skriv inn annen POS-leverandør'
             }
-          }
+          },
+          nextAction: 'Neste',
+          submitAction: 'Registrer',
+          resetAction: 'Tilbake',
+          title: 'Registrer Selskapet Ditt',
+          subtitle: 'Opprett din bedriftsprofil i bare noen få steg.'
         },
-        companyRegistrationSuccess: {
-          title: 'Company Registration Success',
-          message: 'Your company has been successfully registered! Check your email for confirmation and access to your account.',
-          continueAction: 'Continue'
-        },
-        companyRegistrationError: {
-          title: 'Company Registration Error',
-          continueAction: 'Continue',
-          errorMessages: {
-            userAlreadyExists: 'User already exists. Please try a different email.',
-            unexpectedError: 'An unexpected error occurred. Please try again later.',
-            companyAlreadyRegistered: 'This company is already registered. Please check the company details or contact support.',
-          }
+      },
+      companyRegistrationSuccess: {
+        title: 'Firma registrert',
+        message: 'Ditt firma er blitt registrert med suksess! Sjekk e-posten din for bekreftelse og tilgang til kontoen din.',
+        continueAction: 'Fortsett'
+      },
+      companyRegistrationError: {
+        title: 'Firma Registreringsfeil',
+        continueAction: 'Fortsett',
+        errorMessages: {
+          userAlreadyExists: 'Brukeren finnes allerede. Vennligst prøv en annen e-post.',
+          unexpectedError: 'En uventet feil oppstod. Vennligst prøv igjen senere.',
+          companyAlreadyRegistered: 'Dette firmaet er allerede registrert. Vennligst sjekk firmadetaljene eller kontakt support.',
         }
       },
       env: 'dev'
