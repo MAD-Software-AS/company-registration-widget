@@ -55,6 +55,8 @@
 }
 .text-error {
   color: var(--danger);
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
   font-family: var(--font-default);
 }
 .text-disabled {
@@ -77,20 +79,26 @@
 }
 .title-1 {
   color: var(--text-color-default);
-  font-size: var(--font-size-24);
-  line-height: var(--line-height-32);
+  font-size: var(--font-size-title);
+  line-height: var(--line-height-title);
   font-family: var(--font-title);
   font-weight: 700;
 }
 .subtitle {
   color: var(--text-color-default);
-  font-size: var(--font-size-18);
-  line-height: var(--line-height-24);
+  font-size: var(--font-size-subtitle);
+  line-height: var(--line-height-subtitle);
   font-family: var(--font-default);
   font-weight: 500;
 }
 .text-center {
   text-align: center;
+}
+.text-caption {
+  color: var(--text-color-placeholder);
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-20);
+  font-family: var(--font-default);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -314,8 +322,8 @@ input::placeholder {
   border-radius: var(--border-radius-xl);
   user-select: none;
   color: var(--text-color-default);
-  font-size: var(--font-size-default);
-  line-height: var(--line-height-default);
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
   font-family: var(--font-default);
   background-color: var(--border-color);
   border: 1px solid var(--border-color);

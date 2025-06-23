@@ -26,13 +26,13 @@ const PackageView: React.FC<PackageViewProps> = ({
   return (
     <div className="package-view">
       <div className="text-center">
-        <h3 className="subtitle" style={{ marginBottom: '20px' }}>
+        <h3 className="subtitle" style={{ marginBottom: '24px' }}>
           <strong>{name}</strong>
         </h3>
-        <h1 className="title" style={{ marginBottom: '8px' }}>
+        <h1 className="title" style={{ marginBottom: '12px' }}>
           {price} {currency}
         </h1>
-        <span className="text">{period}</span>
+        <span className="text-caption">{period}</span>
         <div className="divider" />
         {inherits && (
           <div className="subtitle" style={{ marginBottom: '32px' }}>
@@ -77,7 +77,7 @@ const PackageView: React.FC<PackageViewProps> = ({
             {action.text}
           </button>
         )}
-        <div className="text-center text" style={{ marginTop: '16px' }}>
+        <div className="text-center text-caption" style={{ marginTop: '16px' }}>
           {caption}
         </div>
       </div>
