@@ -35,7 +35,7 @@ const PackageView: React.FC<PackageViewProps> = ({
         <span className="text-caption">{period}</span>
         <div className="divider" />
         {inherits && (
-          <div className="subtitle" style={{ marginBottom: '32px' }}>
+          <div className="text" style={{ marginBottom: '32px' }}>
             <strong>{inherits}</strong>
           </div>
         )}

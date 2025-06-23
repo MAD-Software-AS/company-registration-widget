@@ -59,14 +59,14 @@ const CompanyRegistrationError: React.FC<CompanyRegistrationErrorProps> = ({
       }}
     >
       <h1
-        className="title-1"
+        className="subtitle"
         style={{ textAlign: 'center', marginBottom: '12px' }}
       >
         {title}
       </h1>
 
       <span
-        className="subtitle"
+        className="text"
         style={{ textAlign: 'center', marginBottom: '24px' }}
       >
         {message}
