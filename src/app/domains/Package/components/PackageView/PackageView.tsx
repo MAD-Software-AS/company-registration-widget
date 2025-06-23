@@ -26,7 +26,7 @@ const PackageView: React.FC<PackageViewProps> = ({
   return (
     <div className="package-view">
       <div className="text-center">
-        <h3 className="subtitle" style={{ marginBottom: '24px' }}>
+        <h3 className="text" style={{ marginBottom: '24px' }}>
           <strong>{name}</strong>
         </h3>
         <h1 className="title" style={{ marginBottom: '12px' }}>
@@ -44,7 +44,7 @@ const PackageView: React.FC<PackageViewProps> = ({
             {functions.map((func, idx) => (
               <div key={idx} className="package-function">
                 <span className="icon-check" />
-                <span className="subtitle">
+                <span className="text">
                   <strong>{func}</strong>
                 </span>
               </div>

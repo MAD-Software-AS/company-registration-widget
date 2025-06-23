@@ -96,8 +96,8 @@
 }
 .text-caption {
   color: var(--text-color-placeholder);
-  font-size: var(--font-size-14);
-  line-height: var(--line-height-20);
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
   font-family: var(--font-default);
 }
 
