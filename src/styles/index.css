@@ -73,8 +73,8 @@
 }
 .text-link {
   color: var(--primary);
-  font-size: var(--font-size-default);
-  line-height: var(--line-height-default);
+  font-size: var(--font-size-controls);
+  line-height: var(--line-height-controls);
   font-family: var(--font-default);
   text-decoration: none;
   cursor: pointer;
@@ -365,6 +365,19 @@ input::placeholder {
   justify-content: space-between;
   height: 100%;
   padding: 16px;
+}
+
+.package-function {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  gap: 4px;
+}
+
+.package-icon-check::before {
+  content: '\2713';
+  font-size: 16px;
 }
 
 .divider {

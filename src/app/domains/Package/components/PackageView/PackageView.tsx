@@ -39,18 +39,16 @@ const PackageView: React.FC<PackageViewProps> = ({
             <strong>{inherits}</strong>
           </div>
         )}
-        {functions.length > 0 && (
-          <div>
-            {functions.map((func, idx) => (
-              <div key={idx} className="package-function">
-                <span className="icon-check" />
-                <span className="text">
-                  <strong>{func}</strong>
-                </span>
-              </div>
-            ))}
-          </div>
-        )}
+        <div>
+          {functions.map((func, idx) => (
+            <div key={idx} className="package-function">
+              <span className="package-icon-check" />
+              <span className="text">
+                <strong>{func}</strong>
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div
