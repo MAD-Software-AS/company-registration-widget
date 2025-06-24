@@ -20,11 +20,13 @@
     --font-size-default: 15px;
     --font-size-subtitle: 18px;
     --font-size-title: 24px;
+    --font-size-controls: 18px;
     --font-size-caption: 15px;
 
     --line-height-default: 20px;
     --line-height-subtitle: 24px;
     --line-height-title: 32px;
+    --line-height-controls: 18px;
     --line-height-caption: 20px;
 
     --border-radius-default: 12px;
