@@ -33,7 +33,7 @@ const CompanyRegistrationSuccess: React.FC<CompanyRegistrationSuccessProps> = ({
         minHeight: '300px'
       }}
     >
-      <h1 className="subtitle text-center" style={{ marginBottom: '12px' }}>
+      <h1 className="subtitle text-center" style={{ marginBottom: '24px' }}>
         {title}
       </h1>
 

@@ -61,7 +61,7 @@ export const initialSubmitState: SubmitState = {
 export const initialWidgetState: WidgetProviderState = {
   errors: {},
   formData: initialFormData,
-  step: STEPS.COMPANY_DETAILS
+  step: STEPS.PLAN_SELECT
 }
 
 const WidgetContext = createContext<WidgetContextValues>({

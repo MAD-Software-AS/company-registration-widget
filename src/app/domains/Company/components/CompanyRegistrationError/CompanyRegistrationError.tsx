@@ -51,15 +51,17 @@ const CompanyRegistrationError: React.FC<CompanyRegistrationErrorProps> = ({
         height: '100%'
       }}
     >
-      <h1 className="subtitle text-center" style={{ marginBottom: '12px' }}>
+      <h1 className="subtitle text-center" style={{ marginBottom: '24px' }}>
         {title}
       </h1>
 
-      {_messages.map((message, index) => (
-        <span key={index} className="text text-center">
-          {message}
-        </span>
-      ))}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+        {_messages.map((message, index) => (
+          <span key={index} className="text text-center">
+            {message}
+          </span>
+        ))}
+      </div>
 
       <button
         className="btn btn-primary"

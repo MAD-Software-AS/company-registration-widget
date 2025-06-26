@@ -12,6 +12,7 @@ import PackageSelectForm, {
 
 import CompanyRegistrationActions from '../../domains/Company/components/CompanyRegistrationActions/CompanyRegistrationActions'
 import CompanyRegistrationHeader from '../../domains/Company/components/CompanyRegistrationHeader/CompanyRegistrationHeader'
+import FormLayout from '../../components/FormLayout/FormLayout'
 import React from 'react'
 import { STEPS } from '../../contexts/Widget/WidgetContext'
 import useWidgetContext from '../../contexts/Widget/useWidgetContext'
@@ -23,6 +24,7 @@ export interface CompanyRegistrationFormProps {
     companyCredentialsForm: CompanyCredentialsFormProps['t']
     companyCredentialsFormErrors: CompanyCredentialsFormErrors
     companyDetailsFormErrors: CompanyDetailsFormErrors
+    formImage: string
     subtitle: string
     resetAction: string
     nextAction: string
@@ -37,6 +39,7 @@ const CompanyRegistrationForm: React.FC<CompanyRegistrationFormProps> = ({
     companyCredentialsForm,
     companyCredentialsFormErrors,
     companyDetailsFormErrors,
+    formImage,
     subtitle,
     nextAction,
     resetAction,
@@ -48,53 +51,43 @@ const CompanyRegistrationForm: React.FC<CompanyRegistrationFormProps> = ({
   switch (step) {
     case STEPS.COMPANY_DETAILS: {
       return (
-        <>
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              marginBottom: '12px'
-            }}
-          >
-            <CompanyRegistrationHeader subtitle={subtitle} />
-            <CompanyDetailsForm t={companyDetailsForm} />
-          </div>
-          <CompanyRegistrationActions
-            t={{
-              resetAction,
-              submitAction,
-              nextAction,
-              companyCredentialsFormErrors,
-              companyDetailsFormErrors
-            }}
-          />
-        </>
+        <FormLayout
+          t={{ formImage }}
+          head={<CompanyRegistrationHeader subtitle={subtitle} />}
+          children={<CompanyDetailsForm t={companyDetailsForm} />}
+          actions={
+            <CompanyRegistrationActions
+              t={{
+                resetAction,
+                submitAction,
+                nextAction,
+                companyCredentialsFormErrors,
+                companyDetailsFormErrors
+              }}
+            />
+          }
+        />
       )
     }
 
     case STEPS.COMPANY_CREDENTIALS: {
       return (
-        <>
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              marginBottom: '12px'
-            }}
-          >
-            <CompanyRegistrationHeader subtitle={subtitle} />
-            <CompanyCredentialsForm t={companyCredentialsForm} />
-          </div>
-          <CompanyRegistrationActions
-            t={{
-              resetAction,
-              submitAction,
-              nextAction,
-              companyCredentialsFormErrors,
-              companyDetailsFormErrors
-            }}
-          />
-        </>
+        <FormLayout
+          t={{ formImage }}
+          head={<CompanyRegistrationHeader subtitle={subtitle} />}
+          children={<CompanyCredentialsForm t={companyCredentialsForm} />}
+          actions={
+            <CompanyRegistrationActions
+              t={{
+                resetAction,
+                submitAction,
+                nextAction,
+                companyCredentialsFormErrors,
+                companyDetailsFormErrors
+              }}
+            />
+          }
+        />
       )
     }
 
