@@ -68,7 +68,9 @@ const PackageView: React.FC<PackageViewProps> = ({
                   {subItems.map((subItem, subIdx) => (
                     <li key={subIdx} className="text">
                       <span className="package-icon-check" />
-                      <span className="text-caption">{subItem}</span>
+                      <span className="text-caption">
+                        <strong>{subItem}</strong>
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -80,6 +82,7 @@ const PackageView: React.FC<PackageViewProps> = ({
 
       <div
         style={{
+          marginTop: '32px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center'
