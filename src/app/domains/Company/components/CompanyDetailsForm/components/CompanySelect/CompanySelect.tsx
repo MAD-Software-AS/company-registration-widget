@@ -8,7 +8,7 @@ export interface CompanySelectProps {
   selectedItem?: CompanyType | null
   setSelectedItem: (value: CompanyType | null) => void
   error?: string | null
-  t?: {
+  t: {
     fieldLabel?: string
     selectPlaceholder: string
     organizationNumber: string
@@ -17,11 +17,7 @@ export interface CompanySelectProps {
 }
 
 const CompanySelect: React.FC<CompanySelectProps> = ({
-  t: { selectPlaceholder, organizationNumber, noData, fieldLabel } = {
-    selectPlaceholder: 'Start typing to search for a company',
-    organizationNumber: 'Orgnr:',
-    noData: 'Company not found'
-  },
+  t: { selectPlaceholder, organizationNumber, noData, fieldLabel },
   error,
   setSelectedItem,
   selectedItem
@@ -81,11 +77,6 @@ const CompanySelect: React.FC<CompanySelectProps> = ({
     }))
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const hide = () => {
-    setState((prev) => ({ ...prev, isDropdownVisible: false }))
-  }
-
   const isSelected = (orgNumber: string) => {
     if (!selectedItem) return false
     return selectedItem.orgNumber === orgNumber
@@ -96,7 +87,6 @@ const CompanySelect: React.FC<CompanySelectProps> = ({
       <div className="relative">
         <input
           type="text"
-          // onBlur={hide}
           className="input"
           placeholder={selectPlaceholder}
           value={state.query}

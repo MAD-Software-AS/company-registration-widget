@@ -13,10 +13,10 @@ import React from 'react'
 import useWidgetContext from '../../contexts/Widget/useWidgetContext'
 
 export interface WidgetProps {
-  t?: {
+  t: {
     companyRegistrationForm: CompanyRegistrationFormProps['t']
     companyRegistrationSuccess: CompanyRegistrationSuccessProps['t']
-    companyRegistrationError?: CompanyRegistrationErrorProps['t']
+    companyRegistrationError: CompanyRegistrationErrorProps['t']
   }
 }
 
@@ -25,7 +25,7 @@ const Widget: React.FC<WidgetProps> = ({
     companyRegistrationForm,
     companyRegistrationSuccess,
     companyRegistrationError
-  } = {}
+  }
 }) => {
   const { submitState } = useWidgetContext()
 

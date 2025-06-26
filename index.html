@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="src/styles/index.css">
     <script src="./widget.min.js"></script>
   </head>
-<body>
+<body style="margin:0; padding: 0;">
 
 <!-- Modal container -->
 <div id="test"></div>
@@ -17,6 +17,7 @@
         primary: '#00c0b5',
         danger: '#ff6172',
         dark: '#3c3c3c',
+        warning: '#ffb637',
 
         borderColor: '#E5E5E5',
 
@@ -65,9 +66,13 @@
                 prices: [490, 440, 390, 340, 290],
                 period: 'per avdeling/mnd',
                 inherits: null,
-                functions: ['Kontrollsenter', 'Ansatt app'],
-                caption: '5 brukere inkludert i alle pakker –  69 kr per ekstra bruker',
-                action: { isFree: true, text: 'Prøv gratis' }
+                functions: [
+                  { name: 'Kontrollsenter', subItems: ['Live dashboard', 'KPI-oversikt med fargekoder', 'Budsjettmodul'] },
+                  { name: 'Ansatt app', subItems: ['KPI-status i sanntid', 'Månedsmål med nedtelling', 'Live lønn'] }
+                ],
+                caption: 'Inkluderer 5 brukere – kun 69 kr for hver ekstra',
+                action: { isFree: true, text: 'Prøv gratis' },
+                mostPopular: false
               },
               {
                 name: 'MAD Pro',
@@ -75,35 +80,43 @@
                 period: 'per avdeling/mnd',
                 inherits: 'Alt fra Start +',
                 functions: [
-              'MAD Play',
-              'The Game',
-              'Troféjakten',
-              'Rewardprogram',
-              'RewardSop'
+                  { name: 'MAD Play' },
+                  { name: 'The Game' },
+                  { name: 'Troféjakten' },
+                  { name: 'Rewardprogram' },
+                  { name: 'RewardShop' }
                 ],
-                caption: '5 brukere inkludert i alle pakker –  69 kr per ekstra bruker',
-                action: { isFree: true, text: 'Prøv gratis' }
+                caption: 'Inkluderer 5 brukere – kun 69 kr for hver ekstra',
+                action: { isFree: true, text: 'Prøv gratis' },
+                mostPopular: true
               },
               {
                 name: 'MAD Enterprise',
                 prices: [2990, 2940, 2890, 2840, 2590],
                 period: 'per avdeling/mnd',
                 inherits: 'Alt fra Pro +',
-                functions: ['Autolønn', 'Flexipris', 'Reklamasjonsverktøy'],
-                caption: '5 brukere inkludert i alle pakker –  69 kr per ekstra bruker',
-                action: { isFree: false, text: 'Bestill' }
+                functions: [
+                  { name: 'Autolønn' },
+                  { name: 'Flexipris' },
+                  { name: 'Reklamasjonsverktøy' }
+                ],
+                caption: 'Inkluderer 5 brukere – kun 69 kr for hver ekstra',
+                action: { isFree: false, text: 'Bestill' },
+                mostPopular: false
               }
             ],
             title: 'Prøv gratis i 30 dager!',
+            pricesDescription: 'Priser oppgitt i NOK, eks. mva',
+            mostPopular: 'Mest populær',
             currency: 'kr'
           },
           companyCredentialsForm: {
             fullNamePlaceholder: 'Skriv inn ditt fulle navn',
             emailPlaceholder: 'Skriv inn e-postadressen din',
             passwordPlaceholder: 'Skriv inn ditt passord',
-            termsPlaceholder: 'Ved å krysse av bekrefter jeg at jeg har lest og godtar',
-            termsLabel: 'Bruksvilkår',
-            termsLink: 'https://madsoftware.no/standardvilk%C3%A5r'
+            termsPlaceholder: 'Jeg har lest og godtar',
+            termsLabel: 'vilkårene og betingelsene.',
+            termsLink: 'https://mads-site-8134d0.webflow.io/standardvilkar'
           },
           companyCredentialsFormErrors: {
             emailRequired: 'E-post er påkrevet',
@@ -125,9 +138,20 @@
               noData: 'Firma ikke funnet'
             },
             posProviderSelect: {
-              fixitOnline: 'Fixit Online',
-              com2gether: 'Com2gether',
-              other: 'Annet',
+                posProviders: {
+                  fixitOnline: 'Fixit Online',
+                  com2gether: 'Com2gether',
+                  leverandør: 'Leverandør',
+                  easyUpdate: 'Easy Update',
+                  egHano: 'EG Hano',
+                  handelsdata: 'Handelsdata',
+                  norskButikkdata: 'Norsk Butikkdata',
+                  sharpWellness: 'Sharp Wellness',
+                  suppler: 'Supplèr',
+                  timma: 'Timma',
+                  touchSoft: 'Touch Soft',
+                  other: 'Annet',
+              },
               selectPlaceholder: 'Velg POS-leverandør',
               otherPlaceholder: 'Skriv inn annen POS-leverandør'
             }
@@ -138,17 +162,20 @@
           subtitle: 'Opprett din bedriftsprofil i bare noen få steg.'
         },
         companyRegistrationSuccess: {
-          title: 'Firma registrert',
-          message: 'Ditt firma er blitt registrert med suksess! Sjekk e-posten din for bekreftelse og tilgang til kontoen din.',
-          continueAction: 'Fortsett'
-        },
+          title: 'Bekreft e-post adressen din!',
+					messages: [
+						'Suksess! Vi har sendt en e-post til {{email}}',
+						'Aktiver kontoen din med å trykke på knappen i e-posten',
+						'E-posten kommer normalt innen et par minutter.'
+					],
+			  },
         companyRegistrationError: {
           title: 'Firma Registreringsfeil',
           continueAction: 'Fortsett',
-          errorMessages: {
-            userAlreadyExists: 'Brukeren finnes allerede. Vennligst prøv en annen e-post.',
-            unexpectedError: 'En uventet feil oppstod. Vennligst prøv igjen senere.',
-            companyAlreadyRegistered: 'Dette firmaet er allerede registrert. Vennligst sjekk firmadetaljene eller kontakt support.',
+          messages: {
+            userAlreadyExists: ['Brukeren finnes allerede. Vennligst prøv en annen e-post.'],
+            unexpectedError: ['En uventet feil oppstod. Vennligst prøv igjen senere.'],
+            companyAlreadyRegistered: ['Dette firmaet er allerede registrert. Vennligst sjekk firmadetaljene eller kontakt support.'],
           }
         }
       },

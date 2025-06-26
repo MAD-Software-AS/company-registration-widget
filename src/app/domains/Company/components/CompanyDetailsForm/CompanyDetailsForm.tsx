@@ -10,9 +10,9 @@ import React from 'react'
 import useWidgetContext from '../../../../contexts/Widget/useWidgetContext'
 
 export interface CompanyDetailsFormProps {
-  t?: {
-    posProviderSelect?: PosProviderSelectProps['t']
-    companySelect?: CompanySelectProps['t']
+  t: {
+    posProviderSelect: PosProviderSelectProps['t']
+    companySelect: CompanySelectProps['t']
   }
 }
 
@@ -86,7 +86,7 @@ const CompanyDetailsForm: React.FC<CompanyDetailsFormProps> = ({ t }) => {
         selectedItem={formData.companyData}
         setSelectedItem={handleCompanySelect}
         error={errors?.companyData}
-        t={t?.companySelect}
+        t={t.companySelect}
       />
       <PosProviderSelect
         selectedItem={formData.posProvider}
@@ -94,7 +94,7 @@ const CompanyDetailsForm: React.FC<CompanyDetailsFormProps> = ({ t }) => {
         setInputValue={handlePosProviderChange}
         inputError={errors?.posProviderName}
         error={errors?.posProvider}
-        t={t?.posProviderSelect}
+        t={t.posProviderSelect}
       />
     </>
   )

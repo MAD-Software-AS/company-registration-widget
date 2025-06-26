@@ -1,4 +1,5 @@
 import CompanySizeSelect from '../../domains/Company/components/CompanySizeSelect/CompanySizeSelect'
+import { Package } from '../../domains/Package/Package.model'
 import PackageSelect from '../../domains/Package/components/PackageSelect/PackageSelect'
 import React from 'react'
 import { STEPS } from '../../contexts/Widget/WidgetContext'
@@ -9,22 +10,14 @@ export interface PackageSelectFormProps {
     packages: Package[]
     companySizes: string[]
     title: string
+    pricesDescription: string
+    mostPopular: string
     currency?: string
   }
 }
 
-interface Package {
-  name: string
-  prices: number[]
-  period: string
-  inherits: string | null
-  functions: string[]
-  action: { isFree: boolean; text: string }
-  caption: string
-}
-
 const PackageSelectForm: React.FC<PackageSelectFormProps> = ({
-  t: { companySizes, packages, title, currency }
+  t: { companySizes, packages, title, currency, pricesDescription, mostPopular }
 }) => {
   const [priceIndex, setPriceIndex] = React.useState(0)
 
@@ -36,17 +29,12 @@ const PackageSelectForm: React.FC<PackageSelectFormProps> = ({
 
   return (
     <>
-      <h1
-        className="subtitle"
-        style={{ textAlign: 'center', marginBottom: '20px' }}
-      >
-        {title}
-      </h1>
+      <h1 className="subtitle text-center">{title}</h1>
       <div
         style={{
           display: 'flex',
           justifyContent: 'center',
-          marginBottom: '48px'
+          marginBlock: '48px'
         }}
       >
         <CompanySizeSelect
@@ -55,12 +43,18 @@ const PackageSelectForm: React.FC<PackageSelectFormProps> = ({
           value={priceIndex}
         />
       </div>
-      <PackageSelect
-        currency={currency}
-        onSelect={handlePackageSelect}
-        priceIndex={priceIndex}
-        packages={packages}
-      />
+      <div>
+        <PackageSelect
+          t={{ mostPopular }}
+          currency={currency}
+          onSelect={handlePackageSelect}
+          priceIndex={priceIndex}
+          packages={packages}
+        />
+      </div>
+      <div className="text-center" style={{ marginTop: '32px' }}>
+        <span className="text">{pricesDescription}</span>
+      </div>
     </>
   )
 }

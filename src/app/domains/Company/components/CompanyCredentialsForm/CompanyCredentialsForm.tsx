@@ -4,7 +4,7 @@ import React from 'react'
 import useWidgetContext from '../../../../contexts/Widget/useWidgetContext'
 
 export interface CompanyCredentialsFormProps {
-  t?: {
+  t: {
     emailPlaceholder: string
     passwordPlaceholder: string
     fullNamePlaceholder: string
@@ -63,15 +63,7 @@ export const validateCompanyCredentialsForm = (
 }
 
 const CompanyCredentialsForm: React.FC<CompanyCredentialsFormProps> = ({
-  t = {
-    emailPlaceholder: 'Enter user email',
-    passwordPlaceholder: 'Enter user password',
-    fullNamePlaceholder: 'Enter user full name',
-    termsPlaceholder:
-      'By checking this, I confirm that I have read and agree to the',
-    termsLabel: 'Terms of Service',
-    termsLink: 'https://madsoftware.no/standardvilk%C3%A5r'
-  }
+  t
 }) => {
   const { formData, errors, setState } = useWidgetContext()
 
@@ -139,10 +131,10 @@ const CompanyCredentialsForm: React.FC<CompanyCredentialsFormProps> = ({
       <FormField error={errors.termsAccepted}>
         <Checkbox checked={formData.termsAccepted} onChange={handleTermsChange}>
           <span className="text">
-            {t?.termsPlaceholder}{' '}
+            {t.termsPlaceholder}{' '}
             <a
-              className="text-link"
-              href={t?.termsLink}
+              className="text"
+              href={t.termsLink}
               target="_blank"
               rel="noreferrer"
             >

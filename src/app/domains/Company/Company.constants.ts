@@ -1,6 +1,15 @@
 export const POS_PROVIDERS = {
   FIXIT_ONLINE: 'fixitOnline',
   COM2GETHER: 'com2gether',
+  LEVANDØR: 'leverandør',
+  EASY_UPDATE: 'easyUpdate',
+  EG_HANO: 'egHano',
+  HANDELSDATA: 'handelsdata',
+  NORSK_BUTIKKDATA: 'norskButikkdata',
+  SHARP_WELLNESS: 'sharpWellness',
+  SUPPLER: 'suppler',
+  TIMMA: 'timma',
+  TOUCH_SOFT: 'touchSoft',
   OTHER: 'other'
 } as const
 

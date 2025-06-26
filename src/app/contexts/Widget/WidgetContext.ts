@@ -61,16 +61,14 @@ export const initialSubmitState: SubmitState = {
 export const initialWidgetState: WidgetProviderState = {
   errors: {},
   formData: initialFormData,
-  step: STEPS.PLAN_SELECT
+  step: STEPS.COMPANY_DETAILS
 }
 
 const WidgetContext = createContext<WidgetContextValues>({
-  step: STEPS.PLAN_SELECT,
-  formData: initialFormData,
+  ...initialWidgetState,
   submitState: initialSubmitState,
   setState: () => {},
   setSubmitState: () => {},
-  errors: {},
   reset: () => {},
   env: 'dev'
 })

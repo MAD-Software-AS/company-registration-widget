@@ -9,11 +9,22 @@ export interface PosProviderSelectProps {
   error?: string | null
   inputError?: string | null
   setInputValue: (value: string) => void
-  t?: {
+  t: {
     fieldLabel?: string
-    fixitOnline: string
-    com2gether: string
-    other: string
+    posProviders: {
+      fixitOnline: string
+      com2gether: string
+      leverandør: string
+      easyUpdate: string
+      egHano: string
+      handelsdata: string
+      norskButikkdata: string
+      sharpWellness: string
+      suppler: string
+      timma: string
+      touchSoft: string
+      other: string
+    }
     selectPlaceholder: string
     otherPlaceholder: string
   }
@@ -21,18 +32,23 @@ export interface PosProviderSelectProps {
 
 const PosProviderSelect: React.FC<PosProviderSelectProps> = ({
   t: {
-    fixitOnline,
-    com2gether,
-    other,
+    posProviders: {
+      fixitOnline,
+      com2gether,
+      leverandør,
+      easyUpdate,
+      egHano,
+      handelsdata,
+      norskButikkdata,
+      sharpWellness,
+      suppler,
+      timma,
+      touchSoft,
+      other
+    },
     selectPlaceholder,
     fieldLabel,
     otherPlaceholder
-  } = {
-    fixitOnline: 'Fixit Online',
-    com2gether: 'Com2gether',
-    other: 'Other',
-    selectPlaceholder: 'Select POS provider',
-    otherPlaceholder: 'Enter other POS provider'
   },
   error,
   setSelectedItem,
@@ -45,6 +61,15 @@ const PosProviderSelect: React.FC<PosProviderSelectProps> = ({
   const items = [
     { name: fixitOnline, value: POS_PROVIDERS.FIXIT_ONLINE },
     { name: com2gether, value: POS_PROVIDERS.COM2GETHER },
+    { name: leverandør, value: POS_PROVIDERS.LEVANDØR },
+    { name: easyUpdate, value: POS_PROVIDERS.EASY_UPDATE },
+    { name: egHano, value: POS_PROVIDERS.EG_HANO },
+    { name: handelsdata, value: POS_PROVIDERS.HANDELSDATA },
+    { name: norskButikkdata, value: POS_PROVIDERS.NORSK_BUTIKKDATA },
+    { name: sharpWellness, value: POS_PROVIDERS.SHARP_WELLNESS },
+    { name: suppler, value: POS_PROVIDERS.SUPPLER },
+    { name: timma, value: POS_PROVIDERS.TIMMA },
+    { name: touchSoft, value: POS_PROVIDERS.TOUCH_SOFT },
     { name: other, value: POS_PROVIDERS.OTHER }
   ]
 

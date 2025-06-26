@@ -3,7 +3,11 @@ export interface Package {
   prices: number[]
   period: string
   inherits: string | null
-  functions: string[]
+  functions: {
+    name: string
+    subItems?: string[]
+  }[]
   action: { isFree: boolean; text: string }
   caption: string
+  mostPopular: boolean
 }

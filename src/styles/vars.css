@@ -1,7 +1,8 @@
 :host {
-    --primary: #D7DB51;
-    --danger: #D55454;
+    --primary: #00c0b5;
+    --danger: #ff6172;
     --dark: #3c3c3c;
+    --warning: #ffb637;
 
     /* Backgrounds */
     --bg-default: #fafaf6;

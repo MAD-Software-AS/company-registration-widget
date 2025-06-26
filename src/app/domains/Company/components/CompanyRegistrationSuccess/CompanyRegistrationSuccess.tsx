@@ -1,23 +1,26 @@
 import React from 'react'
+import replaceVariablesInTranslations from '../../../../utils/replaceVariablesInTranslations'
 import useWidgetContext from '../../../../contexts/Widget/useWidgetContext'
 
 export interface CompanyRegistrationSuccessProps {
-  t?: {
+  t: {
     title: string
-    message: string
-    continueAction: string
+    messages: string[]
   }
 }
 
 const CompanyRegistrationSuccess: React.FC<CompanyRegistrationSuccessProps> = ({
-  t: { title, message, continueAction } = {
-    title: 'Company Registration Success',
-    message:
-      'Your company has been successfully registered! Check your email for confirmation and access to your account.',
-    continueAction: 'Continue'
-  }
+  t: { title, messages }
 }) => {
-  const { reset } = useWidgetContext()
+  const {
+    formData: { email }
+  } = useWidgetContext()
+
+  const _messages = messages.map((message) => {
+    return replaceVariablesInTranslations(message, {
+      email: email || ''
+    })
+  })
 
   return (
     <div
@@ -26,26 +29,21 @@ const CompanyRegistrationSuccess: React.FC<CompanyRegistrationSuccessProps> = ({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '100%'
+        height: '100%',
+        minHeight: '300px'
       }}
     >
-      <h1
-        className="subtitle"
-        style={{ textAlign: 'center', marginBottom: '12px' }}
-      >
+      <h1 className="subtitle text-center" style={{ marginBottom: '12px' }}>
         {title}
       </h1>
 
-      <span
-        className="text"
-        style={{ textAlign: 'center', marginBottom: '24px' }}
-      >
-        {message}
-      </span>
-
-      <button className="btn btn-primary" onClick={reset}>
-        {continueAction}
-      </button>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+        {_messages.map((message, index) => (
+          <span key={index} className="text text-center">
+            {message}
+          </span>
+        ))}
+      </div>
     </div>
   )
 }

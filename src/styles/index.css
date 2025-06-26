@@ -8,7 +8,6 @@
   width: 100%;
   max-width: 300px;
   height: 80vh;
-  max-height: 600px;
   background: var(--bg-default);
   border-radius: var(--border-radius-default);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
@@ -115,7 +114,7 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   font-family: var(--font-default);
   font-size: var(--font-size-controls);
-  line-height: var(--line-height-controls);
+  line-height: calc(var(--font-size-controls) * 1.2);
   color: var(--text-color-default);
   min-width: 150px;
   border-radius: var(--border-radius-default);
@@ -125,7 +124,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .select-trigger {
   font-size: var(--font-size-controls);
-  line-height: var(--line-height-controls);
+  line-height: calc(var(--font-size-controls) * 1.2);
   display: flex;
   justify-content: space-between;
   border-radius: var(--border-radius-default);
@@ -250,7 +249,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 12px 12px;
   font-family: var(--font-default);
   font-size: var(--font-size-controls);
-  line-height: var(--line-height-controls);
+  line-height: calc(var(--font-size-controls) * 1.2);
   outline: none;
 }
 .input-error {
@@ -349,7 +348,7 @@ input::placeholder {
 }
 
 /* Responsive layout for small screens */
-@media (max-width: 1092px) {
+@media (max-width: 972px) {
   .packages-wrapper {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
@@ -358,26 +357,39 @@ input::placeholder {
 }
 
 .package-view {
+  box-sizing: border-box;
   border-radius: var(--border-radius-default);
   border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  padding: 16px;
+  padding: 32px 32px;
+  position: relative;
+}
+
+.package-popular-badge {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--warning);
+  color: var(--text-color-reverse);
+  padding: 4px 8px;
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-default);
+  line-height: var(--line-height-default);
+  font-family: var(--font-default);
 }
 
 .package-function {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: auto;
-  gap: 4px;
 }
 
 .package-icon-check::before {
   content: '\2713';
   font-size: 16px;
+  margin-right: 8px;
 }
 
 .divider {

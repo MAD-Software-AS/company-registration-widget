@@ -1,13 +1,17 @@
 import { Package } from '../../Package.model'
 import React from 'react'
 
-interface PackageViewProps extends Package {
+export interface PackageViewProps extends Package {
+  t: {
+    mostPopular: string
+  }
   onSelect?: () => void
   priceIndex: number
   currency?: string
 }
 
 const PackageView: React.FC<PackageViewProps> = ({
+  t,
   name,
   prices,
   period,
@@ -17,6 +21,7 @@ const PackageView: React.FC<PackageViewProps> = ({
   caption,
   action,
   currency = 'kr',
+  mostPopular,
   onSelect
 }) => {
   const price = prices[priceIndex]
@@ -25,27 +30,49 @@ const PackageView: React.FC<PackageViewProps> = ({
 
   return (
     <div className="package-view">
-      <div className="text-center">
-        <h3 className="text" style={{ marginBottom: '24px' }}>
-          <strong>{name}</strong>
-        </h3>
-        <h1 className="title" style={{ marginBottom: '12px' }}>
-          {price} {currency}
-        </h1>
-        <span className="text-caption">{period}</span>
+      {mostPopular && (
+        <div className="package-popular-badge">{t.mostPopular}</div>
+      )}
+
+      <div>
+        <div className="text-center">
+          <h3 className="text" style={{ marginBottom: '24px' }}>
+            <strong>{name}</strong>
+          </h3>
+          <h1 className="title" style={{ marginBottom: '12px' }}>
+            {price} {currency}
+          </h1>
+          <span className="text-caption">{period}</span>
+        </div>
         <div className="divider" />
         {inherits && (
-          <div className="text" style={{ marginBottom: '32px' }}>
+          <div className="text" style={{ marginBottom: '24px' }}>
             <strong>{inherits}</strong>
           </div>
         )}
         <div>
-          {functions.map((func, idx) => (
-            <div key={idx} className="package-function">
-              <span className="package-icon-check" />
-              <span className="text">
-                <strong>{func}</strong>
-              </span>
+          {functions.map(({ name, subItems }, idx) => (
+            <div
+              key={idx}
+              className="package-function"
+              style={{ marginBottom: '8px' }}
+            >
+              <div>
+                <span className="package-icon-check" />
+                <span className="text">
+                  <strong>{name}</strong>
+                </span>
+              </div>
+              {subItems?.map((subItem, subIdx) => (
+                <div
+                  key={subIdx}
+                  className="text"
+                  style={{ marginLeft: '20px', marginTop: '8px' }}
+                >
+                  <span className="package-icon-check" />
+                  <span className="text">{subItem}</span>
+                </div>
+              ))}
             </div>
           ))}
         </div>

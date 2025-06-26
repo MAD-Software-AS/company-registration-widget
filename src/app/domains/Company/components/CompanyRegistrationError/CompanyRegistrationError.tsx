@@ -2,31 +2,27 @@ import React from 'react'
 import useWidgetContext from '../../../../contexts/Widget/useWidgetContext'
 
 export interface ErrorMessage {
-  userAlreadyExists: string
-  unexpectedError: string
-  companyAlreadyRegistered: string
+  userAlreadyExists: string[]
+  unexpectedError: string[]
+  companyAlreadyRegistered: string[]
 }
 
 export interface CompanyRegistrationErrorProps {
-  t?: {
+  t: {
     title: string
     continueAction: string
-    errorMessages?: ErrorMessage
+    messages: ErrorMessage
   }
   errorType: string | null
 }
 
 const getErrorMessage = ({
   type,
-  t = {
-    userAlreadyExists: 'User already exists. Please try a different email.',
-    unexpectedError: 'An unexpected error occurred. Please try again later.',
-    companyAlreadyRegistered: 'This company is already registered.'
-  }
+  t
 }: {
   type: string | null
-  t?: ErrorMessage
-}) => {
+  t: ErrorMessage
+}): string[] => {
   switch (type) {
     case 'auth/email-already-exists':
       return t.userAlreadyExists
@@ -38,15 +34,12 @@ const getErrorMessage = ({
 }
 
 const CompanyRegistrationError: React.FC<CompanyRegistrationErrorProps> = ({
-  t: { title, errorMessages, continueAction } = {
-    title: 'Company Registration Error',
-    continueAction: 'Continue'
-  },
+  t: { title, messages, continueAction },
   errorType
 }) => {
   const { reset } = useWidgetContext()
 
-  const message = getErrorMessage({ type: errorType, t: errorMessages })
+  const _messages = getErrorMessage({ type: errorType, t: messages })
 
   return (
     <div
@@ -58,21 +51,23 @@ const CompanyRegistrationError: React.FC<CompanyRegistrationErrorProps> = ({
         height: '100%'
       }}
     >
-      <h1
-        className="subtitle"
-        style={{ textAlign: 'center', marginBottom: '12px' }}
-      >
+      <h1 className="subtitle text-center" style={{ marginBottom: '12px' }}>
         {title}
       </h1>
 
-      <span
-        className="text"
-        style={{ textAlign: 'center', marginBottom: '24px' }}
-      >
-        {message}
-      </span>
+      {_messages.map((message, index) => (
+        <span key={index} className="text text-center">
+          {message}
+        </span>
+      ))}
 
-      <button className="btn btn-primary" onClick={reset}>
+      <button
+        className="btn btn-primary"
+        style={{
+          marginTop: '24px'
+        }}
+        onClick={reset}
+      >
         {continueAction}
       </button>
     </div>

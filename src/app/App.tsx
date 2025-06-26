@@ -4,7 +4,7 @@ import React from 'react'
 import WidgetProvider from './contexts/Widget/WidgetProvider'
 
 interface AppProps {
-  t?: WidgetProps['t']
+  t: WidgetProps['t']
   env: string
 }
 

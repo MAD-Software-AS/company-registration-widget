@@ -1,8 +1,10 @@
+import PackageView, { PackageViewProps } from '../PackageView/PackageView'
+
 import { Package } from '../../Package.model'
-import PackageView from '../PackageView/PackageView'
 import React from 'react'
 
-interface PackageSelectProps {
+export interface PackageSelectProps {
+  t: PackageViewProps['t']
   packages: Package[]
   priceIndex: number
   onSelect?: () => void
@@ -10,6 +12,7 @@ interface PackageSelectProps {
 }
 
 const PackageSelect: React.FC<PackageSelectProps> = ({
+  t,
   packages,
   priceIndex,
   onSelect,
@@ -23,6 +26,7 @@ const PackageSelect: React.FC<PackageSelectProps> = ({
             currency={currency}
             onSelect={onSelect}
             priceIndex={priceIndex}
+            t={t}
             {...pkg}
           />
         </div>

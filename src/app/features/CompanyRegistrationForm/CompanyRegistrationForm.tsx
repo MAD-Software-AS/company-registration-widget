@@ -17,7 +17,7 @@ import { STEPS } from '../../contexts/Widget/WidgetContext'
 import useWidgetContext from '../../contexts/Widget/useWidgetContext'
 
 export interface CompanyRegistrationFormProps {
-  t?: {
+  t: {
     packageSelectForm: PackageSelectFormProps['t']
     companyDetailsForm: CompanyDetailsFormProps['t']
     companyCredentialsForm: CompanyCredentialsFormProps['t']
@@ -41,18 +41,6 @@ const CompanyRegistrationForm: React.FC<CompanyRegistrationFormProps> = ({
     nextAction,
     resetAction,
     submitAction
-  } = {
-    packageSelectForm: {
-      packages: [],
-      companySizes: [],
-      title: '',
-      currency: ''
-    },
-    title: 'Register Your Company',
-    subtitle: 'Create your business profile in just a few steps.',
-    resetAction: 'Reset',
-    nextAction: 'Next',
-    submitAction: 'Register'
   }
 }) => {
   const { step } = useWidgetContext()
