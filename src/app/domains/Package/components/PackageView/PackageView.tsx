@@ -63,16 +63,16 @@ const PackageView: React.FC<PackageViewProps> = ({
                   <strong>{name}</strong>
                 </span>
               </div>
-              {subItems?.map((subItem, subIdx) => (
-                <div
-                  key={subIdx}
-                  className="text"
-                  style={{ marginLeft: '20px', marginTop: '8px' }}
-                >
-                  <span className="package-icon-check" />
-                  <span className="text">{subItem}</span>
-                </div>
-              ))}
+              {subItems?.length && (
+                <ul style={{ marginBlock: '4px' }}>
+                  {subItems.map((subItem, subIdx) => (
+                    <li key={subIdx} className="text">
+                      <span className="package-icon-check" />
+                      <span className="text">{subItem}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           ))}
         </div>
