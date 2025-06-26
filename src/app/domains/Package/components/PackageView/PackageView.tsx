@@ -68,7 +68,7 @@ const PackageView: React.FC<PackageViewProps> = ({
                   {subItems.map((subItem, subIdx) => (
                     <li key={subIdx} className="text">
                       <span className="package-icon-check" />
-                      <span className="text">{subItem}</span>
+                      <span className="text-caption">{subItem}</span>
                     </li>
                   ))}
                 </ul>
