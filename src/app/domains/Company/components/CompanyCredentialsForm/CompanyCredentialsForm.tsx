@@ -130,10 +130,10 @@ const CompanyCredentialsForm: React.FC<CompanyCredentialsFormProps> = ({
       </FormField>
       <FormField error={errors.termsAccepted}>
         <Checkbox checked={formData.termsAccepted} onChange={handleTermsChange}>
-          <span className="text">
+          <span className="text-caption">
             {t.termsPlaceholder}{' '}
             <a
-              className="text"
+              className="text-caption"
               href={t.termsLink}
               target="_blank"
               rel="noreferrer"

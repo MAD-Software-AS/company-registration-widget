@@ -114,12 +114,12 @@ const CompanySelect: React.FC<CompanySelectProps> = ({
                     justifyContent: 'space-between'
                   }}
                 >
-                  <div>{option.name}</div>
-                  <div>
+                  <div className="text">{option.name}</div>
+                  <div className="text-caption">
                     {organizationNumber} {option.orgNumber}
                   </div>
                 </div>
-                <div>
+                <div className="text-caption">
                   {option.address.postalCode} {option.address.municipality}
                 </div>
               </div>
