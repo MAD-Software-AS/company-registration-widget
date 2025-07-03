@@ -23,8 +23,16 @@ const PackageSelectForm: React.FC<PackageSelectFormProps> = ({
 
   const { setState } = useWidgetContext()
 
-  const handlePackageSelect = () => {
-    setState((prev) => ({ ...prev, step: STEPS.COMPANY_DETAILS }))
+  const handlePackageSelect = (id: string, period: string) => {
+    setState((prev) => ({
+      ...prev,
+      formData: {
+        ...prev.formData,
+        packageId: id,
+        packagePeriod: period
+      },
+      step: STEPS.COMPANY_DETAILS
+    }))
   }
 
   return (

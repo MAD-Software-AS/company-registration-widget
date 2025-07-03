@@ -11,7 +11,7 @@ import { STEPS, StepType } from '../../../../contexts/Widget/WidgetContext'
 import { POS_PROVIDERS } from '../../Company.constants'
 import React from 'react'
 import camelize from '../../../../utils/camelize'
-// import getApiUrl from '../../../../../../utils/getApiUrl'
+// import getApiUrl from '../../../../utils/getApiUrl'
 import useWidgetContext from '../../../../contexts/Widget/useWidgetContext'
 
 interface CompanyRegistrationActionsProps {
@@ -40,6 +40,7 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
     submitState,
     setSubmitState,
     step
+
     // env
   } = useWidgetContext()
 
@@ -76,7 +77,6 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
 
     const data = {
       companyData: {
-        email: formData.email,
         organizationNumber: formData.companyData?.orgNumber,
         posProvider: posProvider,
         phone: formData.companyData?.phoneNumber,
@@ -86,6 +86,10 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
         fullName: formData.fullName,
         email: formData.email,
         password: formData.password
+      },
+      packageData: {
+        objectId: formData.packageId,
+        period: formData.packagePeriod
       }
     }
 

@@ -10,6 +10,8 @@ export const STEPS = {
 export type StepType = (typeof STEPS)[keyof typeof STEPS]
 
 export interface WidgetState {
+  packageId: string | null
+  packagePeriod: string | null
   companyData: CompanyType | null
   posProvider: string | null
   posProviderName: string | null
@@ -44,6 +46,8 @@ interface WidgetContextValues {
 }
 
 export const initialFormData: WidgetState = {
+  packageId: null,
+  packagePeriod: null,
   termsAccepted: false,
   companyData: null,
   posProvider: null,

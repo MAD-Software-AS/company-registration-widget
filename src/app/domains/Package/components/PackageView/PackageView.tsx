@@ -5,13 +5,15 @@ export interface PackageViewProps extends Package {
   t: {
     mostPopular: string
   }
-  onSelect?: () => void
+  onSelect?: (id: string, period: string) => void
   priceIndex: number
   currency?: string
 }
 
 const PackageView: React.FC<PackageViewProps> = ({
   t,
+  objectId,
+  periodKey,
   name,
   prices,
   period,
@@ -26,7 +28,7 @@ const PackageView: React.FC<PackageViewProps> = ({
 }) => {
   const price = prices[priceIndex]
 
-  const handleSelect = () => onSelect?.()
+  const handleSelect = () => onSelect?.(objectId, periodKey)
 
   return (
     <div className="package-view">

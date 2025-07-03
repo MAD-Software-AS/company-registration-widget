@@ -62,9 +62,11 @@
             ],
             packages: [
               {
+                objectId: 'MAD Start', // 'MAD Start' | 'MAD Pro' | 'MAD Enterprise'
                 name: 'MAD Start',
                 prices: [490, 440, 390, 340, 290],
                 period: 'per avdeling/mnd',
+                periodKey: 'monthly', // 'monthly' | 'yearly'
                 inherits: null,
                 functions: [
                   { name: 'Kontrollsenter', subItems: ['Live dashboard', 'KPI-oversikt med fargekoder', 'Budsjettmodul'] },
@@ -75,9 +77,11 @@
                 mostPopular: false
               },
               {
+                objectId: 'MAD Pro', // 'MAD Start' | 'MAD Pro' | 'MAD Enterprise'
                 name: 'MAD Pro',
                 prices: [1290, 1240, 1190, 1140, 1090],
                 period: 'per avdeling/mnd',
+                periodKey: 'monthly', // 'monthly' | 'yearly'
                 inherits: 'Alt fra Start +',
                 functions: [
                   { name: 'MAD Play' },
@@ -91,9 +95,11 @@
                 mostPopular: true
               },
               {
+                objectId: 'MAD Enterprise', // 'MAD Start' | 'MAD Pro' | 'MAD Enterprise'
                 name: 'MAD Enterprise',
                 prices: [2990, 2940, 2890, 2840, 2590],
                 period: 'per avdeling/mnd',
+                periodKey: 'monthly', // 'monthly' | 'yearly'
                 inherits: 'Alt fra Pro +',
                 functions: [
                   { name: 'Autolønn' },
@@ -141,7 +147,6 @@
                 posProviders: {
                   fixitOnline: 'Fixit Online',
                   com2gether: 'Com2gether',
-                  leverandør: 'Leverandør',
                   easyUpdate: 'Easy Update',
                   egHano: 'EG Hano',
                   handelsdata: 'Handelsdata',
@@ -163,12 +168,25 @@
           formImage: 'https://cdn.prod.website-files.com/6846900d35050ebd989ab0ea/6852699229e51e449c064c9c_Jente_saccosekk_u_planter.png'
         },
         companyRegistrationSuccess: {
-          title: 'Bekreft e-post adressen din!',
-					messages: [
-						'Suksess! Vi har sendt en e-post til {{email}}',
-						'Aktiver kontoen din med å trykke på knappen i e-posten',
-						'E-posten kommer normalt innen et par minutter.'
-					],
+          supportedPosProviders: ['fixitOnline'], // 'fixitOnline', 'com2gether', 'easyUpdate', 'egHano', 'handelsdata', 'norskButikkdata', 'sharpWellness', 'suppler', 'timma', 'touchSoft'
+          successMessage: {
+            title: 'Bekreft e-post adressen din!',
+            messages: [
+              'Suksess! Vi har sendt en e-post til {{email}}',
+              'Aktiver kontoen din med å trykke på knappen i e-posten',
+              'E-posten kommer normalt innen et par minutter.'
+            ],
+          },
+          unhandledPosProviderMessage: {
+            title: "🛰️ Hello Houston …",
+            messages: [
+              "POS-leverandøren din har foreløpig ingen integrasjon med MAD Software.",
+              "Vi har derfor sendt dem en henvendelse med beskjed om at du ønsker at de etablerer datatilgang. Du står selvfølgelig på kopi.",
+              "",
+              "🚀 Din 30-dagers gratis prøveperiode med superkrefter er satt på pause,",
+              "og den starter først når en datatilgang er på plass."
+            ]
+          }
 			  },
         companyRegistrationError: {
           title: 'Firma Registreringsfeil',

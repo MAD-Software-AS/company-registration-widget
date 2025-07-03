@@ -14,7 +14,6 @@ export interface PosProviderSelectProps {
     posProviders: {
       fixitOnline: string
       com2gether: string
-      leverandør: string
       easyUpdate: string
       egHano: string
       handelsdata: string
@@ -35,7 +34,6 @@ const PosProviderSelect: React.FC<PosProviderSelectProps> = ({
     posProviders: {
       fixitOnline,
       com2gether,
-      leverandør,
       easyUpdate,
       egHano,
       handelsdata,
@@ -61,7 +59,6 @@ const PosProviderSelect: React.FC<PosProviderSelectProps> = ({
   const items = [
     { name: fixitOnline, value: POS_PROVIDERS.FIXIT_ONLINE },
     { name: com2gether, value: POS_PROVIDERS.COM2GETHER },
-    { name: leverandør, value: POS_PROVIDERS.LEVANDØR },
     { name: easyUpdate, value: POS_PROVIDERS.EASY_UPDATE },
     { name: egHano, value: POS_PROVIDERS.EG_HANO },
     { name: handelsdata, value: POS_PROVIDERS.HANDELSDATA },

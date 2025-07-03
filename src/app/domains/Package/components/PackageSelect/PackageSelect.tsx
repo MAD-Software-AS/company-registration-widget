@@ -7,7 +7,7 @@ export interface PackageSelectProps {
   t: PackageViewProps['t']
   packages: Package[]
   priceIndex: number
-  onSelect?: () => void
+  onSelect?: PackageViewProps['onSelect']
   currency?: string
 }
 
