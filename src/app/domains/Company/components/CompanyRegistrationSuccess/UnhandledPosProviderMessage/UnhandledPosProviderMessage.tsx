@@ -18,7 +18,7 @@ const UnhandledPosProviderMessage: React.FC<
         alignItems: 'center',
         justifyContent: 'center',
         height: '100%',
-        minHeight: '300px'
+        minHeight: '350px'
       }}
     >
       <h1 className="subtitle text-center" style={{ marginBottom: '24px' }}>

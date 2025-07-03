@@ -48,7 +48,8 @@ const CompanyRegistrationError: React.FC<CompanyRegistrationErrorProps> = ({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '100%'
+        height: '100%',
+        minHeight: '350px'
       }}
     >
       <h1 className="subtitle text-center" style={{ marginBottom: '24px' }}>

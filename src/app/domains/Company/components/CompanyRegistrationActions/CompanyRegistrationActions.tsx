@@ -11,7 +11,7 @@ import { STEPS, StepType } from '../../../../contexts/Widget/WidgetContext'
 import { POS_PROVIDERS } from '../../Company.constants'
 import React from 'react'
 import camelize from '../../../../utils/camelize'
-// import getApiUrl from '../../../../utils/getApiUrl'
+import getApiUrl from '../../../../utils/getApiUrl'
 import useWidgetContext from '../../../../contexts/Widget/useWidgetContext'
 
 interface CompanyRegistrationActionsProps {
@@ -33,16 +33,8 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
     companyDetailsFormErrors
   }
 }) => {
-  const {
-    formData,
-    reset,
-    setState,
-    submitState,
-    setSubmitState,
-    step
-
-    // env
-  } = useWidgetContext()
+  const { formData, reset, setState, submitState, setSubmitState, step, env } =
+    useWidgetContext()
 
   const handleNext = () => {
     setState((prev) => {
@@ -93,21 +85,19 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
       }
     }
 
-    console.log(data)
+    const API_URL = getApiUrl(env)
 
-    // const API_URL = getApiUrl(env)
+    const res = await fetch(`${API_URL}/companies/register`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
 
-    // const res = await fetch(`${API_URL}/companies/register`, {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(data)
-    // })
+    const resData = await res.json()
 
-    // const resData = await res.json()
-
-    // if (!res.ok) {
-    //   return resData?.error || 'Unexpected Error'
-    // }
+    if (!res.ok) {
+      return resData?.error || 'Unexpected Error'
+    }
 
     return null
   }
