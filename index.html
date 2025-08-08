@@ -62,11 +62,11 @@
             ],
             packages: [
               {
-                objectId: 'MAD Start', // 'MAD Start' | 'MAD Pro' | 'MAD Enterprise'
+                objectId: 'MAD_START', // 'MAD_START' | 'MAD_PRO' | 'MAD_ENTERPRISE'
                 name: 'MAD Start',
                 prices: [490, 440, 390, 340, 290],
                 period: 'per avdeling/mnd',
-                periodKey: 'monthly', // 'monthly' | 'yearly'
+                periodKey: 'MONTHLY', // 'MONTHLY' | 'YEARLY'
                 inherits: null,
                 functions: [
                   { name: 'Kontrollsenter', subItems: ['Live dashboard', 'KPI-oversikt med fargekoder', 'Budsjettmodul'] },
@@ -77,11 +77,11 @@
                 mostPopular: false
               },
               {
-                objectId: 'MAD Pro', // 'MAD Start' | 'MAD Pro' | 'MAD Enterprise'
+                objectId: 'MAD_PRO', // 'MAD_START' | 'MAD_PRO' | 'MAD_ENTERPRISE'
                 name: 'MAD Pro',
                 prices: [1290, 1240, 1190, 1140, 1090],
                 period: 'per avdeling/mnd',
-                periodKey: 'monthly', // 'monthly' | 'yearly'
+                periodKey: 'MONTHLY', // 'MONTHLY' | 'YEARLY'
                 inherits: 'Alt fra Start +',
                 functions: [
                   { name: 'MAD Play' },
@@ -95,11 +95,11 @@
                 mostPopular: true
               },
               {
-                objectId: 'MAD Enterprise', // 'MAD Start' | 'MAD Pro' | 'MAD Enterprise'
+                objectId: 'MAD_ENTERPRISE', // 'MAD_START' | 'MAD_PRO' | 'MAD_ENTERPRISE'
                 name: 'MAD Enterprise',
                 prices: [2990, 2940, 2890, 2840, 2590],
                 period: 'per avdeling/mnd',
-                periodKey: 'monthly', // 'monthly' | 'yearly'
+                periodKey: 'MONTHLY', // 'MONTHLY' | 'YEARLY'
                 inherits: 'Alt fra Pro +',
                 functions: [
                   { name: 'Autolønn' },
@@ -198,7 +198,7 @@
           }
         }
       },
-     env: 'dev'
+     env: 'dev-local'
     });
   }
 </script>

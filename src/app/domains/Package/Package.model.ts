@@ -1,9 +1,23 @@
+export enum PACKAGE_NAMES {
+  MAD_START = 'MAD_START',
+  MAD_PRO = 'MAD_PRO',
+  MAD_ENTERPRISE = 'MAD_ENTERPRISE'
+}
+
+export enum PACKAGE_PERIODS {
+  MONTHLY = 'MONTHLY',
+  YEARLY = 'YEARLY'
+}
+
+export type PackageNames = keyof typeof PACKAGE_NAMES
+export type PackagePeriods = keyof typeof PACKAGE_PERIODS
+
 export interface Package {
-  objectId: 'MAD Start' | 'MAD Pro' | 'MAD Enterprise'
+  objectId: PackageNames
   name: string
   prices: number[]
   period: string
-  periodKey: 'monthly' | 'yearly'
+  periodKey: PackagePeriods
   inherits: string | null
   functions: {
     name: string
