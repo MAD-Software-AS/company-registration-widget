@@ -72,7 +72,8 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
         organizationNumber: formData.companyData?.orgNumber,
         posProvider: posProvider,
         phone: formData.companyData?.phoneNumber,
-        name: formData.companyData?.name
+        name: formData.companyData?.name,
+        promoCode: formData.appliedPromoCode?.code || null
       },
       userData: {
         fullName: formData.fullName,

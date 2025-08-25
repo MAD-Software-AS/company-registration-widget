@@ -5,6 +5,7 @@ export interface ErrorMessage {
   userAlreadyExists: string[]
   unexpectedError: string[]
   companyAlreadyRegistered: string[]
+  invalidPromoCode: string[]
 }
 
 export interface CompanyRegistrationErrorProps {
@@ -28,6 +29,8 @@ const getErrorMessage = ({
       return t.userAlreadyExists
     case 'company_already_exists':
       return t.companyAlreadyRegistered
+    case 'invalid_promo_code':
+      return t.invalidPromoCode
     default:
       return t.unexpectedError
   }
