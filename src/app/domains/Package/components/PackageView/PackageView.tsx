@@ -1,4 +1,5 @@
 import { Package } from '../../Package.model'
+import { PromoCode } from '../../../PromoCode/PromoCode.model'
 import React from 'react'
 
 export interface PackageViewProps extends Package {
@@ -8,6 +9,7 @@ export interface PackageViewProps extends Package {
   onSelect?: (id: string, period: string) => void
   priceIndex: number
   currency?: string
+  appliedPromoCode?: PromoCode | null
 }
 
 const PackageView: React.FC<PackageViewProps> = ({
@@ -24,9 +26,29 @@ const PackageView: React.FC<PackageViewProps> = ({
   action,
   currency = 'kr',
   mostPopular,
-  onSelect
+  onSelect,
+  appliedPromoCode
 }) => {
-  const price = prices[priceIndex]
+  const originalPrice = prices[priceIndex]
+
+  const calculateDiscountedPrice = (
+    originalPrice: number,
+    promoCode: PromoCode | null
+  ) => {
+    if (!promoCode) return originalPrice
+
+    if (promoCode.type === 'percentage') {
+      return Math.round(originalPrice * (1 - promoCode.discount / 100))
+    }
+
+    return originalPrice
+  }
+
+  const finalPrice = calculateDiscountedPrice(
+    originalPrice,
+    appliedPromoCode || null
+  )
+  const hasDiscount = appliedPromoCode && finalPrice !== originalPrice
 
   const handleSelect = () => onSelect?.(objectId, periodKey)
 
@@ -41,9 +63,22 @@ const PackageView: React.FC<PackageViewProps> = ({
           <h3 className="text" style={{ marginBottom: '24px' }}>
             <strong>{name}</strong>
           </h3>
-          <h1 className="title" style={{ marginBottom: '12px' }}>
-            {price} {currency}
+          <h1
+            className="title"
+            style={{ marginBottom: hasDiscount ? '4px' : '12px' }}
+          >
+            {finalPrice} {currency}
           </h1>
+          {hasDiscount && (
+            <div style={{ marginBottom: '8px' }}>
+              <span
+                className="text-caption"
+                style={{ textDecoration: 'line-through' }}
+              >
+                {originalPrice} {currency}
+              </span>
+            </div>
+          )}
           <span className="text-caption">{period}</span>
         </div>
         <div className="divider" />

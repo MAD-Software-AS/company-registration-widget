@@ -442,3 +442,60 @@ ul, li {
   margin: 0;
   list-style: none;
 }
+
+/* Promo Code Styles */
+.promo-code-input {
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.promo-code-field {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.promo-code-field .input {
+  flex: 1;
+  max-height: 42px;
+}
+
+.promo-code-field .btn {
+  white-space: nowrap;
+  min-width: 120px;
+}
+
+.promo-code-applied {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 16px;
+  background-color: var(--bg-default);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-default);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.promo-code-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.promo-code-btn-remove {
+  background-color: var(--bg-default);
+  color: var(--text-color-default);
+  cursor: pointer;
+  border-radius: var(--border-radius-default);
+  border: 1px solid var(--border-color);
+  padding: 4px 8px;
+  font-size: var(--font-size-default);
+  line-height: var(--line-height-default);
+  font-family: var(--font-default);
+}
+
+.promo-code-btn-remove:hover {
+  background-color: var(--bg-accent);
+}

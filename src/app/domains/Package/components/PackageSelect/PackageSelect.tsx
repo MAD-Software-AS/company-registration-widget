@@ -9,6 +9,7 @@ export interface PackageSelectProps {
   priceIndex: number
   onSelect?: PackageViewProps['onSelect']
   currency?: string
+  appliedPromoCode?: PackageViewProps['appliedPromoCode']
 }
 
 const PackageSelect: React.FC<PackageSelectProps> = ({
@@ -16,7 +17,8 @@ const PackageSelect: React.FC<PackageSelectProps> = ({
   packages,
   priceIndex,
   onSelect,
-  currency
+  currency,
+  appliedPromoCode
 }) => {
   return (
     <div className="packages-wrapper">
@@ -27,6 +29,7 @@ const PackageSelect: React.FC<PackageSelectProps> = ({
             onSelect={onSelect}
             priceIndex={priceIndex}
             t={t}
+            appliedPromoCode={appliedPromoCode}
             {...pkg}
           />
         </div>

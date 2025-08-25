@@ -1,4 +1,5 @@
 import { CompanyType } from 'src/app/domains/Company/Company.constants'
+import { PromoCode } from 'src/app/domains/PromoCode/PromoCode.model'
 import { createContext } from 'react'
 
 export const STEPS = {
@@ -19,6 +20,7 @@ export interface WidgetState {
   fullName: string | null
   email: string | null
   termsAccepted: boolean
+  appliedPromoCode: PromoCode | null
 }
 
 export interface SubmitState {
@@ -54,7 +56,8 @@ export const initialFormData: WidgetState = {
   posProviderName: null,
   password: null,
   fullName: null,
-  email: null
+  email: null,
+  appliedPromoCode: null
 }
 export const initialSubmitState: SubmitState = {
   isLoading: false,
