@@ -95,11 +95,11 @@ const PackageSelectForm: React.FC<PackageSelectFormProps> = ({
           appliedPromoCode={formData.appliedPromoCode}
         />
       </div>
-      <div className="text-center" style={{ marginTop: '32px' }}>
+      <div className="text-center" style={{ marginTop: '24px' }}>
         <span className="text">{pricesDescription}</span>
       </div>
       {promoCode && (
-        <div style={{ marginTop: '24px' }}>
+        <div style={{ marginTop: '12px' }}>
           <PromoCodeInput
             t={promoCode}
             onPromoCodeApplied={handlePromoCodeApplied}

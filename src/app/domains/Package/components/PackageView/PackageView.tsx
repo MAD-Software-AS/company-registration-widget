@@ -88,7 +88,7 @@ const PackageView: React.FC<PackageViewProps> = ({
           </div>
         )}
         <div>
-          {functions.map(({ name, subItems }, idx) => (
+          {functions.map(({ name, subItems, url }, idx) => (
             <div
               key={idx}
               className="package-function"
@@ -96,8 +96,15 @@ const PackageView: React.FC<PackageViewProps> = ({
             >
               <div>
                 <span className="package-icon-check" />
-                <span className="text">
-                  <strong>{name}</strong>
+                <span className="text" style={{ cursor: 'pointer' }}>
+                  <a
+                    href={url}
+                    target="_blank"
+                    className="unset-all"
+                    rel="noopener noreferrer"
+                  >
+                    <strong>{name}</strong>
+                  </a>
                 </span>
               </div>
               {subItems?.length && (
@@ -119,7 +126,7 @@ const PackageView: React.FC<PackageViewProps> = ({
 
       <div
         style={{
-          marginTop: '32px',
+          marginTop: '24px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center'

@@ -499,3 +499,7 @@ ul, li {
 .promo-code-btn-remove:hover {
   background-color: var(--bg-accent);
 }
+
+.unset-all {
+  all: unset;
+}

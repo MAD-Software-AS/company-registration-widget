@@ -22,6 +22,7 @@ export interface Package {
   functions: {
     name: string
     subItems?: string[]
+    url?: string
   }[]
   action: { isFree: boolean; text: string }
   caption: string
