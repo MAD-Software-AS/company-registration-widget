@@ -12,6 +12,7 @@ import { POS_PROVIDERS } from '../../Company.constants'
 import React from 'react'
 import camelize from '../../../../utils/camelize'
 import getApiUrl from '../../../../utils/getApiUrl'
+import getFacebookPixelInstance from '../../../../utils/getFacebookPixelInstance'
 import useWidgetContext from '../../../../contexts/Widget/useWidgetContext'
 
 interface CompanyRegistrationActionsProps {
@@ -98,6 +99,12 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
 
     if (!res.ok) {
       return resData?.error || 'Unexpected Error'
+    }
+
+    // Track facebook pixel events
+    const fbq = getFacebookPixelInstance()
+    if (fbq) {
+      fbq('track', 'CompleteRegistration')
     }
 
     return null

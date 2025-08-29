@@ -9,8 +9,6 @@ interface AppProps {
 }
 
 const App: React.FC<AppProps> = ({ env, t }) => {
-  console.log('Facebook Pixel available:', typeof fbq !== 'undefined')
-
   return (
     <WidgetProvider env={env}>
       <Widget t={t} />
