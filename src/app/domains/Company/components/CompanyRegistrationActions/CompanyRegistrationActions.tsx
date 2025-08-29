@@ -101,14 +101,10 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
       return resData?.error || 'Unexpected Error'
     }
 
-    // Track purchase event with Facebook Pixel
+    // Track facebook pixel events
     const fbq = getFacebookPixelInstance()
     if (fbq) {
-      // const priceWithDiscount = calculateDiscountedPrice(formData.p)
-      // fbq('track', 'Purchase', {
-      //   value: priceWithDiscount,
-      //   currency: 'NOK'
-      // })
+      fbq('track', 'CompleteRegistration')
     }
 
     return null
