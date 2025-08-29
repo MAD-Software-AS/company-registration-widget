@@ -1,4 +1,5 @@
 import { CompanyType } from 'src/app/domains/Company/Company.constants'
+import { Package } from 'src/app/domains/Package/Package.model'
 import { PromoCode } from 'src/app/domains/PromoCode/PromoCode.model'
 import { createContext } from 'react'
 
@@ -11,8 +12,6 @@ export const STEPS = {
 export type StepType = (typeof STEPS)[keyof typeof STEPS]
 
 export interface WidgetState {
-  packageId: string | null
-  packagePeriod: string | null
   companyData: CompanyType | null
   posProvider: string | null
   posProviderName: string | null
@@ -21,6 +20,7 @@ export interface WidgetState {
   email: string | null
   termsAccepted: boolean
   appliedPromoCode: PromoCode | null
+  selectedPackage: Package | null
 }
 
 export interface SubmitState {
@@ -48,8 +48,6 @@ interface WidgetContextValues {
 }
 
 export const initialFormData: WidgetState = {
-  packageId: null,
-  packagePeriod: null,
   termsAccepted: false,
   companyData: null,
   posProvider: null,
@@ -57,6 +55,7 @@ export const initialFormData: WidgetState = {
   password: null,
   fullName: null,
   email: null,
+  selectedPackage: null,
   appliedPromoCode: null
 }
 export const initialSubmitState: SubmitState = {

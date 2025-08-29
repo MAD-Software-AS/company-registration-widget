@@ -12,6 +12,7 @@ import { POS_PROVIDERS } from '../../Company.constants'
 import React from 'react'
 import camelize from '../../../../utils/camelize'
 import getApiUrl from '../../../../utils/getApiUrl'
+import getFacebookPixelInstance from 'src/app/utils/getFacebookPixelInstance'
 import useWidgetContext from '../../../../contexts/Widget/useWidgetContext'
 
 interface CompanyRegistrationActionsProps {
@@ -98,6 +99,16 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
 
     if (!res.ok) {
       return resData?.error || 'Unexpected Error'
+    }
+
+    // Track purchase event with Facebook Pixel
+    const fbq = getFacebookPixelInstance()
+    if (fbq) {
+      // const priceWithDiscount = calculateDiscountedPrice(formData.p)
+      // fbq('track', 'Purchase', {
+      //   value: priceWithDiscount,
+      //   currency: 'NOK'
+      // })
     }
 
     return null

@@ -1,6 +1,7 @@
 import { Package } from '../../Package.model'
 import { PromoCode } from '../../../PromoCode/PromoCode.model'
 import React from 'react'
+import calculateDiscountedPrice from 'src/app/utils/calculateDiscountedPrice'
 
 export interface PackageViewProps extends Package {
   t: {
@@ -30,19 +31,6 @@ const PackageView: React.FC<PackageViewProps> = ({
   appliedPromoCode
 }) => {
   const originalPrice = prices[priceIndex]
-
-  const calculateDiscountedPrice = (
-    originalPrice: number,
-    promoCode: PromoCode | null
-  ) => {
-    if (!promoCode) return originalPrice
-
-    if (promoCode.type === 'percentage') {
-      return Math.round(originalPrice * (1 - promoCode.discount / 100))
-    }
-
-    return originalPrice
-  }
 
   const finalPrice = calculateDiscountedPrice(
     originalPrice,
