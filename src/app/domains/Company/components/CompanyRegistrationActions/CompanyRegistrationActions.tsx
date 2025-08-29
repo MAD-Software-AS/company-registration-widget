@@ -12,7 +12,7 @@ import { POS_PROVIDERS } from '../../Company.constants'
 import React from 'react'
 import camelize from '../../../../utils/camelize'
 import getApiUrl from '../../../../utils/getApiUrl'
-import getFacebookPixelInstance from 'src/app/utils/getFacebookPixelInstance'
+import getFacebookPixelInstance from '../../../../utils/getFacebookPixelInstance'
 import useWidgetContext from '../../../../contexts/Widget/useWidgetContext'
 
 interface CompanyRegistrationActionsProps {

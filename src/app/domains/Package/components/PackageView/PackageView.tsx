@@ -1,7 +1,7 @@
 import { Package } from '../../Package.model'
 import { PromoCode } from '../../../PromoCode/PromoCode.model'
 import React from 'react'
-import calculateDiscountedPrice from 'src/app/utils/calculateDiscountedPrice'
+import calculateDiscountedPrice from '../../../../utils/calculateDiscountedPrice'
 
 export interface PackageViewProps extends Package {
   t: {
