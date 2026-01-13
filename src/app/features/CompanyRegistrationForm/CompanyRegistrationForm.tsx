@@ -81,6 +81,7 @@ const CompanyRegistrationForm: React.FC<CompanyRegistrationFormProps> = ({
           children={<CompanyCredentialsForm t={companyCredentialsForm} />}
           actions={
             <CompanyRegistrationActions
+              isFreeTrial={isFreeTrial}
               t={{
                 resetAction,
                 submitAction,
