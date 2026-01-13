@@ -18,6 +18,7 @@ export interface WidgetProps {
     companyRegistrationSuccess: CompanyRegistrationSuccessProps['t']
     companyRegistrationError: CompanyRegistrationErrorProps['t']
   }
+  isFreeTrial?: boolean
 }
 
 const Widget: React.FC<WidgetProps> = ({
@@ -25,7 +26,8 @@ const Widget: React.FC<WidgetProps> = ({
     companyRegistrationForm,
     companyRegistrationSuccess,
     companyRegistrationError
-  }
+  },
+  isFreeTrial
 }) => {
   const { submitState } = useWidgetContext()
 
@@ -41,7 +43,10 @@ const Widget: React.FC<WidgetProps> = ({
       ) : submitState.isLoading ? (
         <Loading />
       ) : (
-        <CompanyRegistrationForm t={companyRegistrationForm} />
+        <CompanyRegistrationForm
+          t={companyRegistrationForm}
+          isFreeTrial={isFreeTrial}
+        />
       )}
     </div>
   )

@@ -30,6 +30,7 @@ export interface CompanyRegistrationFormProps {
     nextAction: string
     submitAction: string
   }
+  isFreeTrial?: boolean
 }
 
 const CompanyRegistrationForm: React.FC<CompanyRegistrationFormProps> = ({
@@ -44,7 +45,8 @@ const CompanyRegistrationForm: React.FC<CompanyRegistrationFormProps> = ({
     nextAction,
     resetAction,
     submitAction
-  }
+  },
+  isFreeTrial
 }) => {
   const { step } = useWidgetContext()
 
@@ -57,6 +59,7 @@ const CompanyRegistrationForm: React.FC<CompanyRegistrationFormProps> = ({
           children={<CompanyDetailsForm t={companyDetailsForm} />}
           actions={
             <CompanyRegistrationActions
+              isFreeTrial={isFreeTrial}
               t={{
                 resetAction,
                 submitAction,

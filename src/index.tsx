@@ -36,7 +36,12 @@ export default function createComponent(config: any) {
       const root = ReactDOM.createRoot(container)
       root.render(
         <React.StrictMode>
-          <App env={config.env || 'prod'} t={config.t} />
+          <App
+            preSelectedPackageId={config.preSelectedPackageId || null}
+            isFreeTrial={config.isFreeTrial}
+            env={config.env || 'prod'}
+            t={config.t}
+          />
         </React.StrictMode>
       )
     }

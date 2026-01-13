@@ -23,6 +23,7 @@ interface CompanyRegistrationActionsProps {
     companyCredentialsFormErrors?: CompanyCredentialsFormErrors
     companyDetailsFormErrors?: CompanyDetailsFormErrors
   }
+  isFreeTrial?: boolean
 }
 
 const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
@@ -32,7 +33,8 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
     submitAction,
     companyCredentialsFormErrors,
     companyDetailsFormErrors
-  }
+  },
+  isFreeTrial
 }) => {
   const { formData, reset, setState, submitState, setSubmitState, step, env } =
     useWidgetContext()
@@ -84,7 +86,8 @@ const CompanyRegistrationActions: React.FC<CompanyRegistrationActionsProps> = ({
       packageData: {
         objectId: formData.packageId,
         period: formData.packagePeriod
-      }
+      },
+      isFreeTrial: isFreeTrial || false
     }
 
     const API_URL = getApiUrl(env)
