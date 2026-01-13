@@ -21,7 +21,8 @@ const WidgetProvider: React.FC<WidgetProviderProps> = ({
     ...initialWidgetState,
     formData: {
       ...initialWidgetState.formData,
-      packageId: preSelectedPackageId
+      packageId: preSelectedPackageId || null,
+      packagePeriod: preSelectedPackageId ? 'MONTHLY' : null
     },
     step: preSelectedPackageId ? STEPS.COMPANY_DETAILS : STEPS.PLAN_SELECT
   })
