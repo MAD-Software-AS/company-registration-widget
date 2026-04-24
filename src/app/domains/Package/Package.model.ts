@@ -14,7 +14,6 @@ export type PackagePeriods = keyof typeof PACKAGE_PERIODS
 
 export interface Package {
   objectId: PackageNames
-  prefix: string
   name: string
   prices: number[]
   period: string
@@ -28,4 +27,8 @@ export interface Package {
   action: { isFree: boolean; text: string }
   caption: string
   mostPopular: boolean
+
+  // Optional fields
+  prefix?: string
+  nameColor?: string
 }

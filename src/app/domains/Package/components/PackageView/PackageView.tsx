@@ -18,6 +18,8 @@ const PackageView: React.FC<PackageViewProps> = ({
   objectId,
   periodKey,
   name,
+  prefix,
+  nameColor,
   prices,
   period,
   inherits,
@@ -49,7 +51,8 @@ const PackageView: React.FC<PackageViewProps> = ({
       <div>
         <div className="text-center">
           <h3 className="text" style={{ marginBottom: '24px' }}>
-            <strong>{name}</strong>
+            {prefix && <strong>{prefix}&nbsp;</strong>}
+            <strong style={{ color: nameColor }}>{name}</strong>
           </h3>
           <h1
             className="title"
