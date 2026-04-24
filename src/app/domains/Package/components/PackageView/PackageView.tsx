@@ -59,10 +59,7 @@ const PackageView: React.FC<PackageViewProps> = ({
           </h3>
           {description && (
             <div style={{ marginBottom: '16px' }}>
-              <span
-                className="text"
-                style={{ fontSize: '15px', lineHeight: '22px' }}
-              >
+              <span className="text" style={{ fontSize: '15px' }}>
                 {description}
               </span>
             </div>
