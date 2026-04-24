@@ -4,7 +4,6 @@ import { Package } from '../../Package.model'
 import React from 'react'
 
 export interface PackageSelectProps {
-  t: PackageViewProps['t']
   packages: Package[]
   priceIndex: number
   onSelect?: PackageViewProps['onSelect']
@@ -13,7 +12,6 @@ export interface PackageSelectProps {
 }
 
 const PackageSelect: React.FC<PackageSelectProps> = ({
-  t,
   packages,
   priceIndex,
   onSelect,
@@ -28,7 +26,6 @@ const PackageSelect: React.FC<PackageSelectProps> = ({
             currency={currency}
             onSelect={onSelect}
             priceIndex={priceIndex}
-            t={t}
             appliedPromoCode={appliedPromoCode}
             {...pkg}
           />

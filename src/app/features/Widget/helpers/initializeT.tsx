@@ -24,76 +24,71 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           objectId: 'MAD_START', // 'MAD_START' | 'MAD_PRO' | 'MAD_ENTERPRISE'
           name: 'Start',
           prefix: 'MAD',
+          nameColor: '#ff6172',
+          description:
+            'Kom i gang med Kontrollsenter og skap fokus med app for de ansatte.',
           prices: [490, 440, 390, 340, 290],
-          period: 'per avdeling/mnd',
+          period: '/ mnd per salong',
+          priceCaption: 'Gratis første måned',
           periodKey: 'MONTHLY', // 'MONTHLY' | 'YEARLY'
           inherits: null,
           functions: [
             {
-              name: 'Kontrollsenter',
-              subItems: [
-                'Live dashboard',
-                'KPI-oversikt med fargekoder',
-                'Budsjettmodul'
-              ],
+              name: 'Kontrollsenter (live KPI og budsjett)',
               url: 'https://www.madsoftware.no/kontrollsenter'
             },
             {
-              name: 'Ansatt app',
-              subItems: [
-                'KPI-status i sanntid',
-                'Månedsmål med nedtelling',
-                'Live lønn'
-              ],
+              name: 'Ansatt app (mål, KPI og lønn live)',
               url: 'https://www.madsoftware.no/ansatt-app'
             }
           ],
-          caption: 'Inkluderer 5 brukere – kun 69 kr for hver ekstra',
-          action: { isFree: true, text: 'Prøv gratis' },
-          mostPopular: false
+          outroText: 'En enklere vei til bedre drift',
+          detailsText: 'Se detaljer',
+          caption: '5 brukere inkludert per salong + 69 kr per ekstra bruker',
+          action: { isFree: true, text: 'Start gratis' }
         },
         {
           objectId: 'MAD_PRO', // 'MAD_START' | 'MAD_PRO' | 'MAD_ENTERPRISE'
           name: 'Pro',
           prefix: 'MAD',
+          nameColor: '#3cae4f',
+          description: 'For salonger som vil skape vekst og engasjement',
           prices: [1290, 1240, 1190, 1140, 1090],
-          period: 'per avdeling/mnd',
+          period: '/ mnd per salong',
+          priceCaption: 'Gratis første måned',
           periodKey: 'MONTHLY', // 'MONTHLY' | 'YEARLY'
-          inherits: 'Alt fra Start +',
+          inherits: 'Alt i Start',
           functions: [
             {
-              name: 'MAD Play',
+              name: 'Poeng, troféer og belønninger',
               url: 'https://www.madsoftware.no/mad-play'
             },
             {
-              name: 'The Game',
+              name: 'Konkurranser for frisører og team',
               url: 'https://www.madsoftware.no/the-game'
             },
             {
-              name: 'Troféjakten',
+              name: 'Premier gjennom MAD',
               url: 'https://www.madsoftware.no/trofejakten'
-            },
-            {
-              name: 'Rewardprogram',
-              url: 'https://www.madsoftware.no/rewardprogram'
-            },
-            {
-              name: 'RewardShop',
-              url: 'https://www.madsoftware.no/rewardshop'
             }
           ],
-          caption: 'Inkluderer 5 brukere – kun 69 kr for hver ekstra',
-          action: { isFree: true, text: 'Prøv gratis' },
-          mostPopular: true
+          outroText: 'Mer fokus. Bedre resultater.',
+          detailsText: 'Se detaljer',
+          caption: '5 brukere inkludert per salong + 69 kr per ekstra bruker',
+          action: { isFree: true, text: 'Start gratis' },
+          badgeText: 'Mest populær',
+          badgeVariant: 'warning'
         },
         {
           objectId: 'MAD_ENTERPRISE', // 'MAD_START' | 'MAD_PRO' | 'MAD_ENTERPRISE'
           name: 'Max',
           prefix: 'MAD',
+          nameColor: '#cc9c29',
+          description: 'For salonger som vil optimalisere drift og lønnsomhet',
           prices: [2990, 2940, 2890, 2840, 2590],
-          period: 'per avdeling/mnd',
+          period: '/ mnd per salong',
           periodKey: 'MONTHLY', // 'MONTHLY' | 'YEARLY'
-          inherits: 'Alt fra Pro +',
+          inherits: 'Alt i Pro',
           functions: [
             {
               name: 'Autolønn',
@@ -108,16 +103,18 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
               url: 'https://www.madsoftware.no/reklamasjonsverktoy'
             }
           ],
-          caption: 'Inkluderer 10 brukere – kun 69 kr for hver ekstra',
-          action: { isFree: false, text: 'Bestill' },
-          mostPopular: false
+          outroText: 'Full kontroll og maksimal lønnsomhet.',
+          detailsText: 'Se detaljer',
+          caption: '5 brukere inkludert per salong + 69 kr per ekstra bruker',
+          action: { isFree: false, text: 'Ta kontakt' },
+          badgeText: 'Høy lønnsomhet',
+          badgeVariant: 'dark'
         }
       ],
-      title: 'Prøv gratis i 30 dager!',
-      subtitle: 'Ingen bindingstid. Ingen oppstarts-kost. Enkel registrering.',
-      pricesDescription: 'Priser oppgitt i NOK, eks. mva',
-      mostPopular: 'Mest populær',
-      currency: 'kr',
+      title: 'Gjør det litt mer MAD. Få bedre resultater.',
+      subtitle: 'Ingen binding. Ingen oppstarts-kost. Ingen stress.',
+      pricesDescription: 'Alle priser er oppgitt ekskl. mva',
+      currency: 'Kr',
       promoCode: {
         placeholder: 'Skriv inn rabattkode',
         applyButton: 'Bruk',

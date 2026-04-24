@@ -15,8 +15,10 @@ export type PackagePeriods = keyof typeof PACKAGE_PERIODS
 export interface Package {
   objectId: PackageNames
   name: string
+  description?: string
   prices: number[]
   period: string
+  priceCaption?: string
   periodKey: PackagePeriods
   inherits: string | null
   functions: {
@@ -25,8 +27,11 @@ export interface Package {
     url?: string
   }[]
   action: { isFree: boolean; text: string }
+  outroText?: string
+  detailsText?: string
   caption: string
-  mostPopular: boolean
+  badgeText?: string
+  badgeVariant?: 'warning' | 'dark'
 
   // Optional fields
   prefix?: string

@@ -38,6 +38,7 @@
   justify-content: center;
   clip-path: var(--clip-path-default);
   cursor: pointer;
+  border-radius: var(--border-radius-default);
 }
 .btn-primary {
   background-color: var(--primary);
@@ -344,52 +345,61 @@ input::placeholder {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1, 1fr);
-  gap: 24px;
+  gap: 72px;
 }
-
-
 
 .package-view {
   box-sizing: border-box;
-  border-radius: var(--border-radius-default);
-  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-xxl); 
+  border: 2px solid var(--dark);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  padding: 32px 32px;
+  min-height: 540px;
+  padding: 24px 32px;
   position: relative;
 }
 
-.package-popular-badge {
+.package-badge {
   white-space: nowrap;
   position: absolute;
-  top: -4px;
+  top: -14px;
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--warning);
   color: var(--text-color-reverse);
-  padding: 4px 8px;
-  border-radius: var(--border-radius-sm);
-  font-size: var(--font-size-default);
-  line-height: var(--line-height-default);
+  padding: 4px 14px;
+  border-radius: var(--border-radius-default);
+  font-size: var(--font-size-controls);
+  line-height: var(--line-height-controls);
   font-family: var(--font-default);
+}
+
+.package-badge-dark {
+  background-color: #3a2f10;
+}
+
+.package-badge-warning {
+  background-color: var(--warning);
 }
 
 .package-function {
   width: auto;
+  line-height: 1.2;
 }
 
 .package-icon-check::before {
   content: '\2713';
   font-size: 16px;
+  font-weight: 700;
   margin-right: 8px;
 }
 
 .divider {
   height: 1px;
   background-color: var(--border-color);
-  margin: 16px 0;
+  margin: 14px 0;
 }
 
 .form-layout {

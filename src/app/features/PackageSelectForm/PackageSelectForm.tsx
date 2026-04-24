@@ -16,7 +16,6 @@ export interface PackageSelectFormProps {
     title: string
     subtitle: string
     pricesDescription: string
-    mostPopular: string
     currency?: string
     promoCode?: PromoCodeInputProps['t']
   }
@@ -30,7 +29,6 @@ const PackageSelectForm: React.FC<PackageSelectFormProps> = ({
     subtitle,
     currency,
     pricesDescription,
-    mostPopular,
     promoCode
   }
 }) => {
@@ -62,10 +60,10 @@ const PackageSelectForm: React.FC<PackageSelectFormProps> = ({
 
   return (
     <>
-      <h1 className="subtitle text-center">{title}</h1>
+      <h1 className="title-1 text-center">{title}</h1>
       <span
-        className="text text-center"
-        style={{ marginTop: '12px', marginBottom: '16px' }}
+        className="subtitle text-center"
+        style={{ marginTop: '24px', marginBottom: '40px' }}
       >
         {subtitle}
       </span>
@@ -73,7 +71,7 @@ const PackageSelectForm: React.FC<PackageSelectFormProps> = ({
         style={{
           display: 'flex',
           justifyContent: 'center',
-          marginBottom: '32px'
+          marginBottom: '48px'
         }}
       >
         <CompanySizeSelect
@@ -84,7 +82,6 @@ const PackageSelectForm: React.FC<PackageSelectFormProps> = ({
       </div>
       <div>
         <PackageSelect
-          t={{ mostPopular }}
           currency={currency}
           onSelect={handlePackageSelect}
           priceIndex={priceIndex}

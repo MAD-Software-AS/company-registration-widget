@@ -4,9 +4,6 @@ import React from 'react'
 import calculateDiscountedPrice from '../../../../utils/calculateDiscountedPrice'
 
 export interface PackageViewProps extends Package {
-  t: {
-    mostPopular: string
-  }
   onSelect?: (id: string, period: string) => void
   priceIndex: number
   currency?: string
@@ -14,21 +11,25 @@ export interface PackageViewProps extends Package {
 }
 
 const PackageView: React.FC<PackageViewProps> = ({
-  t,
   objectId,
   periodKey,
   name,
   prefix,
   nameColor,
+  description,
   prices,
   period,
+  priceCaption,
   inherits,
   functions,
   priceIndex,
   caption,
+  outroText,
+  detailsText,
   action,
   currency = 'kr',
-  mostPopular,
+  badgeText,
+  badgeVariant = 'warning',
   onSelect,
   appliedPromoCode
 }) => {
@@ -44,22 +45,31 @@ const PackageView: React.FC<PackageViewProps> = ({
 
   return (
     <div className="package-view">
-      {mostPopular && (
-        <div className="package-popular-badge">{t.mostPopular}</div>
+      {badgeText && (
+        <div className={`package-badge package-badge-${badgeVariant}`}>
+          {badgeText}
+        </div>
       )}
 
       <div>
         <div className="text-center">
-          <h3 className="text" style={{ marginBottom: '24px' }}>
+          <h3 style={{ marginBottom: '16px', fontWeight: 700 }}>
             {prefix && <strong>{prefix}&nbsp;</strong>}
             <strong style={{ color: nameColor }}>{name}</strong>
           </h3>
-          <h1
-            className="title"
-            style={{ marginBottom: hasDiscount ? '4px' : '12px' }}
-          >
-            {finalPrice} {currency}
-          </h1>
+          {description && (
+            <div style={{ marginBottom: '16px' }}>
+              <span
+                className="text"
+                style={{ fontSize: '15px', lineHeight: '22px' }}
+              >
+                {description}
+              </span>
+            </div>
+          )}
+          <h4>
+            {currency} {finalPrice} {period}
+          </h4>
           {hasDiscount && (
             <div style={{ marginBottom: '8px' }}>
               <span
@@ -70,15 +80,45 @@ const PackageView: React.FC<PackageViewProps> = ({
               </span>
             </div>
           )}
-          <span className="text-caption">{period}</span>
-        </div>
-        <div className="divider" />
-        {inherits && (
-          <div className="text" style={{ marginBottom: '24px' }}>
-            <strong>{inherits}</strong>
+          <div style={{ marginTop: '2px' }}>
+            <span className="text-caption" style={{ fontSize: '15px' }}>
+              {priceCaption}&nbsp;
+            </span>
           </div>
-        )}
-        <div>
+          <div style={{ marginTop: '16px' }}>
+            {action.isFree ? (
+              <button
+                style={{ minWidth: '100%', minHeight: '46px' }}
+                className="btn btn-primary"
+                onClick={handleSelect}
+              >
+                {action.text}
+              </button>
+            ) : (
+              <button
+                style={{ minWidth: '100%', minHeight: '46px' }}
+                className="btn btn-primary"
+                onClick={handleSelect}
+              >
+                {action.text}
+              </button>
+            )}
+          </div>
+        </div>
+        <div style={{ marginTop: '32px' }}>
+          {inherits && (
+            <div className="package-function" style={{ marginBottom: '8px' }}>
+              <div>
+                <span className="package-icon-check" />
+                <span
+                  className="text"
+                  style={{ fontSize: '15px', fontWeight: 500 }}
+                >
+                  {inherits}
+                </span>
+              </div>
+            </div>
+          )}
           {functions.map(({ name, subItems, url }, idx) => (
             <div
               key={idx}
@@ -94,7 +134,9 @@ const PackageView: React.FC<PackageViewProps> = ({
                     className="unset-all"
                     rel="noopener noreferrer"
                   >
-                    <strong>{name}</strong>
+                    <span style={{ fontSize: '15px', fontWeight: 500 }}>
+                      {name}
+                    </span>
                   </a>
                 </span>
               </div>
@@ -117,29 +159,26 @@ const PackageView: React.FC<PackageViewProps> = ({
 
       <div
         style={{
-          marginTop: '24px',
+          marginTop: '10px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center'
         }}
       >
-        {action.isFree ? (
-          <button
-            style={{ minWidth: '140px' }}
-            className="btn btn-primary"
-            onClick={handleSelect}
-          >
-            {action.text}
-          </button>
-        ) : (
-          <button
-            style={{ minWidth: '140px' }}
-            className="btn btn-dark"
-            onClick={handleSelect}
-          >
-            {action.text}
-          </button>
+        {outroText && (
+          <div className="text-center text" style={{ marginBottom: '8px' }}>
+            {outroText}
+          </div>
         )}
+        {detailsText && (
+          <div
+            className="text-center text-caption"
+            style={{ marginBottom: '12px' }}
+          >
+            <i>{detailsText}</i>
+          </div>
+        )}
+        <div className="divider" style={{ width: '100%' }} />
         <div className="text-center text-caption" style={{ marginTop: '16px' }}>
           {caption}
         </div>
