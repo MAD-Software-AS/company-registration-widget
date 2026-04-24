@@ -1,13 +1,14 @@
+import initializeT, { WidgetTranslations } from './helpers/initializeT'
+
 import CompanyRegistrationError from '../../domains/Company/components/CompanyRegistrationError/CompanyRegistrationError'
 import CompanyRegistrationForm from '../CompanyRegistrationForm/CompanyRegistrationForm'
 import CompanyRegistrationSuccess from '../../domains/Company/components/CompanyRegistrationSuccess/CompanyRegistrationSuccess'
 import Loading from '../../components/Loading/Loading'
 import React from 'react'
-import initializeT from './helpers/initializeT'
 import useWidgetContext from '../../contexts/Widget/useWidgetContext'
 
 export interface WidgetProps {
-  t?: Record<string, unknown>
+  t?: Partial<WidgetTranslations>
   isFreeTrial?: boolean
 }
 

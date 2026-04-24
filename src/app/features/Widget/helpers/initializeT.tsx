@@ -218,7 +218,7 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
   }
 }
 
-const initializeT = (t: Record<string, any> = {}) => {
+const initializeT = (t: Partial<WidgetTranslations> = {}) => {
   return mergeNestedObjects<WidgetTranslations>(DEFAULT_TRANSLATIONS, t)
 }
 
