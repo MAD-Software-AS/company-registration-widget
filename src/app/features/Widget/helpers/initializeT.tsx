@@ -26,7 +26,7 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           prefix: 'MAD',
           nameColor: '#ff6172',
           description:
-            'Kom i gang med Kontrollsenter og skap fokus med app for de ansatte.',
+            'Kom i gang med Kontrollsenter\n og skap fokus med app for de ansatte.',
           prices: [490, 440, 390, 340, 290],
           period: '/ mnd per salong',
           priceCaption: 'Gratis første måned',
@@ -44,7 +44,7 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           ],
           outroText: 'En enklere vei til bedre drift',
           detailsText: 'Se detaljer',
-          caption: '5 brukere inkludert per salong + 69 kr per ekstra bruker',
+          caption: '5 brukere inkludert per salong\n + 69 kr per ekstra bruker',
           action: { isFree: true, text: 'Start gratis' }
         },
         {
@@ -52,7 +52,7 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           name: 'Pro',
           prefix: 'MAD',
           nameColor: '#3cae4f',
-          description: 'For salonger som vil skape vekst og engasjement',
+          description: 'For salonger som vil skape vekst\n og engasjement',
           prices: [1290, 1240, 1190, 1140, 1090],
           period: '/ mnd per salong',
           priceCaption: 'Gratis første måned',
@@ -74,7 +74,7 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           ],
           outroText: 'Mer fokus. Bedre resultater.',
           detailsText: 'Se detaljer',
-          caption: '5 brukere inkludert per salong + 69 kr per ekstra bruker',
+          caption: '5 brukere inkludert per salong\n + 69 kr per ekstra bruker',
           action: { isFree: true, text: 'Start gratis' },
           badgeText: 'Mest populær',
           badgeVariant: 'warning'
@@ -84,7 +84,8 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           name: 'Max',
           prefix: 'MAD',
           nameColor: '#cc9c29',
-          description: 'For salonger som vil optimalisere drift og lønnsomhet',
+          description:
+            'For salonger som vil\n optimalisere drift og lønnsomhet',
           prices: [2990, 2940, 2890, 2840, 2590],
           period: '/ mnd per salong',
           periodKey: 'MONTHLY', // 'MONTHLY' | 'YEARLY'
@@ -105,7 +106,7 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           ],
           outroText: 'Full kontroll og maksimal lønnsomhet.',
           detailsText: 'Se detaljer',
-          caption: '5 brukere inkludert per salong + 69 kr per ekstra bruker',
+          caption: '5 brukere inkludert per salong\n + 69 kr per ekstra bruker',
           action: { isFree: false, text: 'Ta kontakt' },
           badgeText: 'Høy lønnsomhet',
           badgeVariant: 'dark'

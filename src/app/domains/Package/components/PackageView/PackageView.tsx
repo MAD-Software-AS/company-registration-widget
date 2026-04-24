@@ -53,7 +53,7 @@ const PackageView: React.FC<PackageViewProps> = ({
 
       <div>
         <div className="text-center">
-          <h3 style={{ marginBottom: '16px', fontWeight: 700 }}>
+          <h3 style={{ marginBottom: '12px', fontWeight: 700 }}>
             {prefix && <strong>{prefix}&nbsp;</strong>}
             <strong style={{ color: nameColor }}>{name}</strong>
           </h3>
@@ -166,20 +166,23 @@ const PackageView: React.FC<PackageViewProps> = ({
         }}
       >
         {outroText && (
-          <div className="text-center text" style={{ marginBottom: '8px' }}>
+          <div
+            className="text-center text"
+            style={{ marginBottom: '16px', whiteSpace: 'nowrap' }}
+          >
             {outroText}
           </div>
         )}
         {detailsText && (
           <div
             className="text-center text-caption"
-            style={{ marginBottom: '12px' }}
+            style={{ marginBottom: '4px' }}
           >
             <i>{detailsText}</i>
           </div>
         )}
         <div className="divider" style={{ width: '100%' }} />
-        <div className="text-center text-caption" style={{ marginTop: '16px' }}>
+        <div className="text-center text-caption" style={{ marginTop: '' }}>
           {caption}
         </div>
       </div>

@@ -90,7 +90,7 @@ const PackageSelectForm: React.FC<PackageSelectFormProps> = ({
         />
       </div>
       <div className="text-center" style={{ marginTop: '24px' }}>
-        <span className="text">{pricesDescription}</span>
+        <span className="subtitle">{pricesDescription}</span>
       </div>
       {promoCode && (
         <div style={{ marginTop: '12px' }}>
