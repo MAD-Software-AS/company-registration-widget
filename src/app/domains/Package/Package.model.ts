@@ -14,6 +14,7 @@ export type PackagePeriods = keyof typeof PACKAGE_PERIODS
 
 export interface Package {
   objectId: PackageNames
+  prefix: string
   name: string
   prices: number[]
   period: string

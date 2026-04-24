@@ -9,7 +9,7 @@ export interface PromoCodeInputProps {
   appliedPromoCode: PromoCode | null
   env: string
   t: {
-    label: string
+    label?: string
     placeholder: string
     applyButton: string
     notFoundError: string

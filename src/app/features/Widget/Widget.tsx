@@ -1,34 +1,23 @@
-import CompanyRegistrationError, {
-  CompanyRegistrationErrorProps
-} from '../../domains/Company/components/CompanyRegistrationError/CompanyRegistrationError'
-import CompanyRegistrationForm, {
-  CompanyRegistrationFormProps
-} from '../CompanyRegistrationForm/CompanyRegistrationForm'
-import CompanyRegistrationSuccess, {
-  CompanyRegistrationSuccessProps
-} from '../../domains/Company/components/CompanyRegistrationSuccess/CompanyRegistrationSuccess'
-
+import CompanyRegistrationError from '../../domains/Company/components/CompanyRegistrationError/CompanyRegistrationError'
+import CompanyRegistrationForm from '../CompanyRegistrationForm/CompanyRegistrationForm'
+import CompanyRegistrationSuccess from '../../domains/Company/components/CompanyRegistrationSuccess/CompanyRegistrationSuccess'
 import Loading from '../../components/Loading/Loading'
 import React from 'react'
+import initializeT from './helpers/initializeT'
 import useWidgetContext from '../../contexts/Widget/useWidgetContext'
 
 export interface WidgetProps {
-  t: {
-    companyRegistrationForm: CompanyRegistrationFormProps['t']
-    companyRegistrationSuccess: CompanyRegistrationSuccessProps['t']
-    companyRegistrationError: CompanyRegistrationErrorProps['t']
-  }
+  t?: Record<string, unknown>
   isFreeTrial?: boolean
 }
 
-const Widget: React.FC<WidgetProps> = ({
-  t: {
+const Widget: React.FC<WidgetProps> = ({ t, isFreeTrial }) => {
+  const {
     companyRegistrationForm,
     companyRegistrationSuccess,
     companyRegistrationError
-  },
-  isFreeTrial
-}) => {
+  } = initializeT(t)
+
   const { submitState } = useWidgetContext()
 
   return (

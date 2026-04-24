@@ -1,7 +1,10 @@
+import PromoCodeInput, {
+  PromoCodeInputProps
+} from '../../domains/PromoCode/components/PromoCodeInput/PromoCodeInput'
+
 import CompanySizeSelect from '../../domains/Company/components/CompanySizeSelect/CompanySizeSelect'
 import { Package } from '../../domains/Package/Package.model'
 import PackageSelect from '../../domains/Package/components/PackageSelect/PackageSelect'
-import PromoCodeInput from '../../domains/PromoCode/components/PromoCodeInput/PromoCodeInput'
 import React from 'react'
 import { STEPS } from '../../contexts/Widget/WidgetContext'
 import useWidgetContext from '../../contexts/Widget/useWidgetContext'
@@ -15,13 +18,7 @@ export interface PackageSelectFormProps {
     pricesDescription: string
     mostPopular: string
     currency?: string
-    promoCode?: {
-      label: string
-      placeholder: string
-      applyButton: string
-      notFoundError: string
-      removeButton: string
-    }
+    promoCode?: PromoCodeInputProps['t']
   }
 }
 
