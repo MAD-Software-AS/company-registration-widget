@@ -106,7 +106,8 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           ],
           outroText: 'Full kontroll og maksimal lønnsomhet.',
           detailsText: 'Se detaljer',
-          caption: '5 brukere inkludert per salong\n + 69 kr per ekstra bruker',
+          caption:
+            '10 brukere inkludert per salong\n + 69 kr per ekstra bruker',
           action: { isFree: false, text: 'Ta kontakt' },
           badgeText: 'Høy lønnsomhet',
           badgeVariant: 'dark'
