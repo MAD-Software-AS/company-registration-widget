@@ -61,12 +61,12 @@ const PackageSelectForm: React.FC<PackageSelectFormProps> = ({
   return (
     <>
       <h1 className="title-1 text-center">{title}</h1>
-      {/* <span
+      <span
         className="subtitle text-center"
         style={{ marginTop: '24px', marginBottom: '40px' }}
       >
         {subtitle}
-      </span> */}
+      </span>
       <div
         style={{
           display: 'flex',
