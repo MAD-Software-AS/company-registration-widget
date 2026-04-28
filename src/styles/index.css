@@ -451,6 +451,9 @@ input::placeholder {
     font-size: var(--font-size-caption) !important;
     line-height: var(--line-height-caption) !important;
   }
+  .text {
+    white-space: normal;
+  }
 }
 
 @keyframes spinner {
