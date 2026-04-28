@@ -44,6 +44,10 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           ],
           outroText: 'En enklere vei til bedre drift',
           detailsText: 'Se detaljer',
+          detailsModalParagraphs: [
+            'Kontrollsenter (live KPI og budsjett)',
+            'Ansatt app (mål, KPI og lønn live)'
+          ],
           caption: '5 brukere inkludert per salong\n + 69 kr per ekstra bruker',
           action: { isFree: true, text: 'Start gratis' }
         },
@@ -51,7 +55,7 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           objectId: 'MAD_PRO', // 'MAD_START' | 'MAD_PRO' | 'MAD_ENTERPRISE'
           name: 'Pro',
           prefix: 'MAD',
-          nameColor: '#3cae4f',
+          nameColor: '#1bc672',
           description: 'For salonger som vil skape vekst\n og engasjement',
           prices: [1290, 1240, 1190, 1140, 1090],
           period: '/ mnd per salong',
@@ -74,6 +78,11 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           ],
           outroText: 'Mer fokus. Bedre resultater.',
           detailsText: 'Se detaljer',
+          detailsModalParagraphs: [
+            'Poeng, troféer og belønninger',
+            'Konkurranser for frisører og team',
+            'Premier gjennom MAD'
+          ],
           caption: '5 brukere inkludert per salong\n + 69 kr per ekstra bruker',
           action: { isFree: true, text: 'Start gratis' },
           badgeText: 'Mest populær',
@@ -83,7 +92,7 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           objectId: 'MAD_ENTERPRISE', // 'MAD_START' | 'MAD_PRO' | 'MAD_ENTERPRISE'
           name: 'Max',
           prefix: 'MAD',
-          nameColor: '#cc9c29',
+          nameColor: '#ffb637',
           description:
             'For salonger som vil\n optimalisere drift og lønnsomhet',
           prices: [2990, 2940, 2890, 2840, 2590],
@@ -106,6 +115,11 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           ],
           outroText: 'Full kontroll og maksimal lønnsomhet.',
           detailsText: 'Se detaljer',
+          detailsModalParagraphs: [
+            'Autolønn',
+            'Flexipris',
+            'Reklamasjonsverktøy'
+          ],
           caption:
             '10 brukere inkludert per salong\n + 69 kr per ekstra bruker',
           action: { isFree: false, text: 'Ta kontakt' },

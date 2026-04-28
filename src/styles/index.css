@@ -446,6 +446,11 @@ input::placeholder {
   .form-image-wrapper {
     display: none;
   }
+  .chip {
+    padding: 4px 8px !important;
+    font-size: var(--font-size-caption) !important;
+    line-height: var(--line-height-caption) !important;
+  }
 }
 
 @keyframes spinner {
@@ -520,4 +525,87 @@ ul, li {
 
 .unset-all {
   all: unset;
+}
+
+.package-details-trigger {
+  display: inline;
+  margin: 0 auto 4px;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.package-details-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.55);
+}
+
+.package-details-modal__panel {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: min(80vh, 720px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 44px 28px 28px;
+  box-sizing: border-box;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border-radius: var(--border-radius-default);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
+}
+
+.package-details-modal__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: var(--border-radius-default);
+  background: transparent;
+  color: #ffffff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  font-family: var(--font-default);
+}
+
+.package-details-modal__close:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.package-details-modal__body {
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.package-details-modal__paragraph {
+  margin: 0;
+  color: #ffffff;
+  font-size: var(--font-size-default);
+  line-height: var(--line-height-default);
+  font-family: var(--font-default);
+  white-space: pre-line;
 }

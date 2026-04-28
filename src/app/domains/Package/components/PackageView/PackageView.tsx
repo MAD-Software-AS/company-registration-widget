@@ -1,5 +1,6 @@
 import { Package } from '../../Package.model'
 import { PromoCode } from '../../../PromoCode/PromoCode.model'
+import PackageDetailsModal from '../PackageDetailsModal/PackageDetailsModal'
 import React from 'react'
 import calculateDiscountedPrice from '../../../../utils/calculateDiscountedPrice'
 
@@ -26,6 +27,7 @@ const PackageView: React.FC<PackageViewProps> = ({
   caption,
   outroText,
   detailsText,
+  detailsModalParagraphs,
   action,
   currency = 'kr',
   badgeText,
@@ -33,6 +35,8 @@ const PackageView: React.FC<PackageViewProps> = ({
   onSelect,
   appliedPromoCode
 }) => {
+  const [detailsOpen, setDetailsOpen] = React.useState(false)
+
   const originalPrice = prices[priceIndex]
 
   const finalPrice = calculateDiscountedPrice(
@@ -171,12 +175,22 @@ const PackageView: React.FC<PackageViewProps> = ({
           </div>
         )}
         {detailsText && (
-          <div
-            className="text-center text-caption"
-            style={{ marginBottom: '4px' }}
-          >
-            <i>{detailsText}</i>
-          </div>
+          <>
+            <div className="text-center text-caption" style={{ marginBottom: '4px' }}>
+              <button
+                type="button"
+                className="package-details-trigger text-caption"
+                onClick={() => setDetailsOpen(true)}
+              >
+                <i>{detailsText}</i>
+              </button>
+            </div>
+            <PackageDetailsModal
+              open={detailsOpen}
+              onClose={() => setDetailsOpen(false)}
+              paragraphs={detailsModalParagraphs ?? []}
+            />
+          </>
         )}
         <div className="divider" style={{ width: '100%' }} />
         <div className="text-center text-caption" style={{ marginTop: '' }}>
