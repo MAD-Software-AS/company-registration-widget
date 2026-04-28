@@ -536,8 +536,6 @@ ul, li {
   font: inherit;
   cursor: pointer;
   color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 2px;
 }
 
 .package-details-modal__backdrop {
@@ -560,7 +558,7 @@ ul, li {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding: 44px 28px 28px;
+  padding: 20px 20px 20px;
   box-sizing: border-box;
   background-color: #1a1a1a;
   color: #ffffff;
@@ -568,10 +566,25 @@ ul, li {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
 }
 
+.package-details-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.package-details-modal__title {
+  margin: 0;
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1.2;
+  font-family: var(--font-default);
+  font-weight: 700;
+}
+
 .package-details-modal__close {
-  position: absolute;
-  top: 8px;
-  right: 8px;
+  flex-shrink: 0;
   width: 40px;
   height: 40px;
   display: flex;
@@ -599,6 +612,7 @@ ul, li {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding: 0 8px 0 0;
 }
 
 .package-details-modal__paragraph {

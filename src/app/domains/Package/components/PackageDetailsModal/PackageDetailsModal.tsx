@@ -4,12 +4,14 @@ export interface PackageDetailsModalProps {
   open: boolean
   onClose: () => void
   paragraphs: string[]
+  title?: string
 }
 
 const PackageDetailsModal: React.FC<PackageDetailsModalProps> = ({
   open,
   onClose,
-  paragraphs
+  paragraphs,
+  title
 }) => {
   useEffect(() => {
     if (!open) return
@@ -46,14 +48,17 @@ const PackageDetailsModal: React.FC<PackageDetailsModalProps> = ({
         role="dialog"
         aria-modal="true"
       >
-        <button
-          type="button"
-          className="package-details-modal__close"
-          onClick={onClose}
-          aria-label="Lukk"
-        >
-          ×
-        </button>
+        <div className="package-details-modal__header">
+          {title && <h2 className="package-details-modal__title">{title}</h2>}
+          <button
+            type="button"
+            className="package-details-modal__close"
+            onClick={onClose}
+            aria-label="Lukk"
+          >
+            ×
+          </button>
+        </div>
         <div className="package-details-modal__body">
           {paragraphs.map((text, idx) => (
             <p key={idx} className="package-details-modal__paragraph">

@@ -29,6 +29,7 @@ export interface Package {
   action: { isFree: boolean; text: string }
   outroText?: string
   detailsText?: string
+  detailsTitle?: string
   /** Paragraphs shown in the “Se detaljer” modal (optional until configured). */
   detailsModalParagraphs?: string[]
   caption: string

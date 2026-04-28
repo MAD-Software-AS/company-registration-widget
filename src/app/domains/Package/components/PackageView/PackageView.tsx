@@ -1,6 +1,6 @@
 import { Package } from '../../Package.model'
-import { PromoCode } from '../../../PromoCode/PromoCode.model'
 import PackageDetailsModal from '../PackageDetailsModal/PackageDetailsModal'
+import { PromoCode } from '../../../PromoCode/PromoCode.model'
 import React from 'react'
 import calculateDiscountedPrice from '../../../../utils/calculateDiscountedPrice'
 
@@ -27,6 +27,7 @@ const PackageView: React.FC<PackageViewProps> = ({
   caption,
   outroText,
   detailsText,
+  detailsTitle,
   detailsModalParagraphs,
   action,
   currency = 'kr',
@@ -169,14 +170,14 @@ const PackageView: React.FC<PackageViewProps> = ({
         {outroText && (
           <div
             className="text-center text"
-            style={{ marginBottom: '16px', whiteSpace: 'nowrap' }}
+            style={{ marginBottom: '12px', whiteSpace: 'nowrap' }}
           >
             {outroText}
           </div>
         )}
         {detailsText && (
           <>
-            <div className="text-center text-caption" style={{ marginBottom: '4px' }}>
+            <div className="text-center text-caption">
               <button
                 type="button"
                 className="package-details-trigger text-caption"
@@ -187,6 +188,7 @@ const PackageView: React.FC<PackageViewProps> = ({
             </div>
             <PackageDetailsModal
               open={detailsOpen}
+              title={detailsTitle}
               onClose={() => setDetailsOpen(false)}
               paragraphs={detailsModalParagraphs ?? []}
             />

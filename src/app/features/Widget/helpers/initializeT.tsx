@@ -44,6 +44,7 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           ],
           outroText: 'En enklere vei til bedre drift',
           detailsText: 'Se detaljer',
+          detailsTitle: 'MAD Start detaljer',
           detailsModalParagraphs: [
             'Kontrollsenter (live KPI og budsjett)',
             'Ansatt app (mål, KPI og lønn live)'
@@ -78,6 +79,7 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           ],
           outroText: 'Mer fokus. Bedre resultater.',
           detailsText: 'Se detaljer',
+          detailsTitle: 'MAD Pro detaljer',
           detailsModalParagraphs: [
             'Poeng, troféer og belønninger',
             'Konkurranser for frisører og team',
@@ -115,6 +117,7 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           ],
           outroText: 'Full kontroll og maksimal lønnsomhet.',
           detailsText: 'Se detaljer',
+          detailsTitle: 'MAD Max detaljer',
           detailsModalParagraphs: [
             'Autolønn',
             'Flexipris',
