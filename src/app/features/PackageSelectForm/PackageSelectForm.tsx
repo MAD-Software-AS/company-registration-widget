@@ -37,6 +37,12 @@ const PackageSelectForm: React.FC<PackageSelectFormProps> = ({
   const { formData, setState, env } = useWidgetContext()
 
   const handlePackageSelect = (id: string, period: string) => {
+    // MAD Max: open an email to support instead of moving to company-details step.
+    if (id === 'MAD_ENTERPRISE') {
+      window.location.href = 'mailto:support@madsoftware.no'
+      return
+    }
+
     setState((prev) => ({
       ...prev,
       formData: {
