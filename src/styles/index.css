@@ -101,7 +101,7 @@
   text-align: center;
 }
 .text-caption {
-  /* color: var(--text-color-placeholder); */
+  letter-spacing: 0px;
   color: var(--text-color-default);
   font-size: var(--font-size-caption);
   line-height: var(--line-height-caption);
