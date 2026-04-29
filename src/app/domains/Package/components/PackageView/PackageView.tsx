@@ -27,7 +27,6 @@ const PackageView: React.FC<PackageViewProps> = ({
   caption,
   outroText,
   detailsText,
-  detailsTitle,
   detailsModalParagraphs,
   action,
   currency = 'kr',
@@ -188,7 +187,6 @@ const PackageView: React.FC<PackageViewProps> = ({
             </div>
             <PackageDetailsModal
               open={detailsOpen}
-              title={detailsTitle}
               onClose={() => setDetailsOpen(false)}
               paragraphs={detailsModalParagraphs ?? []}
             />

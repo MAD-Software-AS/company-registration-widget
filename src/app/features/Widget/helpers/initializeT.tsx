@@ -44,10 +44,12 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           ],
           outroText: 'En enklere vei til bedre drift',
           detailsText: 'Se detaljer',
-          detailsTitle: 'MAD Start detaljer',
           detailsModalParagraphs: [
-            'Kontrollsenter (live KPI og budsjett)',
-            'Ansatt app (mål, KPI og lønn live)'
+            'MAD Start. Få full kontroll og fokusert team.\n\nFå full oversikt over hva som skjer i salongen, og skap fokus i teamet uten ekstra arbeid.',
+            'Oversikt og kontroll\n• Live KPI-oversikt (rebooking, mersalg, osv.)\n• Se utvikling på nøkkeltall\n• Forstå hva som faktisk driver omsetning',
+            'Ansatt app\n• Hver ansatt ser egne tall live\n• KPI-status med fargekoder\n• Lønn og utvikling i sanntid',
+            'Enkelt å komme i gang\n• Kobles til systemene du allerede bruker\n• Ingen manuelt arbeid\n• Klar på kort tid',
+            'Passer for deg som\n• vil få kontroll på tallene\n• vil skape mer fokus i hverdagen\n• vil komme raskt i gang'
           ],
           caption: '5 brukere inkludert per salong\n + 69 kr per ekstra bruker',
           action: { isFree: true, text: 'Start gratis' }
@@ -79,11 +81,14 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           ],
           outroText: 'Mer fokus. Bedre resultater.',
           detailsText: 'Se detaljer',
-          detailsTitle: 'MAD Pro detaljer',
           detailsModalParagraphs: [
-            'Poeng, troféer og belønninger',
-            'Konkurranser for frisører og team',
-            'Premier gjennom MAD'
+            'MAD Pro. Det de fleste starter med.\n\nHer får du det som faktisk skaper utvikling i salongen. Spar tid på oppfølging og rapportering, samtidig som teamet motiveres til å nå salongens mål på en helt ny måte.',
+            'Alt i Start\n• Full KPI-oversikt og ansatt app\n• Budsjett, mål og live tall\n\nAlltid oppdatert, uten manuelt arbeid',
+            'Rapporter og innsikt\n• Ferdige rapporter på sekunder\n• Full oversikt for deg og dine ledere\n• Slipper timevis med manuelt arbeid',
+            'Motivasjon som fungerer\n• Poengsystem koblet til prestasjon\n• Troféer når mål nås\n• Synlig progresjon for hver ansatt\n\nGjør at de ansatte faktisk bryr seg om tallene',
+            'Konkurranser og driv\n• Interne konkurranser i teamet\n• Rangeringer og ligaer\n• Fokus på det som gir resultater\n\nSkaper energi og retning i hverdagen',
+            'Premier og belønning\n• Mulighet til å vinne premier\n• Kobler innsats til belønning\n• Gjør det motiverende å prestere',
+            'Passer for deg som\n• vil øke omsetning per kunde\n• vil ha mer engasjerte ansatte\n• vil skape driv og retning i salongen'
           ],
           caption: '5 brukere inkludert per salong\n + 69 kr per ekstra bruker',
           action: { isFree: true, text: 'Start gratis' },
@@ -117,11 +122,13 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           ],
           outroText: 'Full kontroll og maksimal lønnsomhet.',
           detailsText: 'Se detaljer',
-          detailsTitle: 'MAD Max detaljer',
           detailsModalParagraphs: [
-            'Autolønn',
-            'Flexipris',
-            'Reklamasjonsverktøy'
+            'MAD Max. Full kontroll på drift, maks motivasjon og økt lønnsomhet med Automlønn.\n\nFor salonger som vil optimalisere hele driften og få mest mulig ut av hver time.',
+            'Alt i Pro\n• Motivasjon, konkurranser og vekstsystem\n• Full oversikt og kontroll',
+            'Autolønn\n• Automatisk lønnsberegning (klart og ferdig til utbetaling)\n• Full oversikt uten manuelt arbeid\n• Kjør lønn på minutter\n• Spar tid og unngå feil',
+            'Flexipris\n• Juster priser basert på kapasitet\n• Øk omsetning på ledige timer\n• Bedre utnyttelse av dagen',
+            'Reklamasjonsverktøy\n• Full oversikt på reklamasjoner\n• Strukturert oppfølging\n• Bedre kontroll og kvalitet',
+            'Passer for deg som\n• vil optimalisere drift og lønnsomhet\n• vil spare tid på administrasjon\n• vil ha full kontroll på hele virksomheten'
           ],
           caption:
             '10 brukere inkludert per salong\n + 69 kr per ekstra bruker',

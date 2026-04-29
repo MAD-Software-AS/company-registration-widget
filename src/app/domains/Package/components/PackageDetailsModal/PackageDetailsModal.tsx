@@ -4,15 +4,43 @@ export interface PackageDetailsModalProps {
   open: boolean
   onClose: () => void
   paragraphs: string[]
-  title?: string
 }
 
 const PackageDetailsModal: React.FC<PackageDetailsModalProps> = ({
   open,
   onClose,
-  paragraphs,
-  title
+  paragraphs
 }) => {
+  const renderParagraph = (text: string) => {
+    const lines = text.split('\n')
+    const firstNonEmptyIdx = lines.findIndex((l) => l.trim() !== '')
+
+    return lines.map((line, idx) => {
+      const trimmed = line.trim()
+      const isEmpty = trimmed.length === 0
+      const isBullet = line.trimStart().startsWith('•')
+
+      // Bold section headers:
+      // - first non-empty line in the paragraph (title-like)
+      // - any non-bullet line that is followed by bullet lines
+      const nextNonEmpty = lines.slice(idx + 1).find((l) => l.trim() !== '')
+      const nextNonEmptyStartsBullet =
+        nextNonEmpty?.trimStart().startsWith('•') ?? false
+
+      const shouldBold =
+        !isEmpty &&
+        !isBullet &&
+        (idx === firstNonEmptyIdx || nextNonEmptyStartsBullet)
+
+      return (
+        <React.Fragment key={idx}>
+          {isEmpty ? null : shouldBold ? <strong>{line}</strong> : line}
+          {idx < lines.length - 1 && <br />}
+        </React.Fragment>
+      )
+    })
+  }
+
   useEffect(() => {
     if (!open) return
 
@@ -48,8 +76,9 @@ const PackageDetailsModal: React.FC<PackageDetailsModalProps> = ({
         role="dialog"
         aria-modal="true"
       >
-        <div className="package-details-modal__header">
-          {title && <h2 className="package-details-modal__title">{title}</h2>}
+        <div
+          className="package-details-modal__body package-details-modal__body--no-title"
+        >
           <button
             type="button"
             className="package-details-modal__close"
@@ -58,11 +87,9 @@ const PackageDetailsModal: React.FC<PackageDetailsModalProps> = ({
           >
             ×
           </button>
-        </div>
-        <div className="package-details-modal__body">
           {paragraphs.map((text, idx) => (
             <p key={idx} className="package-details-modal__paragraph">
-              {text}
+              {renderParagraph(text)}
             </p>
           ))}
         </div>
