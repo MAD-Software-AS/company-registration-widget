@@ -135,7 +135,13 @@ const PackageView: React.FC<PackageViewProps> = ({
                     className="unset-all"
                     rel="noopener noreferrer"
                   >
-                    <span style={{ fontSize: '15px', fontWeight: 500 }}>
+                    <span
+                      style={{
+                        fontSize: '15px',
+                        fontWeight: 500,
+                        letterSpacing: '0px'
+                      }}
+                    >
                       {name}
                     </span>
                   </a>
@@ -182,7 +188,7 @@ const PackageView: React.FC<PackageViewProps> = ({
                 className="package-details-trigger text-caption"
                 onClick={() => setDetailsOpen(true)}
               >
-                <i>{detailsText}</i>
+                <i style={{ fontSize: '13px' }}>{detailsText}</i>
               </button>
             </div>
             <PackageDetailsModal
