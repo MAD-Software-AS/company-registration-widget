@@ -5,6 +5,7 @@ import CompanyRegistrationForm from '../CompanyRegistrationForm/CompanyRegistrat
 import CompanyRegistrationSuccess from '../../domains/Company/components/CompanyRegistrationSuccess/CompanyRegistrationSuccess'
 import Loading from '../../components/Loading/Loading'
 import React from 'react'
+import useScrollSectionOnPlanToCompanyDetails from './hooks/useScrollSectionOnPlanToCompanyDetails'
 import useWidgetContext from '../../contexts/Widget/useWidgetContext'
 
 export interface WidgetProps {
@@ -20,9 +21,10 @@ const Widget: React.FC<WidgetProps> = ({ t, isFreeTrial }) => {
   } = initializeT(t)
 
   const { submitState } = useWidgetContext()
+  const sectionContentRef = useScrollSectionOnPlanToCompanyDetails()
 
   return (
-    <div className="section-content">
+    <div ref={sectionContentRef} className="section-content">
       {submitState.success ? (
         <CompanyRegistrationSuccess t={companyRegistrationSuccess} />
       ) : submitState.error ? (
