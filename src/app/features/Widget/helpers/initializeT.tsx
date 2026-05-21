@@ -154,7 +154,7 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
       passwordPlaceholder: 'Skriv inn ditt passord',
       termsPlaceholder: 'Jeg har lest og godtar',
       termsLabel: 'vilkårene og betingelsene.',
-      termsLink: 'https://mads-site-8134d0.webflow.io/standardvilkar'
+      termsLink: 'https://www.madsoftware.no/standardvilkar'
     },
     companyCredentialsFormErrors: {
       emailRequired: 'E-post er påkrevet',
@@ -211,13 +211,13 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
       ]
     },
     unhandledPosProviderMessage: {
-      title: '🛰️ Hello Houston …',
+      title: '🚀 Vi er nesten i gang …',
       messages: [
-        'POS-leverandøren din har foreløpig ingen integrasjon med MAD Software.',
-        'Vi har derfor sendt dem en henvendelse med beskjed om at du ønsker at de etablerer datatilgang. Du står selvfølgelig på kopi.',
+        'POS-leverandøren din har foreløpig ingen integrasjon med MAD.',
+        'Vi har derfor sendt dem en forespørsel med beskjed om at du ønsker å ta i bruk MAD. Du står selvfølgelig på kopi.',
         '',
-        '🚀 Din 30-dagers gratis prøveperiode med superkrefter er satt på pause,',
-        'og den starter først når en datatilgang er på plass.'
+        'Ønsker du ekstra fremdrift i prosessen, kan du også gjerne kontakte din POS-leverandør og fortelle at du ønsker integrasjon mot MAD.',
+        '🚀 Din 30-dagers gratis prøveperiode starter først når datatilgangen er på plass.'
       ]
     }
   },
