@@ -29,8 +29,15 @@ const WidgetProvider: React.FC<WidgetProviderProps> = ({
   const [submitState, setSubmitState] = useState(initialSubmitState)
 
   const reset = () => {
-    setState(initialWidgetState)
-    setSubmitState(initialSubmitState)
+    setState((prev) => {
+      setSubmitState(initialSubmitState)
+
+      if (prev.step === STEPS.COMPANY_CREDENTIALS) {
+        return { ...prev, step: STEPS.COMPANY_DETAILS }
+      }
+
+      return initialWidgetState
+    })
   }
 
   return (

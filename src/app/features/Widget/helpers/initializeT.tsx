@@ -1,6 +1,7 @@
 import { CompanyRegistrationErrorProps } from '../../../domains/Company/components/CompanyRegistrationError/CompanyRegistrationError'
 import { CompanyRegistrationFormProps } from '../../CompanyRegistrationForm/CompanyRegistrationForm'
 import { CompanyRegistrationSuccessProps } from '../../../domains/Company/components/CompanyRegistrationSuccess/CompanyRegistrationSuccess'
+import React from 'react'
 import { mergeNestedObjects } from '../../../utils/nestedObjects'
 
 export interface WidgetTranslations {
@@ -149,9 +150,11 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
       }
     },
     companyCredentialsForm: {
-      fullNamePlaceholder: 'Skriv inn ditt fulle navn',
-      emailPlaceholder: 'Skriv inn e-postadressen din',
-      passwordPlaceholder: 'Skriv inn ditt passord',
+      title: 'Opprett kontoen din',
+      caption: <>Siste steg</>,
+      fullNamePlaceholder: 'Ditt navn',
+      emailPlaceholder: 'E-postadresse',
+      passwordPlaceholder: 'Velg passord',
       termsPlaceholder: 'Jeg har lest og godtar',
       termsLabel: 'vilkårene og betingelsene.',
       termsLink: 'https://www.madsoftware.no/standardvilkar'
@@ -170,8 +173,16 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
       posProviderNameRequired: 'Navn på POS-leverandør er påkrevd'
     },
     companyDetailsForm: {
+      title: 'Opprett din bedriftsprofil på under 2 minutter',
+      caption: (
+        <div style={{ textAlign: 'left' }}>
+          ✓ Gratis tilgang til MAD Pro i 30 dager
+          <br />✓ Ingen bytte av kassasystem
+          <br />✓ Avslutt når som helst i prøveperioden
+        </div>
+      ),
       companySelect: {
-        selectPlaceholder: 'Begynn å skrive for å søke etter et firma',
+        selectPlaceholder: 'Finn din salong',
         organizationNumber: 'Orgnr:',
         noData: 'Firma ikke funnet'
       },
@@ -189,14 +200,13 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           touchSoft: 'Touch Soft',
           other: 'Annet'
         },
-        selectPlaceholder: 'Velg POS-leverandør',
-        otherPlaceholder: 'Skriv inn annen POS-leverandør'
+        selectPlaceholder: 'Velg kassasystem',
+        otherPlaceholder: 'Skriv inn annen kassasystem'
       }
     },
     nextAction: 'Neste',
-    submitAction: 'Registrer',
+    submitAction: 'Start gratis',
     resetAction: 'Tilbake',
-    subtitle: 'Opprett din bedriftsprofil i bare noen få steg.',
     formImage:
       'https://cdn.prod.website-files.com/6846900d35050ebd989ab0ea/6852699229e51e449c064c9c_Jente_saccosekk_u_planter.png'
   },

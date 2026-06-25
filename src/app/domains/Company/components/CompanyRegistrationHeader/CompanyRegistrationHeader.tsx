@@ -1,13 +1,20 @@
 import React from 'react'
 
 interface CompanyRegistrationHeaderProps {
-  subtitle?: string
+  title?: string
+  caption?: React.ReactNode
 }
 
 const CompanyRegistrationHeader: React.FC<CompanyRegistrationHeaderProps> = ({
-  subtitle
+  title,
+  caption
 }) => {
-  return <span className="subtitle text-center">{subtitle}</span>
+  return (
+    <div className="form-head">
+      <span className="subtitle text-center">{title}</span>
+      {caption}
+    </div>
+  )
 }
 
 export default CompanyRegistrationHeader

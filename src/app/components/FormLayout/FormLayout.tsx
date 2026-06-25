@@ -18,7 +18,7 @@ const FormLayout: React.FC<FormLayoutProps> = ({
   return (
     <div className="form-layout">
       <div className="form-wrapper">
-        {head}
+        <div>{head}</div>
         <div>{children}</div>
         {actions}
       </div>

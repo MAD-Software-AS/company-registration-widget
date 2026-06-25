@@ -427,6 +427,13 @@ input::placeholder {
   flex-direction: column;
   justify-content: space-between;
 }
+.form-head {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
 .form-image-wrapper {
   width: 50%;
 }

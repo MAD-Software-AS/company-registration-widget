@@ -23,7 +23,7 @@ const CompanySelect: React.FC<CompanySelectProps> = ({
   selectedItem
 }) => {
   const [state, setState] = useState({
-    query: '',
+    query: selectedItem?.name || '',
     options: [] as CompanyType[],
     isDropdownVisible: false
   })

@@ -5,6 +5,8 @@ import useWidgetContext from '../../../../contexts/Widget/useWidgetContext'
 
 export interface CompanyCredentialsFormProps {
   t: {
+    title: string
+    caption: React.ReactNode
     emailPlaceholder: string
     passwordPlaceholder: string
     fullNamePlaceholder: string

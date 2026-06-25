@@ -25,7 +25,6 @@ export interface CompanyRegistrationFormProps {
     companyCredentialsFormErrors: CompanyCredentialsFormErrors
     companyDetailsFormErrors: CompanyDetailsFormErrors
     formImage: string
-    subtitle: string
     resetAction: string
     nextAction: string
     submitAction: string
@@ -41,7 +40,6 @@ const CompanyRegistrationForm: React.FC<CompanyRegistrationFormProps> = ({
     companyCredentialsFormErrors,
     companyDetailsFormErrors,
     formImage,
-    subtitle,
     nextAction,
     resetAction,
     submitAction
@@ -55,7 +53,12 @@ const CompanyRegistrationForm: React.FC<CompanyRegistrationFormProps> = ({
       return (
         <FormLayout
           t={{ formImage }}
-          head={<CompanyRegistrationHeader subtitle={subtitle} />}
+          head={
+            <CompanyRegistrationHeader
+              title={companyDetailsForm.title}
+              caption={companyDetailsForm.caption}
+            />
+          }
           children={<CompanyDetailsForm t={companyDetailsForm} />}
           actions={
             <CompanyRegistrationActions
@@ -77,7 +80,12 @@ const CompanyRegistrationForm: React.FC<CompanyRegistrationFormProps> = ({
       return (
         <FormLayout
           t={{ formImage }}
-          head={<CompanyRegistrationHeader subtitle={subtitle} />}
+          head={
+            <CompanyRegistrationHeader
+              title={companyCredentialsForm.title}
+              caption={companyCredentialsForm.caption}
+            />
+          }
           children={<CompanyCredentialsForm t={companyCredentialsForm} />}
           actions={
             <CompanyRegistrationActions
