@@ -151,7 +151,7 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
     },
     companyCredentialsForm: {
       title: 'Opprett kontoen din',
-      caption: <span className="text-center">Siste steg</span>,
+      caption: <span className="text-center subtitle">Siste steg</span>,
       fullNamePlaceholder: 'Ditt navn',
       emailPlaceholder: 'E-postadresse',
       passwordPlaceholder: 'Velg passord',

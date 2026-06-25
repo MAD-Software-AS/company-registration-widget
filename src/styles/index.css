@@ -430,7 +430,7 @@ input::placeholder {
 .form-head {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 32px;
   justify-content: center;
 }
 .form-image-wrapper {
