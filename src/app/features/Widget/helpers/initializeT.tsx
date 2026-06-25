@@ -175,7 +175,7 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
     companyDetailsForm: {
       title: 'Opprett din bedriftsprofil på under 2 minutter',
       caption: (
-        <div style={{ textAlign: 'left' }}>
+        <div className="subtitle" style={{ textAlign: 'left' }}>
           ✓ Gratis tilgang til MAD Pro i 30 dager
           <br />✓ Ingen bytte av kassasystem
           <br />✓ Avslutt når som helst i prøveperioden
