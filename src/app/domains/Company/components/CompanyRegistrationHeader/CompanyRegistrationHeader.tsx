@@ -11,7 +11,7 @@ const CompanyRegistrationHeader: React.FC<CompanyRegistrationHeaderProps> = ({
 }) => {
   return (
     <div className="form-head">
-      <span className="subtitle text-center">{title}</span>
+      <span className="text-center">{title}</span>
       {caption}
     </div>
   )

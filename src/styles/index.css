@@ -431,7 +431,6 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  align-items: center;
   justify-content: center;
 }
 .form-image-wrapper {
