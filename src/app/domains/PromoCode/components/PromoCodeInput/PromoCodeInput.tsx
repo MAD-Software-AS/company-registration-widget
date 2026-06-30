@@ -81,7 +81,7 @@ const PromoCodeInput: React.FC<PromoCodeInputProps> = ({
           {appliedPromoCode.discount &&
             appliedPromoCode.type === 'percentage' && (
               <span className="text-caption">
-                `${appliedPromoCode.discount}% rabatt`
+                {appliedPromoCode.discount}% rabatt
               </span>
             )}
         </div>
