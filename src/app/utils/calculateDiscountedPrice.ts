@@ -9,10 +9,11 @@ const calculateDiscountedPrice = (
   if (!promoCode) return originalPrice
 
   if (promoCode.type === 'percentage') {
-    return Math.round(originalPrice * (1 - promoCode.discount / 100))
+    return Math.round(originalPrice * (1 - (promoCode.discount || 0) / 100))
   } else if (promoCode.type === 'package_percentage') {
     return Math.round(
-      originalPrice * (1 - promoCode.packagesDiscount?.[packageName] / 100)
+      originalPrice *
+        (1 - (promoCode.packagesDiscount?.[packageName] || 0) / 100)
     )
   }
 
