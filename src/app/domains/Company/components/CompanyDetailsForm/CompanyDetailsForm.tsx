@@ -13,7 +13,7 @@ export interface CompanyDetailsFormProps {
   t: {
     posProviderSelect: PosProviderSelectProps['t']
     companySelect: CompanySelectProps['t']
-    title: string
+    title: React.ReactNode
     caption: React.ReactNode
   }
 }

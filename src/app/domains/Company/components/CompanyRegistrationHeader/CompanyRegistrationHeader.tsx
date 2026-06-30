@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface CompanyRegistrationHeaderProps {
-  title?: string
+  title?: React.ReactNode
   caption?: React.ReactNode
 }
 
@@ -11,7 +11,7 @@ const CompanyRegistrationHeader: React.FC<CompanyRegistrationHeaderProps> = ({
 }) => {
   return (
     <div className="form-head">
-      <span className="text-center">{title}</span>
+      {title}
       {caption}
     </div>
   )

@@ -1,6 +1,5 @@
 import { useLayoutEffect, useRef } from 'react'
 
-import { STEPS } from '../../../contexts/Widget/WidgetContext'
 import useWidgetContext from '../../../contexts/Widget/useWidgetContext'
 
 const useScrollSectionOnPlanToCompanyDetails = () => {
@@ -9,15 +8,10 @@ const useScrollSectionOnPlanToCompanyDetails = () => {
   const previousStepRef = useRef(step)
 
   useLayoutEffect(() => {
-    if (
-      previousStepRef.current === STEPS.PLAN_SELECT &&
-      step === STEPS.COMPANY_DETAILS
-    ) {
-      sectionRef.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      })
-    }
+    sectionRef.current?.scrollIntoView?.({
+      behavior: 'smooth',
+      block: 'start'
+    })
     previousStepRef.current = step
   }, [step])
 

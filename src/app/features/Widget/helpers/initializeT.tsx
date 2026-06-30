@@ -150,8 +150,8 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
       }
     },
     companyCredentialsForm: {
-      title: 'Opprett kontoen din',
-      caption: <span className="text-center subtitle">Siste steg</span>,
+      title: <span className="subtitle text-center">Opprett kontoen din</span>,
+      caption: <span className="text-center text">Siste steg</span>,
       fullNamePlaceholder: 'Ditt navn',
       emailPlaceholder: 'E-postadresse',
       passwordPlaceholder: 'Velg passord',
@@ -173,12 +173,18 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
       posProviderNameRequired: 'Navn på POS-leverandør er påkrevd'
     },
     companyDetailsForm: {
-      title: 'Opprett din bedriftsprofil på under 2 minutter',
+      title: (
+        <span className="subtitle">
+          Opprett din bedriftsprofil på under 2 minutter
+        </span>
+      ),
       caption: (
-        <div className="subtitle" style={{ textAlign: 'left' }}>
-          ✓ Gratis tilgang til MAD Pro i 30 dager
-          <br />✓ Ingen bytte av kassasystem
-          <br />✓ Avslutt når som helst i prøveperioden
+        <div className="text" style={{ textAlign: 'left' }}>
+          <ul className="check-list">
+            <li>Gratis tilgang til MAD Pro i 30 dager</li>
+            <li>Ingen bytte av kassasystem</li>
+            <li>Avslutt når som helst i prøveperioden</li>
+          </ul>
         </div>
       ),
       companySelect: {
@@ -211,7 +217,7 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
       'https://cdn.prod.website-files.com/6846900d35050ebd989ab0ea/6852699229e51e449c064c9c_Jente_saccosekk_u_planter.png'
   },
   companyRegistrationSuccess: {
-    supportedPosProviders: ['fixitOnline'], // 'fixitOnline', 'com2gether', 'easyUpdate', 'egHano', 'handelsdata', 'norskButikkdata', 'sharpWellness', 'suppler', 'timma', 'touchSoft'
+    supportedPosProviders: ['fixitOnline', 'com2gether'], // 'fixitOnline', 'com2gether', 'easyUpdate', 'egHano', 'handelsdata', 'norskButikkdata', 'sharpWellness', 'suppler', 'timma', 'touchSoft'
     successMessage: {
       title: 'Bekreft e-post adressen din!',
       messages: [

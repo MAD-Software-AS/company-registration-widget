@@ -402,6 +402,25 @@ input::placeholder {
   margin-right: 8px;
 }
 
+.check-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.check-list li::before {
+  content: '\2713';
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
 .divider {
   height: 1px;
   background-color: var(--text-color-default);
@@ -430,7 +449,7 @@ input::placeholder {
 .form-head {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
   justify-content: center;
 }
 .form-image-wrapper {
