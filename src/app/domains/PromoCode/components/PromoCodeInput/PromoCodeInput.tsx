@@ -78,11 +78,11 @@ const PromoCodeInput: React.FC<PromoCodeInputProps> = ({
           <span className="text">
             <strong>{appliedPromoCode.name}</strong>
           </span>
-          <span className="text-caption">
-            {appliedPromoCode.type === 'percentage'
-              ? `${appliedPromoCode.discount}% rabatt`
-              : `${appliedPromoCode.discount} kr rabatt`}
-          </span>
+          {appliedPromoCode.type === 'percentage' && (
+            <span className="text-caption">
+              `${appliedPromoCode.discount}% rabatt`
+            </span>
+          )}
         </div>
         <button
           className="promo-code-btn-remove"
