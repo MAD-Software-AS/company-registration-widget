@@ -4,7 +4,8 @@ interface Timestamp {
 }
 
 export enum PROMO_CODE_TYPE {
-  PERCENTAGE = 'percentage'
+  PERCENTAGE = 'percentage',
+  PACKAGE_PERCENTAGE = 'package_percentage'
 }
 
 export enum PROMO_CODE_STATUS {
@@ -22,6 +23,12 @@ export enum PROMO_CODE_ERROR_CODES {
   PROMO_CODE_USAGE_LIMIT_EXCEEDED = 'PROMO_CODE_USAGE_LIMIT_EXCEEDED'
 }
 
+export interface PromoCodePackagesDiscount {
+  MAD_START: number
+  MAD_PRO: number
+  MAD_ENTERPRISE: number
+}
+
 export interface PromoCode {
   objectId: string
   createdAt: Timestamp
@@ -36,6 +43,7 @@ export interface PromoCode {
   // Discount configuration
   type: PROMO_CODE_TYPE
   discount: number // Percentage or fixed amount
+  packagesDiscount: PromoCodePackagesDiscount // Discount for specific packages
 
   // Validity
   validFrom: Timestamp | null // null means valid from creation

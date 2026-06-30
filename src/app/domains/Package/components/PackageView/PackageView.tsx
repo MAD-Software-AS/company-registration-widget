@@ -41,7 +41,8 @@ const PackageView: React.FC<PackageViewProps> = ({
 
   const finalPrice = calculateDiscountedPrice(
     originalPrice,
-    appliedPromoCode || null
+    appliedPromoCode || null,
+    objectId
   )
   const hasDiscount = appliedPromoCode && finalPrice !== originalPrice
 
