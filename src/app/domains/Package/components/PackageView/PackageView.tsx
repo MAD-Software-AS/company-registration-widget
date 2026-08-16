@@ -65,7 +65,7 @@ const PackageView: React.FC<PackageViewProps> = ({
           {description && (
             <div style={{ marginBottom: '16px' }}>
               <span className="text" style={{ fontSize: '15px' }}>
-                {description}
+                <i>{description}</i>
               </span>
             </div>
           )}
@@ -169,7 +169,7 @@ const PackageView: React.FC<PackageViewProps> = ({
             className="text-center text"
             style={{ marginBottom: '12px', whiteSpace: 'nowrap' }}
           >
-            {outroText}
+            <strong>{outroText}</strong>
           </div>
         )}
         {detailsText && (

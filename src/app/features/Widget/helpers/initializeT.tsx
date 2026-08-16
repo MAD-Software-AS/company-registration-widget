@@ -27,7 +27,7 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           prefix: 'MAD',
           nameColor: '#ff6172',
           description:
-            'Kom i gang med Kontrollsenter\n og skap fokus med app for de ansatte.',
+            'For salonger som vil ha mer\n innsikt og samle teamet om målene',
           prices: [490, 440, 390, 340, 290],
           period: '/ mnd per salong',
           priceCaption: 'Gratis første måned',
@@ -35,11 +35,23 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           inherits: null,
           functions: [
             {
-              name: 'Kontrollsenter (live KPI og budsjett)',
+              name: 'Live KPI-er med mål og resultatoppfølging',
               url: 'https://www.madsoftware.no/kontrollsenter'
             },
             {
-              name: 'Ansatt app (mål, KPI og lønn live)',
+              name: 'Oversikt for kjede, salonger og frisører med fokus på resultater',
+              url: 'https://www.madsoftware.no/kontrollsenter'
+            },
+            {
+              name: 'Budsjett med live oppfølging mot resulta',
+              url: 'https://www.madsoftware.no/kontrollsenter'
+            },
+            {
+              name: 'Egen app med mål og resultater for frisørene',
+              url: 'https://www.madsoftware.no/ansatt-app'
+            },
+            {
+              name: 'Månedsmål og lønn live i appen',
               url: 'https://www.madsoftware.no/ansatt-app'
             }
           ],
@@ -60,7 +72,7 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           name: 'Pro',
           prefix: 'MAD',
           nameColor: '#1bc672',
-          description: 'For salonger som vil skape vekst\n og engasjement',
+          description: 'For salonger som vil\n skape vekst og engasjement',
           prices: [1290, 1240, 1190, 1140, 1090],
           period: '/ mnd per salong',
           priceCaption: 'Gratis første måned',
@@ -68,16 +80,20 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           inherits: 'Alt i Start',
           functions: [
             {
-              name: 'Poeng, troféer og belønninger',
+              name: 'Reward-program - poeng og utmerkelser for frisørene',
               url: 'https://www.madsoftware.no/mad-play'
             },
             {
-              name: 'Konkurranser for frisører og team',
+              name: 'The Game - konkurranser for frisører og salonger',
               url: 'https://www.madsoftware.no/the-game'
             },
             {
-              name: 'Premier gjennom MAD',
+              name: 'MAD Rewards - ekte premier og belønninger',
               url: 'https://www.madsoftware.no/trofejakten'
+            },
+            {
+              name: 'MAD Play - video og opplæring direkte i appen',
+              url: 'https://www.madsoftware.no/mad-play'
             }
           ],
           outroText: 'Mer fokus. Bedre resultater.',
@@ -101,27 +117,26 @@ const DEFAULT_TRANSLATIONS: WidgetTranslations = {
           name: 'Max',
           prefix: 'MAD',
           nameColor: '#ffb637',
-          description:
-            'For salonger som vil\n optimalisere drift og lønnsomhet',
+          description: 'For salonger som vil \n maksimere lønnsomheten',
           prices: [2990, 2940, 2890, 2840, 2590],
           period: '/ mnd per salong',
           periodKey: 'MONTHLY', // 'MONTHLY' | 'YEARLY'
           inherits: 'Alt i Pro',
           functions: [
             {
-              name: 'Autolønn',
+              name: 'Autolønn - automatiser lønnsarbeidet ',
               url: 'https://www.madsoftware.no/autolonn'
             },
             {
-              name: 'Flexipris',
+              name: 'Flexipris -  fyll ledig kapasitet',
               url: 'https://www.madsoftware.no/flexipris'
             },
             {
-              name: 'Reklamasjonsverktøy',
+              name: 'Reklamasjonsverktøy - kontroll på reklamasjoner',
               url: 'https://www.madsoftware.no/reklamasjonsverktoy'
             }
           ],
-          outroText: 'Full kontroll og maksimal lønnsomhet.',
+          outroText: 'Mindre administrasjon. Mer lønnsom drift.',
           detailsText: 'Se detaljer',
           detailsModalParagraphs: [
             'MAD Max. Full kontroll på drift, maks motivasjon og økt lønnsomhet med Automlønn.\n\nFor salonger som vil optimalisere hele driften og få mest mulig ut av hver time.',
