@@ -393,13 +393,7 @@ input::placeholder {
 .package-function {
   width: auto;
   line-height: 1.2;
-}
-
-.package-icon-check::before {
-  content: '\2713';
-  font-size: 16px;
-  font-weight: 700;
-  margin-right: 8px;
+  margin-bottom: 8px;
 }
 
 .check-list {
@@ -412,6 +406,7 @@ input::placeholder {
   display: flex;
   align-items: flex-start;
   gap: 8px;
+  padding: 0;
 }
 
 .check-list li::before {
@@ -419,6 +414,12 @@ input::placeholder {
   font-size: 16px;
   font-weight: 700;
   flex-shrink: 0;
+  line-height: 1.2;
+}
+
+.check-list li > * {
+  min-width: 0;
+  flex: 1;
 }
 
 .divider {

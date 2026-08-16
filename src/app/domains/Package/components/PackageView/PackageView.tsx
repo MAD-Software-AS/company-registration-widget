@@ -107,28 +107,20 @@ const PackageView: React.FC<PackageViewProps> = ({
             )}
           </div>
         </div>
-        <div style={{ marginTop: '32px' }}>
+        <ul className="check-list" style={{ marginTop: '32px' }}>
           {inherits && (
-            <div className="package-function" style={{ marginBottom: '8px' }}>
-              <div>
-                <span className="package-icon-check" />
-                <span
-                  className="text"
-                  style={{ fontSize: '15px', fontWeight: 500 }}
-                >
-                  {inherits}
-                </span>
-              </div>
-            </div>
+            <li className="package-function">
+              <span
+                className="text"
+                style={{ fontSize: '15px', fontWeight: 500 }}
+              >
+                {inherits}
+              </span>
+            </li>
           )}
           {functions.map(({ name, subItems, url }, idx) => (
-            <div
-              key={idx}
-              className="package-function"
-              style={{ marginBottom: '8px' }}
-            >
+            <li key={idx} className="package-function">
               <div>
-                <span className="package-icon-check" />
                 <span className="text" style={{ cursor: 'pointer' }}>
                   <a
                     href={url}
@@ -147,22 +139,21 @@ const PackageView: React.FC<PackageViewProps> = ({
                     </span>
                   </a>
                 </span>
+                {!!subItems?.length && (
+                  <ul className="check-list" style={{ marginBlock: '4px' }}>
+                    {subItems.map((subItem, subIdx) => (
+                      <li key={subIdx}>
+                        <span className="text-caption">
+                          <strong>{subItem}</strong>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
-              {subItems?.length && (
-                <ul style={{ marginBlock: '4px' }}>
-                  {subItems.map((subItem, subIdx) => (
-                    <li key={subIdx} className="text">
-                      <span className="package-icon-check" />
-                      <span className="text-caption">
-                        <strong>{subItem}</strong>
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
 
       <div
